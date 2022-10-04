@@ -1,0 +1,26 @@
+{
+	"title": "QueryORWithOneAndEmptyKeyTest",
+	"input": {
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg",
+				"sections_dept",
+				"sections_instructor",
+				"sections_title"
+			],
+			"ORDER": "sections_avg"
+		},
+		"WHERE": {
+			"OR": [
+				{
+					"IS": {
+						"sections_dept": "arth"
+					}
+				},
+				{}
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

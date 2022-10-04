@@ -1,0 +1,32 @@
+{
+	"title": "QueryEQEqualityTest",
+	"input": {
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg",
+				"sections_dept"
+			],
+			"ORDER": "sections_avg"
+		},
+		"WHERE": {
+			"EQ": {
+				"sections_avg": 50
+			}
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_avg": 50,
+			"sections_dept": "psyc"
+		},
+		{
+			"sections_avg": 50,
+			"sections_dept": "chbe"
+		},
+		{
+			"sections_avg": 50,
+			"sections_dept": "busi"
+		}
+	]
+}
