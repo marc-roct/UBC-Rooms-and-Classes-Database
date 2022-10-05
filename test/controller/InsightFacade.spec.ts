@@ -72,22 +72,32 @@ describe("InsightFacade", function () {
 	 * You can still make tests the normal way, this is just a convenient tool for a majority of queries.
 	 */
 	describe("PerformQuery", () => {
-		before(function () {
-			console.info(`Before: ${this.test?.parent?.title}`);
+		// before(function () {
+		// 	console.info(`Before: ${this.test?.parent?.title}`);
+		//
+		// 	insightFacade = new InsightFacade();
+		//
+		// 	// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
+		// 	// Will *fail* if there is a problem reading ANY dataset.
+		// 	const loadDatasetPromises = [
+		// 		insightFacade.addDataset(
+		// 			"sections",
+		// 			datasetContents.get("sections") ?? "",
+		// 			InsightDatasetKind.Sections
+		// 		),
+		// 	];
+		//
+		// 	return Promise.all(loadDatasetPromises);
+		// });
 
-			insightFacade = new InsightFacade();
-
-			// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
-			// Will *fail* if there is a problem reading ANY dataset.
-			const loadDatasetPromises = [
-				insightFacade.addDataset(
-					"sections",
-					datasetContents.get("sections") ?? "",
-					InsightDatasetKind.Sections
-				),
-			];
-
-			return Promise.all(loadDatasetPromises);
+		it("test performQuery EBNF check", function () {
+			let input = "{}";
+			let input2 = "{\"WHERE\":{\"GT\":{\"sections_year\":2020}},\"OPTIONS\":{\"COLUMNS\":[\"sections_dept\"," +
+				"\"sections_avg\"],\"ORDER\":\"sections_avg\"}}";
+			return insightFacade.performQuery(input2).then((result)=> {
+				console.log("#########PRINTING RESULT FROM THE TEST:");
+				console.log(result);
+			});
 		});
 
 		after(function () {
