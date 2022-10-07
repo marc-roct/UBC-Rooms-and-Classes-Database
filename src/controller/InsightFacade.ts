@@ -7,7 +7,7 @@ import {
 	NotFoundError
 } from "./IInsightFacade";
 
-import {queryParser} from "./queryParser";
+import {queryParser, isJSON, ebnfValidator} from "./Utilities/queryParser";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -15,7 +15,9 @@ import {queryParser} from "./queryParser";
  *
  */
 export default class InsightFacade implements IInsightFacade {
+	private readonly dataSet: any;
 	constructor() {
+		this.dataSet = [];
 		console.log("InsightFacadeImpl::init()");
 	}
 
@@ -28,33 +30,36 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
-		const listOfValidOperations = ["IS", "NOT", "AND", "OR", "LT", "GT", "EQ"];
-		const listOfValidMFields = ["avg","pass", "fail", "audit", "year"];
-		const listOfValidSFields = ["dept",  "id", "instructor",  "title", "uuid"];
-		let inputQuery: string;
-		if (typeof query === "string") {
+		// TODO: STUB
+		console.log(this.dataSet);
+
+		let inputQuery: Record<string, any>;
+		if (isJSON(query)) {
 			inputQuery = query;
 		} else {
 			return Promise.reject("The data type of input query is either null or undefined.");
 		};
-		// TODO: build a recursion to parse all JSON keys
-		try {
-			inputQuery = JSON.parse(inputQuery);
-		} catch (err) {
-			return Promise.reject(err);
-		}
-
-		let keys = Object.keys(inputQuery);
-
-		// TODO: can we have 2 WHERE clauses
+		let queryData = queryParser(inputQuery);
+		// TODO: factor out these validators; how to use a helper to return promises
+		// console.log(queryData);
 		let bodyTracker = 0;
 		let optionTracker = 0;
-		keys.forEach((key,index) => {
+		let columnTracker = 0;
+		let orderTracker = 0;
+		queryData.forEach((key,index) => {
 			if (key === "WHERE") {
 				bodyTracker += 1;
 			} else if (key === "OPTIONS") {
 				optionTracker += 1;
-			}
+			} else if (key === "COLUMNS") {
+				columnTracker += 1;
+			} else if (key === "ORDER") {
+				orderTracker += 1;
+			} else {
+				if(!ebnfValidator(key)) {
+					return Promise.reject("Invalid Key: " + key);
+				};
+			};
 		});
 		if (bodyTracker === 0) {
 			return Promise.reject("Missing WHERE");
@@ -62,15 +67,13 @@ export default class InsightFacade implements IInsightFacade {
 		if(optionTracker === 0) {
 			return Promise.reject("Missing OPTION");
 		};
-		if (bodyTracker > 1 || optionTracker > 1) {
+		if(columnTracker === 0) {
+			return Promise.reject("Missing COLUMNS");
+		}
+		if (bodyTracker > 1 || optionTracker > 1 || columnTracker > 1 || orderTracker > 3) {
 			return Promise.reject("Invalid Query");
 		};
 
-		// TODO: use recursion to parse the query
-		let allKeys = queryParser(inputQuery);
-		console.log("######PRINTING QUERY TO JSON#####");
-		console.log(inputQuery);
-		console.log(allKeys);
 		return Promise.reject("Not implemented.");
 	}
 
