@@ -17,16 +17,16 @@ import {contentValidator, idValidator} from "./Utilities/contentValidator";
  */
 
 interface Dataset {
-	sections_dept: string;
-	sections_id: string;
-	sections_avg: number;
-	sections_instructor: string;
-	sections_title: string;
-	sections_pass: number;
-	sections_fail: number;
-	sections_audit: number;
-	sections_uuid: string;
-	sections_year: number;
+	dept: string;
+	id: string;
+	avg: number;
+	instructor: string;
+	title: string;
+	pass: number;
+	fail: number;
+	audit: number;
+	uuid: string;
+	year: number;
 
 }
 
@@ -38,10 +38,6 @@ interface Database {
 
 export default class InsightFacade implements IInsightFacade {
 	private databases: Database[] = [];
-
-	constructor() {
-		console.log("InsightFacadeImpl::init()");
-	}
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
 		try {
@@ -68,16 +64,15 @@ export default class InsightFacade implements IInsightFacade {
 		let datasets: Dataset[] = [];
 		for (const course of listCourses) {
 			let newDataset: Dataset = {
-				sections_dept : course.Subject, sections_id : course.Course, sections_avg : course.Avg,
-				sections_instructor : course.Professor, sections_title : course.Title,
-				sections_pass : course.Pass, sections_fail : course.Fail,
-				sections_audit : course.Audit,
-				sections_uuid : course.id,
-				sections_year : course.Year,
+				dept : course.Subject, id : course.Course, avg : course.Avg,
+				instructor : course.Professor, title : course.Title,
+				pass : course.Pass, fail : course.Fail,
+				audit : course.Audit,
+				uuid : course.id,
+				year : course.Year,
 			};
 			datasets.push(newDataset);
 		}
-
 
 		this.databases.push({
 			id: id,

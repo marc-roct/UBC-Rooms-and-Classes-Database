@@ -1,6 +1,7 @@
 import JSZip, {JSZipObject} from "jszip";
 import {InsightError} from "../IInsightFacade";
 
+// eslint-disable-next-line max-lines-per-function
 const contentValidator =  async function(zip: JSZip): Promise<JSON[]> {
 	// filters zip for files in root 'courses/'
 	let coursesInFolderCourses: JSZipObject[];
