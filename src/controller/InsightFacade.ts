@@ -7,7 +7,7 @@ import {
 	NotFoundError
 } from "./IInsightFacade";
 
-import {queryParser, isJSON, ebnfValidator} from "./Utilities/queryParser";
+import {whereValidator, isJSON, queryValidator, optionValidator} from "./Utilities/queryValidator";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -31,7 +31,7 @@ export default class InsightFacade implements IInsightFacade {
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
 		// TODO: STUB
-		console.log(this.dataSet);
+		// console.log(this.dataSet);
 
 		let inputQuery: Record<string, any>;
 		if (isJSON(query)) {
@@ -39,40 +39,22 @@ export default class InsightFacade implements IInsightFacade {
 		} else {
 			return Promise.reject("The data type of input query is either null or undefined.");
 		};
-		let queryData = queryParser(inputQuery);
 		// TODO: factor out these validators; how to use a helper to return promises
-		// console.log(queryData);
-		let bodyTracker = 0;
-		let optionTracker = 0;
-		let columnTracker = 0;
-		let orderTracker = 0;
-		queryData.forEach((key,index) => {
-			if (key === "WHERE") {
-				bodyTracker += 1;
-			} else if (key === "OPTIONS") {
-				optionTracker += 1;
-			} else if (key === "COLUMNS") {
-				columnTracker += 1;
-			} else if (key === "ORDER") {
-				orderTracker += 1;
-			} else {
-				if(!ebnfValidator(key)) {
-					return Promise.reject("Invalid Key: " + key);
-				};
-			};
-		});
-		if (bodyTracker === 0) {
-			return Promise.reject("Missing WHERE");
+		let checkQueryFormat = queryValidator(query);
+		// console.log(checkQueryFormat);
+		if(checkQueryFormat !== "resolved") {
+			return Promise.reject(new InsightError(checkQueryFormat));
 		};
-		if(optionTracker === 0) {
-			return Promise.reject("Missing OPTION");
-		};
-		if(columnTracker === 0) {
-			return Promise.reject("Missing COLUMNS");
+
+		let checkOptions = optionValidator(query["OPTIONS"]);
+		// console.log(checkOptions);
+		if (checkOptions !== "resolved") {
+			return Promise.reject(new InsightError(checkOptions));
 		}
-		if (bodyTracker > 1 || optionTracker > 1 || columnTracker > 1 || orderTracker > 3) {
-			return Promise.reject("Invalid Query");
-		};
+
+		let queryData = whereValidator(inputQuery["WHERE"]);
+		console.log(queryData);
+
 
 		return Promise.reject("Not implemented.");
 	}

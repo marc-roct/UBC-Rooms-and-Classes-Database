@@ -90,16 +90,6 @@ describe("InsightFacade", function () {
 		// 	return Promise.all(loadDatasetPromises);
 		// });
 
-		it("test performQuery EBNF check", function () {
-			let input = "{}";
-			let input2 = "{\"WHERE\":{\"GT\":{\"sections_year\":2020}},\"OPTIONS\":{\"COLUMNS\":[\"sections_dept\"," +
-				"\"sections_avg\"],\"ORDER\":\"sections_avg\"}}";
-			return insightFacade.performQuery(input2).then((result)=> {
-				console.log("#########PRINTING RESULT FROM THE TEST:");
-				console.log(result);
-			});
-		});
-
 		after(function () {
 			console.info(`After: ${this.test?.parent?.title}`);
 			fs.removeSync(persistDirectory);
