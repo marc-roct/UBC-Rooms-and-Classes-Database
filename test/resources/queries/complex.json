@@ -7,7 +7,7 @@
 					"AND": [
 						{
 							"GT": {
-								"sections_avg": "90"
+								"sections_avg": 90
 							}
 						},
 						{

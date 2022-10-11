@@ -9,6 +9,8 @@ const whereValidator = (data: Record<string, any>): string => {
 				if(result !== "resolved") {
 					return result;
 				};
+				result = whereValidator(data[key]);
+				return result;
 			} else if(key === "LT" || key === "GT" || key === "EQ") {
 				result = mComparisonValidator(data[key], key);
 				if(result !== "resolved") {
@@ -24,15 +26,19 @@ const whereValidator = (data: Record<string, any>): string => {
 				if(result !== "resolved") {
 					return result;
 				};
+			} else {
+				// console.log(data);
+				result = "Invalid Query";
 			};
-			result = whereValidator(data[key]);
 		}
 	} else if (Array.isArray(data)) {
-		// TODO: fix the bug that inner layer error is not detected
-		// The Inner later message is replaced by the outer layer
 		// if the input data is an array: loop through each item and call queryParser()
+		// only update the result when an error occurs
 		for(let index in data) {
-			result = whereValidator(data[index]);
+			let itemResult = whereValidator(data[index]);
+			if (itemResult !== "resolved") {
+				result = itemResult;
+			}
 		}
 	};
 	return result;
@@ -41,6 +47,7 @@ const whereValidator = (data: Record<string, any>): string => {
 const queryValidator = (query: Record<string, any>): string => {
 	let bodyTracker = 0;
 	let optionTracker = 0;
+	// get the keys from the query object
 	let keys = Object.keys(query);
 	keys.forEach((key) => {
 		if (key === "WHERE") {
@@ -73,11 +80,12 @@ const optionValidator = (options: any): string => {
 	if (keys.length > 2) {
 		return "Invalid Query - duplicate COLUMNS OR ORDER";
 	}
+	// TODO: to make it cleaner
 	keys.forEach((key) => {
 		if(key !== "COLUMNS" && key !== "ORDER") {
 			return false;
 		};
-		let columns = options[key];
+		let columns = options["COLUMNS"];
 		if (key === "COLUMNS") {
 			if(columns.length === 0) {
 				return "COLUMNS must be a non-empty array";
@@ -104,6 +112,7 @@ const optionValidator = (options: any): string => {
 
 const logicValidator = (data: any, logic: string): string =>  {
 	if(!Array.isArray(data)) {
+		// TODO: update the message
 		return "Invalid query string";
 	} else if (data.length === 0) {
 		return logic + " must be non-empty array";
@@ -163,7 +172,7 @@ const negationValidator = (data: any, negation: string): string => {
 	return "resolved";
 };
 
-
+// TODO: return error if it refers to more than 1 dataset
 const mFieldValidator = (field: string): boolean => {
 	const listOfValidMFields = ["avg","pass", "fail", "audit", "year"];
 	if(field.includes("_")) {
@@ -176,6 +185,7 @@ const mFieldValidator = (field: string): boolean => {
 	return false;
 };
 
+// TODO: return error if it refers to more than 1 dataset
 const sFieldValidator = (field: string): boolean => {
 	const listOfValidSFields = ["dept",  "id", "instructor",  "title", "uuid"];
 	if(field.includes("_")) {
