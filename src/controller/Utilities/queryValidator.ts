@@ -1,34 +1,5 @@
 import {InsightError} from "../IInsightFacade";
 
-const whereValidator = (data: Record<string, any>): void => {
-	// let result = "resolved";
-	if(typeof data === "object" && !Array.isArray(data)) {
-		// if the input data is an object: push the key to the dataCollector
-		// and call queryParser to check the values inside the object
-		for(let key in data) {
-			if(key === "OR" || key === "AND") {
-				logicValidator(data[key], key);
-				whereValidator(data[key]);
-			} else if(key === "LT" || key === "GT" || key === "EQ") {
-				mComparisonValidator(data[key], key);
-			} else if (key === "IS") {
-				sComparisonValidator(data[key], key);
-			} else if (key === "NOT") {
-				negationValidator(data[key], key);
-				whereValidator(data[key]);
-			} else {
-				throw new InsightError("Invalid query string");
-			};
-		}
-	} else if (Array.isArray(data)) {
-		// if the input data is an array: loop through each item and call queryParser()
-		// only update the result when an error occurs
-		for(let index in data) {
-			whereValidator(data[index]);
-		}
-	};
-};
-
 const queryValidator = (query: Record<string, any>): void => {
 	let bodyTracker = 0;
 	let optionTracker = 0;
@@ -56,41 +27,95 @@ const queryValidator = (query: Record<string, any>): void => {
 	if(whereBody.length > 1) {
 		throw new InsightError("WHERE should only have 1 key, has 2");
 	};
+	let keyFields: string[] = [];
+	keyFields = keyFields.concat(whereValidator(query["WHERE"]));
+	keyFields = keyFields.concat(optionValidator(query["OPTIONS"]));
+	checkDatasetReference(keyFields);
 };
 
-const optionValidator = (options: any): void => {
+const whereValidator = (data: Record<string, any>): string[] => {
+	let keyFields: string[] = [];
+	if(typeof data === "object" && !Array.isArray(data)) {
+		// if the input data is an object: push the key to the dataCollector
+		// and call queryParser to check the values inside the object
+		for(let key in data) {
+			if(key === "OR" || key === "AND") {
+				logicValidator(data[key], key);
+				keyFields = keyFields.concat(whereValidator(data[key]));
+			} else if(key === "LT" || key === "GT" || key === "EQ") {
+				mComparisonValidator(data[key], key);
+				// extract keys from the query
+				keyFields = keyFields.concat(Object.keys(data[key]));
+			} else if (key === "IS") {
+				sComparisonValidator(data[key], key);
+				keyFields = keyFields.concat(Object.keys(data[key]));
+			} else if (key === "NOT") {
+				negationValidator(data[key], key);
+				// extract keys from the query
+				keyFields = keyFields.concat(whereValidator(data[key]));
+			} else {
+				throw new InsightError("Invalid query string");
+			};
+		}
+	} else if (Array.isArray(data)) {
+		// if the input data is an array: loop through each item and call queryParser()
+		// only update the result when an error occurs
+		for(let index in data) {
+			keyFields = keyFields.concat(whereValidator(data[index]));
+		}
+	};
+	return keyFields;
+};
+
+const optionValidator = (options: any): string[] => {
+	let keyFields: string[] = [];
 	let keys = Object.keys(options);
 	if (keys.length > 2) {
 		throw new InsightError("Invalid Query - duplicate COLUMNS OR ORDER");
 	}
-	// COLUMNS and ORDERS can be in different order
-	keys.forEach((key) => {
-		if(key !== "COLUMNS" && key !== "ORDER") {
-			throw new InsightError("Invalid Query");
+	let columns;
+	if(keys[0] !== "COLUMNS") {
+		throw new InsightError("OPTIONS missing COLUMNS");
+	} else {
+		columns = options["COLUMNS"];
+		if(columns.length === 0) {
+			throw new InsightError("COLUMNS must be a non-empty array");
+		} else {
+			columns.forEach((column: string) => {
+				if(!mFieldValidator(column) && !sFieldValidator(column)) {
+					throw new InsightError("Invalid key " + column + " in COLUMNS");
+				} else {
+					keyFields.push(column);
+				};
+			});
 		};
-		let columns = options["COLUMNS"];
-		if (key === "COLUMNS") {
-			if(columns.length === 0) {
-				throw new InsightError("COLUMNS must be a non-empty array");
-			} else {
-				columns.forEach((column: string) => {
-					if(!mFieldValidator(column) && !sFieldValidator(column)) {
-						throw new InsightError("Invalid key " + column + " in COLUMNS");
-					};
-				});
-			};
-		};
-		if (key === "ORDER") {
-			let order = options[key];
+	}
+
+	if(keys.length === 2) {
+		if(keys[1] !== "ORDER") {
+			throw new InsightError("Invalid keys in OPTIONS");
+		} else {
+			let order = options["ORDER"];
 			if(typeof order !== "string") {
 				throw new InsightError("Invalid ORDER type");
 			}else if(!columns.includes(order)) {
 				throw new InsightError("ORDER key must be in COLUMNS");
 			};
-		};
-	});
+		}
+	};
+	return keyFields;
 };
 
+const checkDatasetReference = (keyFields: string[]): void => {
+	const dataSetId = new Set();
+	keyFields.forEach((field: string) => {
+		let keyValues = field.split("_");
+		dataSetId.add(keyValues[0]);
+	});
+	if(dataSetId.size > 1) {
+		throw new InsightError("Cannot query more than one dataset");
+	};
+};
 
 const logicValidator = (data: any, logic: string): void =>  {
 	if(!Array.isArray(data)) {
@@ -151,9 +176,9 @@ const negationValidator = (data: any, negation: string): void => {
 const mFieldValidator = (field: string): boolean => {
 	const listOfValidMFields = ["avg","pass", "fail", "audit", "year"];
 	if(field.includes("_")) {
-		let fieldKeys = field.split("_");
+		let keyValues = field.split("_");
 		// check if there is no underscore and the key is valid
-		if(listOfValidMFields.includes(fieldKeys[1]) && fieldKeys.length === 2) {
+		if(listOfValidMFields.includes(keyValues[1]) && keyValues.length === 2) {
 			return true;
 		}
 	}
@@ -164,9 +189,9 @@ const mFieldValidator = (field: string): boolean => {
 const sFieldValidator = (field: string): boolean => {
 	const listOfValidSFields = ["dept",  "id", "instructor",  "title", "uuid"];
 	if(field.includes("_")) {
-		let fieldKeys = field.split("_");
+		let keyValues = field.split("_");
 		// check if there is no underscore and the key is valid
-		if(listOfValidSFields.includes(fieldKeys[1]) && fieldKeys.length === 2) {
+		if(listOfValidSFields.includes(keyValues[1]) && keyValues.length === 2) {
 			return true;
 		};
 	};

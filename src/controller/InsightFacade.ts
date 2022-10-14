@@ -43,20 +43,8 @@ export default class InsightFacade implements IInsightFacade {
 		try {
 			queryValidator(query);
 		} catch(err){
-			return Promise.reject(err);
-		}
-
-		try {
-			optionValidator(query["OPTIONS"]);
-		} catch (err) {
-			return Promise.reject(err);
-		}
-
-		try {
-			whereValidator(inputQuery["WHERE"]);
-		} catch (err) {
-			// TODO: Promise.reject
 			console.log(err);
+			return Promise.reject(err);
 		}
 		return Promise.reject("Not implemented.");
 	}
