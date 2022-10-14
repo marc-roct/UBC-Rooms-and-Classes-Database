@@ -46,34 +46,18 @@ export default class InsightFacade implements IInsightFacade {
 			return Promise.reject(err);
 		}
 
-		// let checkQueryFormat = queryValidator(query);
-		// // console.log(checkQueryFormat);
-		// if(checkQueryFormat !== "resolved") {
-		// 	return Promise.reject(new InsightError(checkQueryFormat));
-		// };
 		try {
 			optionValidator(query["OPTIONS"]);
 		} catch (err) {
 			return Promise.reject(err);
 		}
 
-		// let checkOptions = optionValidator(query["OPTIONS"]);
-		// // console.log(checkOptions);
-		// if (checkOptions !== "resolved") {
-		// 	return Promise.reject(new InsightError(checkOptions));
-		// }
-
-		// TODO: wrap with try catch
-		// whereValidator should throw an error
 		try {
 			whereValidator(inputQuery["WHERE"]);
 		} catch (err) {
+			// TODO: Promise.reject
 			console.log(err);
 		}
-		// let queryData = whereValidator(inputQuery["WHERE"]);
-		// console.log(queryData);
-
-
 		return Promise.reject("Not implemented.");
 	}
 
