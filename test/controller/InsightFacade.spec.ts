@@ -72,23 +72,23 @@ describe("InsightFacade", function () {
 	 * You can still make tests the normal way, this is just a convenient tool for a majority of queries.
 	 */
 	describe("PerformQuery", () => {
-		// before(function () {
-		// 	console.info(`Before: ${this.test?.parent?.title}`);
-		//
-		// 	insightFacade = new InsightFacade();
-		//
-		// 	// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
-		// 	// Will *fail* if there is a problem reading ANY dataset.
-		// 	const loadDatasetPromises = [
-		// 		insightFacade.addDataset(
-		// 			"sections",
-		// 			datasetContents.get("sections") ?? "",
-		// 			InsightDatasetKind.Sections
-		// 		),
-		// 	];
-		//
-		// 	return Promise.all(loadDatasetPromises);
-		// });
+		before(function () {
+			console.info(`Before: ${this.test?.parent?.title}`);
+
+			insightFacade = new InsightFacade();
+
+			// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
+			// Will *fail* if there is a problem reading ANY dataset.
+			const loadDatasetPromises = [
+				insightFacade.addDataset(
+					"sections",
+					datasetContents.get("sections") ?? "",
+					InsightDatasetKind.Sections
+				),
+			];
+
+			return Promise.all(loadDatasetPromises);
+		});
 
 		after(function () {
 			console.info(`After: ${this.test?.parent?.title}`);
