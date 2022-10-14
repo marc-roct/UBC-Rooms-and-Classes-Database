@@ -40,20 +40,38 @@ export default class InsightFacade implements IInsightFacade {
 			return Promise.reject("The data type of input query is either null or undefined.");
 		};
 		// TODO: factor out these validators; how to use a helper to return promises
-		let checkQueryFormat = queryValidator(query);
-		// console.log(checkQueryFormat);
-		if(checkQueryFormat !== "resolved") {
-			return Promise.reject(new InsightError(checkQueryFormat));
-		};
-
-		let checkOptions = optionValidator(query["OPTIONS"]);
-		// console.log(checkOptions);
-		if (checkOptions !== "resolved") {
-			return Promise.reject(new InsightError(checkOptions));
+		try {
+			queryValidator(query);
+		} catch(err){
+			return Promise.reject(err);
 		}
 
-		let queryData = whereValidator(inputQuery["WHERE"]);
-		console.log(queryData);
+		// let checkQueryFormat = queryValidator(query);
+		// // console.log(checkQueryFormat);
+		// if(checkQueryFormat !== "resolved") {
+		// 	return Promise.reject(new InsightError(checkQueryFormat));
+		// };
+		try {
+			optionValidator(query["OPTIONS"]);
+		} catch (err) {
+			return Promise.reject(err);
+		}
+
+		// let checkOptions = optionValidator(query["OPTIONS"]);
+		// // console.log(checkOptions);
+		// if (checkOptions !== "resolved") {
+		// 	return Promise.reject(new InsightError(checkOptions));
+		// }
+
+		// TODO: wrap with try catch
+		// whereValidator should throw an error
+		try {
+			whereValidator(inputQuery["WHERE"]);
+		} catch (err) {
+			console.log(err);
+		}
+		// let queryData = whereValidator(inputQuery["WHERE"]);
+		// console.log(queryData);
 
 
 		return Promise.reject("Not implemented.");
