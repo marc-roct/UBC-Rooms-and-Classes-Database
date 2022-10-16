@@ -86,6 +86,18 @@ const notLogic = (dataSet: any, query: any): string[] => {
 	return [];
 };
 
+/*
+	This function output something like this:
+	[
+
+   { "sections_dept": "math", "sections_avg": 97.09 },
+
+   { "sections_dept": "math", "sections_avg": 97.09 },
+
+   { "sections_dept": "epse", "sections_avg": 97.09 },
+
+   { "sections_dept": "epse", "sections_avg": 97.09 }, ...]
+ */
 const optionFilter = (query: Record<string, any>, dataSet: any): string[] => {
 	// STUB
 	return [];

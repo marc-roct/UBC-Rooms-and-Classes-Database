@@ -15,7 +15,7 @@ import {whereValidator, isJSON, queryValidator, optionValidator} from "./Utiliti
  *
  */
 export default class InsightFacade implements IInsightFacade {
-	private readonly dataSet: any;
+	private readonly databases: any;
 	constructor() {
 		console.log("InsightFacadeImpl::init()");
 	}
@@ -31,16 +31,16 @@ export default class InsightFacade implements IInsightFacade {
 	public performQuery(query: unknown): Promise<InsightResult[]> {
 		// TODO: STUB
 		// console.log(this.dataSet);
-
+		let currentDatabaseId: string;
 		let inputQuery: Record<string, any>;
 		if (isJSON(query)) {
 			inputQuery = query;
 		} else {
 			return Promise.reject("The data type of input query is either null or undefined.");
 		};
-		// TODO: factor out these validators; how to use a helper to return promises
 		try {
-			queryValidator(query);
+			// the id will be used in the query parser
+			currentDatabaseId = queryValidator(query);
 		} catch(err){
 			console.log(err);
 			return Promise.reject(err);

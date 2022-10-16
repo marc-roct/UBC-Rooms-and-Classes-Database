@@ -1,6 +1,7 @@
 import {InsightError} from "../IInsightFacade";
 
-const queryValidator = (query: Record<string, any>): void => {
+const queryValidator = (query: Record<string, any>): string => {
+	let databaseId: string;
 	let bodyTracker = 0;
 	let optionTracker = 0;
 	// get the keys from the query object
@@ -30,7 +31,8 @@ const queryValidator = (query: Record<string, any>): void => {
 	let keyFields: string[] = [];
 	keyFields = keyFields.concat(whereValidator(query["WHERE"]));
 	keyFields = keyFields.concat(optionValidator(query["OPTIONS"]));
-	checkDatasetReference(keyFields);
+	databaseId = checkDatasetReference(keyFields);
+	return databaseId;
 };
 
 const whereValidator = (data: Record<string, any>): string[] => {
@@ -106,15 +108,18 @@ const optionValidator = (options: any): string[] => {
 	return keyFields;
 };
 
-const checkDatasetReference = (keyFields: string[]): void => {
+const checkDatasetReference = (keyFields: string[]): string => {
 	const dataSetId = new Set();
+	let id: string = "id not found";
 	keyFields.forEach((field: string) => {
 		let keyValues = field.split("_");
+		id = keyValues[0];
 		dataSetId.add(keyValues[0]);
 	});
 	if(dataSetId.size > 1) {
 		throw new InsightError("Cannot query more than one dataset");
 	};
+	return id;
 };
 
 const logicValidator = (data: any, logic: string): void =>  {
