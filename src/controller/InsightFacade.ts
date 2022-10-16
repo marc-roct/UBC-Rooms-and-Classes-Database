@@ -30,7 +30,7 @@ export interface Dataset {
 
 }
 
-interface Database {
+export interface Database {
 	id: string;
 	data: Dataset[];
 	kind: InsightDatasetKind;
@@ -38,6 +38,11 @@ interface Database {
 
 export default class InsightFacade implements IInsightFacade {
 	private databases: Database[] = [];
+
+	constructor() {
+		console.log("InsightFacadeImpl::init()");
+	}
+
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
 		try {
@@ -68,6 +73,7 @@ export default class InsightFacade implements IInsightFacade {
 		for (const database of this.databases) {
 			idList.push(database.id);
 		}
+
 
 		return Promise.resolve(idList);
 	}
