@@ -7,7 +7,7 @@ import {
 	NotFoundError
 } from "./IInsightFacade";
 import JSZip, {JSZipObject} from "jszip";
-import {contentValidator, idValidator} from "./Utilities/contentValidator";
+import {contentValidator, convertCoursesToDatasets, idValidator} from "./Utilities/addDatasetHelpers";
 
 
 /**
@@ -16,7 +16,7 @@ import {contentValidator, idValidator} from "./Utilities/contentValidator";
  *
  */
 
-interface Dataset {
+export interface Dataset {
 	dept: string;
 	id: string;
 	avg: number;
@@ -45,15 +45,15 @@ export default class InsightFacade implements IInsightFacade {
 		} catch (err) {
 			return Promise.reject(err);
 		}
-
 		for (const database of this.databases) {
 			if (database.id === id) {
 				return Promise.reject(new InsightError("Invalid id: id has already been added"));
 			}
 		}
-		let zip = new JSZip();
 
+		let zip = new JSZip();
 		await zip.loadAsync(content, {base64: true});
+
 		let listCourses: any[];
 		try {
 			listCourses = await contentValidator(zip);
@@ -61,30 +61,14 @@ export default class InsightFacade implements IInsightFacade {
 			return Promise.reject(err);
 		}
 
-		let datasets: Dataset[] = [];
-		for (const course of listCourses) {
-			let newDataset: Dataset = {
-				dept : course.Subject, id : course.Course, avg : course.Avg,
-				instructor : course.Professor, title : course.Title,
-				pass : course.Pass, fail : course.Fail,
-				audit : course.Audit,
-				uuid : course.id,
-				year : course.Year,
-			};
-			datasets.push(newDataset);
-		}
-
-		this.databases.push({
-			id: id,
-			data: datasets,
-			kind: kind
-		});
+		let datasets: Dataset[] = convertCoursesToDatasets(listCourses);
+		this.databases.push({id: id, data: datasets, kind: kind});
 
 		let idList: string[] = [];
-
 		for (const database of this.databases) {
 			idList.push(database.id);
 		}
+
 		return Promise.resolve(idList);
 	}
 
