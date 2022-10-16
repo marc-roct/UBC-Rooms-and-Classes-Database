@@ -17,7 +17,6 @@ import {whereValidator, isJSON, queryValidator, optionValidator} from "./Utiliti
 export default class InsightFacade implements IInsightFacade {
 	private readonly dataSet: any;
 	constructor() {
-		this.dataSet = [];
 		console.log("InsightFacadeImpl::init()");
 	}
 

@@ -8,10 +8,15 @@ const whereParser = (query: Record<string, any>, dataSet: any): string[] => {
 			switch(key) {
 				case "OR":
 					// STUB
+					// Todo: get all objects and pass them to whereParser
+					// OR can contain more than 1 items in the list
 					dataCollector = orLogic(query, dataSet);
 					break;
 				case "AND":
 					// STUB
+					// Todo: get the target items based on all the criteria
+					// join different sets
+					// e.g. greater and equal
 					break;
 				case "LT":
 					// STUB
@@ -24,6 +29,7 @@ const whereParser = (query: Record<string, any>, dataSet: any): string[] => {
 					break;
 				case "IS":
 					// STUB
+					// the input should be
 					break;
 				case "NOT":
 					// STUB
