@@ -1,0 +1,19 @@
+{
+	"title": "QueryANDWithEmptyArrayTest",
+	"input": {
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg",
+				"sections_dept",
+				"sections_instructor",
+				"sections_title"
+			],
+			"ORDER": "sections_avg"
+		},
+		"WHERE": {
+			"AND": []
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
