@@ -1,0 +1,19 @@
+{
+  "title": "Invalid Query test ",
+  "input": {
+    "WHERE": {
+      "GT": {
+        "baloney" : 99
+      }
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "sections_dept",
+        "sections_avg"
+      ],
+      "ORDER": "sections_avg"
+    }
+  },
+  "errorExpected": true,
+  "expected": "InsightError"
+}
