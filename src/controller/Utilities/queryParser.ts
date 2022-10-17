@@ -1,3 +1,5 @@
+import {Dataset} from "../InsightFacade";
+
 const whereParser = (query: Record<string, any>, dataSet: any): string[] => {
 	// TODO: update the datatype to the datatype that addDataset return
 	let dataCollector: string[] = [];
@@ -98,9 +100,36 @@ const notLogic = (dataSet: any, query: any): string[] => {
 
    { "sections_dept": "epse", "sections_avg": 97.09 }, ...]
  */
-const optionFilter = (query: Record<string, any>, dataSet: any): string[] => {
-	// STUB
-	return [];
+const optionFilter = (dataSets: Dataset[], query: Record<string, any>): string[] => {
+	let columnKeys: string[] = query["COLUMNS"];
+
+	let filteredDatasets: any[] = [];
+
+	for (let dataset of dataSets as Dataset[]) {
+		type ObjectKey = keyof typeof dataset;
+		let filteredDataset: any = {};
+
+		for (let key of columnKeys) {
+			let keyValues = key.split("_");
+			// console.log(dataset[keyValues[1] as ObjectKey]);
+			filteredDataset[key] = dataset[keyValues[1] as ObjectKey];
+		}
+
+		filteredDatasets.push(filteredDataset);
+	}
+
+	let keyToSort = query["ORDER"];
+	return filteredDatasets.sort((dataset1, dataset2) => {
+		if (dataset1[keyToSort] > dataset2[keyToSort]) {
+			return 1;
+		}
+
+		if (dataset1[keyToSort] < dataset2[keyToSort]) {
+			return -1;
+		}
+
+		return 0;
+	});
 };
 
-export {whereParser};
+export {whereParser, optionFilter};

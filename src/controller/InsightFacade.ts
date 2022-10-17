@@ -13,6 +13,7 @@ import {contentValidator, convertCoursesToDatasets, idValidator, storeDatabase,
 
 
 import {whereValidator, isJSON, queryValidator, optionValidator} from "./Utilities/queryValidator";
+import {optionFilter} from "./Utilities/queryParser";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -106,9 +107,10 @@ export default class InsightFacade implements IInsightFacade {
 			// the id will be used in the query parser
 			currentDatabaseId = queryValidator(query);
 		} catch(err){
-			console.log(err);
+			// console.log(err);
 			return Promise.reject(err);
 		}
+
 		return Promise.reject("Not implemented.");
 	}
 
