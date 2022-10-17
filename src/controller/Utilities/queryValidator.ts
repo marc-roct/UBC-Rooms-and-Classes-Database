@@ -69,7 +69,7 @@ const whereValidator = (data: Record<string, any>): string[] => {
 	return keyFields;
 };
 
-const optionValidator = (options: any): string[] => {
+const optionValidator = (options: Record<string, any>): string[] => {
 	let keyFields: string[] = [];
 	let keys = Object.keys(options);
 	if (keys.length > 2) {
@@ -177,7 +177,6 @@ const negationValidator = (data: any, negation: string): void => {
 	};
 };
 
-// TODO: return error if it refers to more than 1 dataset
 const mFieldValidator = (field: string): boolean => {
 	const listOfValidMFields = ["avg","pass", "fail", "audit", "year"];
 	if(field.includes("_")) {
@@ -190,7 +189,6 @@ const mFieldValidator = (field: string): boolean => {
 	return false;
 };
 
-// TODO: return error if it refers to more than 1 dataset
 const sFieldValidator = (field: string): boolean => {
 	const listOfValidSFields = ["dept",  "id", "instructor",  "title", "uuid"];
 	if(field.includes("_")) {

@@ -18,6 +18,7 @@ import {whereParser, getDataset} from "./Utilities/queryParser";
  */
 
 export interface Dataset {
+	[key: string]: string | number;
 	dept: string;
 	id: string;
 	avg: number;
@@ -127,8 +128,12 @@ export default class InsightFacade implements IInsightFacade {
 			return Promise.reject(err);
 		}
 		let dataset = getDataset(this.databases, currentDatabaseId);
-		// console.log("########### CHECKING DATASET: ");
+		console.log("########### CHECKING DATASET: ");
 		// console.log(dataset);
+		// let test = new Set();
+		// console.log(typeof test);
+		let result = whereParser(query["WHERE"], dataset);
+		console.log(result);
 		return Promise.reject("Not implemented.");
 	}
 

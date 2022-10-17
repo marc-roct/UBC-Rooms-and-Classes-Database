@@ -1,9 +1,9 @@
 import {Dataset, Database} from "../InsightFacade";
 import {InsightError} from "../IInsightFacade";
 
-const whereParser = (query: Record<string, any>, dataSet: Dataset[]): string[] => {
+const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
 	// TODO: update the datatype to the datatype that addDataset return
-	let dataCollector: string[] = [];
+	let dataCollector: Dataset[] = [];
 	if(typeof query === "object" && !Array.isArray(query)) {
 		// if the input data is an object: push the key to the dataCollector
 		// and call queryParser to check the values inside the object
@@ -13,41 +13,48 @@ const whereParser = (query: Record<string, any>, dataSet: Dataset[]): string[] =
 					// STUB
 					// Todo: get all objects and pass them to whereParser
 					// OR can contain more than 1 items in the list
-					dataCollector = orLogic(query, dataSet);
+					// dataCollector = orLogic(query, dataSet);
+					for (let index in query[key]) {
+						dataCollector.concat(whereParser(query[key][index], dataSet));
+					};
 					break;
 				case "AND":
 					// STUB
 					// Todo: get the target items based on all the criteria
 					// join different sets
 					// e.g. greater and equal
+					// iterate through the array, and join each set
+					for (let index in query[key]) {
+						dataCollector.concat(whereParser(query[key][index], dataSet));
+					};
 					break;
 				case "LT":
-					// STUB
+					dataCollector = dataCollector.concat(lessThanLogic(query["LT"], dataSet));
 					break;
 				case "GT":
-					// STUB
+					dataCollector = dataCollector.concat(greaterThanLogic(query["GT"], dataSet));
 					break;
 				case "EQ":
-					// STUB
+					dataCollector = dataCollector.concat(equalToLogic(query["EQ"], dataSet));
 					break;
 				case "IS":
-					// STUB
-					// the input should be
+					dataCollector = dataCollector.concat(isLogic(query["IS"], dataSet));
 					break;
 				case "NOT":
 					// STUB
 					break;
 				default:
-					return [];
+					return dataCollector;
 			}
 		}
-	} else if (Array.isArray(query)) {
-		// if the input data is an array: loop through each item and call queryParser()
-		for(let index in query) {
-			// TODO: use Set to combine data
-			dataCollector = dataCollector.concat(whereParser(query[index], dataSet));
-		}
 	};
+	// else if (Array.isArray(query)) {
+	// 	// if the input data is an array: loop through each item and call queryParser()
+	// 	for(let index in query) {
+	// 		// TODO: use Set to combine data
+	// 		// dataCollector = dataCollector.concat(whereParser(query[index], dataSet));
+	// 	}
+	// };
 	return dataCollector;
 };
 
@@ -63,6 +70,13 @@ const getDataset = (databases: Database[], id: string): Dataset[] => {
 	return dataSet;
 };
 
+const fieldParser = (field: string): string => {
+	let result: string;
+	let keyValues = field.split("_");
+	result = keyValues[1];
+	return result;
+};
+
 // TODO: use Set() to collect data to avoid duplicate records
 // TODO: use filter to loop through the dataset
 
@@ -76,24 +90,56 @@ const addLogic = (query: any, dataSet: Dataset[]): string[] => {
 	return [];
 };
 
-const isLogic = (query: any, dataSet: Dataset[]): string[] => {
-	// STUB
-	return [];
+const isLogic = (query: any, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	let key = Object.keys(query);
+	let field = fieldParser(key[0]);
+	let value: string = query[key[0]];
+	dataSet.forEach((course) => {
+		if(course[field] === value) {
+			subset.push(course);
+		}
+	});
+	return subset;
 };
 
-const lessThanLogic = (query: any, dataSet: Dataset[]): string[] => {
-	// STUB
-	return [];
+const lessThanLogic = (query: Record<string, any>, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	let key = Object.keys(query);
+	let field = fieldParser(key[0]);
+	let value = query[key[0]];
+	dataSet.forEach((course) => {
+		if(course[field] < value) {
+			subset.push(course);
+		}
+	});
+	return subset;
 };
 
-const greaterThanLogic = (query: any, dataSet: Dataset[]): string[] => {
-	// STUB
-	return [];
+const greaterThanLogic = (query: Record<string, any>, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	let key = Object.keys(query);
+	let field = fieldParser(key[0]);
+	let value = query[key[0]];
+	dataSet.forEach((course) => {
+		if(course[field] > value) {
+			subset.push(course);
+		}
+	});
+	return subset;
 };
 
-const equalLogic = (query: any, dataSet: Dataset[]): string[] => {
-	// STUB
-	return [];
+const equalToLogic = (query: Record<string, any>, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	let key = Object.keys(query);
+	let field = fieldParser(key[0]);
+	let value: number = query[key[0]];
+	dataSet.forEach((course) => {
+		if(course[field] === value) {
+			subset.push(course);
+		}
+	});
+	return subset;
 };
 
 const notLogic = (query: any, dataSet: Dataset[]): string[] => {
