@@ -67,6 +67,30 @@ export default class InsightFacade implements IInsightFacade {
 					audit: 0,
 					uuid: "8673",
 					year: 2008
+				},
+				{
+					dept: "bcom",
+					id: "327",
+					avg: 95,
+					instructor: "",
+					title: "teach adult",
+					pass: 22,
+					fail: 0,
+					audit: 0,
+					uuid: "8672",
+					year: 2008
+				},
+				{
+					dept: "cpsc",
+					id: "320",
+					avg: 70,
+					instructor: "",
+					title: "teach adult",
+					pass: 13,
+					fail: 0,
+					audit: 0,
+					uuid: "8673",
+					year: 2005
 				}
 			],
 			kind: InsightDatasetKind.Sections
@@ -111,8 +135,6 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
-		// TODO: STUB
-		// console.log(this.dataSet);
 		let currentDatabaseId: string;
 		let inputQuery: Record<string, any>;
 		if (isJSON(query)) {
@@ -122,18 +144,14 @@ export default class InsightFacade implements IInsightFacade {
 		};
 		try {
 			// the id will be used in the query parser
-			currentDatabaseId = queryValidator(query);
+			currentDatabaseId = queryValidator(inputQuery);
 		} catch(err){
 			console.log(err);
 			return Promise.reject(err);
 		}
 		let dataset = getDataset(this.databases, currentDatabaseId);
-		console.log("########### CHECKING DATASET: ");
-		// console.log(dataset);
-		// let test = new Set();
-		// console.log(typeof test);
 		let result = whereParser(query["WHERE"], dataset);
-		console.log(result);
+		// console.log(result);
 		return Promise.reject("Not implemented.");
 	}
 

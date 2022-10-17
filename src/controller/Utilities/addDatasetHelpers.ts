@@ -59,18 +59,17 @@ function validJSONObjectFilter(listToFilterJSON: any[]) {
 	for (let fileJson of listToFilterJSON) {
 		// Convert fileJson to type any to be able to call fileJSON.result
 		let fileJSON: any = fileJson;
-		// eslint-disable-next-line @typescript-eslint/prefer-for-of
-		for (let j = 0; j < fileJSON.result.length; j++) {
+		for (let fileKey of  Object.keys(fileJSON.result)) {
 			let containsAll: boolean = true;
 			for (const key of fileKeys) {
-				if (!Object.keys(fileJSON.result[j]).includes(key)) {
+				if (!Object.keys(fileJSON.result[fileKey]).includes(key)) {
 					containsAll = false;
 					break;
 				}
 			}
 
 			if (containsAll) {
-				filteredJSON.push(fileJSON.result[j]);
+				filteredJSON.push(fileJSON.result[fileKey]);
 			}
 		}
 	}

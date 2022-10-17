@@ -10,27 +10,22 @@ const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
 		for(let key in query) {
 			switch(key) {
 				case "OR": {
-					// STUB
-					// Todo: get all objects and pass them to whereParser
 					// OR can contain more than 1 items in the list
-					// dataCollector = orLogic(query, dataSet);
-					let tempCollector = [];
+					// the set should be a union
 					for (let index in query[key]) {
-						tempCollector.push(whereParser(query[key][index], dataSet));
+						dataCollector = dataCollector.concat(whereParser(query[key][index], dataSet));
 					};
+					dataCollector = orLogic(dataCollector);
 				};
 					break;
 				case "AND": {
-					// STUB
-					// Todo: get the target items based on all the criteria
-					// join different sets
-					// e.g. greater and equal
-					// iterate through the array, and join each set
+					// AND can contain more than 2 items in the list
+					// the set should be an intersection
 					let tempCollector = [];
 					for (let index in query[key]) {
 						tempCollector.push(whereParser(query[key][index], dataSet));
 					}
-					dataCollector = addLogic(tempCollector);
+					dataCollector = andLogic(tempCollector);
 				};
 					break;
 				case "LT":
@@ -45,21 +40,16 @@ const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
 				case "IS":
 					dataCollector = dataCollector.concat(isLogic(query["IS"], dataSet));
 					break;
-				case "NOT":
-					// STUB
+				case "NOT": {
+					let tempCollector = whereParser(query[key], dataSet);
+					dataCollector = notLogic(dataSet, tempCollector);
+				};
 					break;
 				default:
 					return dataCollector;
 			}
 		}
 	};
-	// else if (Array.isArray(query)) {
-	// 	// if the input data is an array: loop through each item and call queryParser()
-	// 	for(let index in query) {
-	// 		// TODO: use Set to combine data
-	// 		// dataCollector = dataCollector.concat(whereParser(query[index], dataSet));
-	// 	}
-	// };
 	return dataCollector;
 };
 
@@ -82,22 +72,14 @@ const fieldParser = (field: string): string => {
 	return result;
 };
 
-// TODO: use Set() to collect data to avoid duplicate records
-// TODO: use filter to loop through the dataset
-
 const orLogic = (tempCollector: Dataset[]): Dataset[] => {
 	// use set to remove duplicate records
-	let union = new Set();
-	let result: Dataset[] = [];
-	tempCollector.forEach((dataset) => {
-		union.add(dataset);
-	});
-	// TODO: figure out how to convert the set to an array
-	// result = Array.from(union);
+	let union = new Set(tempCollector);
+	let result: Dataset[] = Array.from(union);
 	return result;
 };
 
-const addLogic = (tempCollector: Dataset[][]): Dataset[] => {
+const andLogic = (tempCollector: Dataset[][]): Dataset[] => {
 	let intersection: Dataset[] = [];
 	for (let index = 1; index < tempCollector.length; index++) {
 		// compare the results produced by Comparator Helpers
@@ -163,23 +145,17 @@ const equalToLogic = (query: Record<string, any>, dataSet: Dataset[]): Dataset[]
 	return subset;
 };
 
-const notLogic = (query: any, dataSet: Dataset[]): string[] => {
-	// STUB
-	return [];
+const notLogic = (dataSet: Dataset[], tempCollector: Dataset[]): Dataset[] => {
+	// convert input dataset arrays to sets
+	let difference = new Set(dataSet);
+	let removable = new Set(tempCollector);
+	for (const item of removable) {
+		difference.delete(item);
+	};
+	let result: Dataset[] = Array.from(difference);
+	return result;
 };
 
-/*
-	This function output something like this:
-	[
-
-   { "sections_dept": "math", "sections_avg": 97.09 },
-
-   { "sections_dept": "math", "sections_avg": 97.09 },
-
-   { "sections_dept": "epse", "sections_avg": 97.09 },
-
-   { "sections_dept": "epse", "sections_avg": 97.09 }, ...]
- */
 const optionFilter = (query: Record<string, any>, dataSet: any): string[] => {
 	// STUB
 	return [];

@@ -1,0 +1,47 @@
+{
+	"title": "QueryNotOrLogicTest",
+	"input": {
+		"WHERE": {
+			"NOT": {
+				"OR": [
+					{
+						"LT": {
+							"sections_avg": 99
+						}
+					},
+					{
+						"IS": {
+							"sections_dept": "adhe"
+						}
+					}
+				]
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg",
+				"sections_dept",
+				"sections_Pass"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_avg": 99.19,
+			"sections_dept": "cnps",
+			"sections_Pass": 16
+		},
+		{
+			"sections_avg": 99.78,
+			"sections_dept": "math",
+			"sections_Pass": 9
+		},
+		{
+			"sections_avg": 99.78,
+			"sections_dept": "math",
+			"sections_Pass": 9
+		}
+	]
+}
