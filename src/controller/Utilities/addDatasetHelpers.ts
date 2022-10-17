@@ -82,12 +82,22 @@ const convertCoursesToDatasets = function(listCourses: any[]) {
 	let listDataset: Dataset[] = [];
 	for (const course of listCourses) {
 		let newDataset: Dataset = {
-			dept : course.Subject, id : course.Course, avg : course.Avg,
-			instructor : course.Professor, title : course.Title,
-			pass : course.Pass, fail : course.Fail,
+			dept : course.Subject,
+			id : course.Course,
+			avg : course.Avg,
+			instructor : course.Professor,
+			title : course.Title,
+			pass : course.Pass,
+			fail : course.Fail,
 			audit : course.Audit,
-			uuid : course.id,
-			year : course.Year,
+			uuid : String(course.id),
+			year : (function (courseSection: string) {
+				if (courseSection === "overall") {
+					return 1900;
+				}  else {
+					return Number(course.Year);
+				}
+			})(course.Section),
 		};
 		listDataset.push(newDataset);
 	}

@@ -8,9 +8,10 @@ import {
 } from "./IInsightFacade";
 import JSZip, {JSZipObject} from "jszip";
 import * as fs from "fs-extra";
-import {contentValidator, convertCoursesToDatasets, idValidator} from "./Utilities/addDatasetHelpers";
+import {contentValidator, convertCoursesToDatasets, idValidator, storeDatabase,
+	persistDir} from "./Utilities/addDatasetHelpers";
 import {isJSON, queryValidator} from "./Utilities/queryValidator";
-import {whereParser, getDataset} from "./Utilities/queryParser";
+import {whereParser, getDataset, optionFilter} from "./Utilities/queryParser";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -158,12 +159,14 @@ export default class InsightFacade implements IInsightFacade {
 			// the id will be used in the query parser
 			currentDatabaseId = queryValidator(inputQuery);
 		} catch(err){
-			console.log(err);
+			// console.log(err);
 			return Promise.reject(err);
 		}
+
 		let dataset = getDataset(this.databases, currentDatabaseId);
 		let result = whereParser(query["WHERE"], dataset);
 		// console.log(result);
+
 		return Promise.reject("Not implemented.");
 	}
 
