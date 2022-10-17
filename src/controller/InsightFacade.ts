@@ -7,7 +7,9 @@ import {
 	NotFoundError
 } from "./IInsightFacade";
 import JSZip, {JSZipObject} from "jszip";
-import {contentValidator, convertCoursesToDatasets, idValidator} from "./Utilities/addDatasetHelpers";
+import * as fs from "fs-extra";
+import {contentValidator, convertCoursesToDatasets, idValidator, storeDatabase,
+	persistDir} from "./Utilities/addDatasetHelpers";
 
 
 import {whereValidator, isJSON, queryValidator, optionValidator} from "./Utilities/queryValidator";
@@ -58,6 +60,9 @@ export default class InsightFacade implements IInsightFacade {
 				return Promise.reject(new InsightError("Invalid id: id has already been added"));
 			}
 		}
+		if (fs.pathExistsSync(persistDir + "/" + id + ".zip")) {
+			return Promise.reject(new InsightError("Invalid id: id already stored on disk"));
+		}
 
 		let zip = new JSZip();
 		await zip.loadAsync(content, {base64: true});
@@ -70,14 +75,15 @@ export default class InsightFacade implements IInsightFacade {
 		}
 
 		let datasets: Dataset[] = convertCoursesToDatasets(listCourses);
-		this.databases.push({id: id, data: datasets, kind: kind});
+		let newDatabase: Database = {id: id, data: datasets, kind: kind};
+		this.databases.push(newDatabase);
 
 		let idList: string[] = [];
 		for (const database of this.databases) {
 			idList.push(database.id);
 		}
 
-
+		await storeDatabase(newDatabase);
 		return Promise.resolve(idList);
 	}
 
