@@ -93,7 +93,6 @@ export default class InsightFacade implements IInsightFacade {
 		return Promise.reject("Not implemented.");
 	}
 
-	// eslint-disable-next-line max-lines-per-function
 	public performQuery(query: unknown): Promise<InsightResult[]> {
 		// TODO: STUB
 		// console.log(this.dataSet);
