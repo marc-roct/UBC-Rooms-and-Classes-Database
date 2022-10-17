@@ -1,4 +1,7 @@
-const whereParser = (query: Record<string, any>, dataSet: any): string[] => {
+import {Dataset, Database} from "../InsightFacade";
+import {InsightError} from "../IInsightFacade";
+
+const whereParser = (query: Record<string, any>, dataSet: Dataset[]): string[] => {
 	// TODO: update the datatype to the datatype that addDataset return
 	let dataCollector: string[] = [];
 	if(typeof query === "object" && !Array.isArray(query)) {
@@ -48,40 +51,52 @@ const whereParser = (query: Record<string, any>, dataSet: any): string[] => {
 	return dataCollector;
 };
 
+const getDataset = (databases: Database[], id: string): Dataset[] => {
+	let dataSet: Dataset[] = [];
+	databases.forEach((database) => {
+		if (id === database["id"]) {
+			dataSet = database["data"];
+		} else {
+			throw new InsightError("Referenced dataset " + id + " not added yet");
+		}
+	});
+	return dataSet;
+};
+
 // TODO: use Set() to collect data to avoid duplicate records
 // TODO: use filter to loop through the dataset
 
-const orLogic = (dataSet: any, query: any): string[] => {
+const orLogic = (query: any, dataSet: Dataset[]): string[] => {
 	// STUB
 	return [];
 };
 
-const addLogic = (dataSet: any, query: any): string[] => {
+const addLogic = (query: any, dataSet: Dataset[]): string[] => {
 	// STUB
 	return [];
 };
 
-const isLogic = (dataSet: any, query: any): string[] => {
+const isLogic = (query: any, dataSet: Dataset[]): string[] => {
 	// STUB
 	return [];
 };
 
-const lessThanLogic = (dataSet: any, query: any): string[] => {
+const lessThanLogic = (query: any, dataSet: Dataset[]): string[] => {
 	// STUB
 	return [];
 };
 
-const greaterThanLogic = (dataSet: any, query: any): string[] => {
+const greaterThanLogic = (query: any, dataSet: Dataset[]): string[] => {
 	// STUB
 	return [];
 };
 
-const equalLogic = (dataSet: any, query: any): string[] => {
+const equalLogic = (query: any, dataSet: Dataset[]): string[] => {
 	// STUB
 	return [];
 };
 
-const notLogic = (dataSet: any, query: any): string[] => {
+const notLogic = (query: any, dataSet: Dataset[]): string[] => {
 	// STUB
 	return [];
 };
@@ -103,4 +118,4 @@ const optionFilter = (query: Record<string, any>, dataSet: any): string[] => {
 	return [];
 };
 
-export {whereParser};
+export {whereParser, getDataset};

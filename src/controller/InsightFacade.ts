@@ -8,9 +8,8 @@ import {
 } from "./IInsightFacade";
 import JSZip, {JSZipObject} from "jszip";
 import {contentValidator, convertCoursesToDatasets, idValidator} from "./Utilities/addDatasetHelpers";
-
-
-import {whereValidator, isJSON, queryValidator, optionValidator} from "./Utilities/queryValidator";
+import {isJSON, queryValidator} from "./Utilities/queryValidator";
+import {whereParser, getDataset} from "./Utilities/queryParser";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -32,7 +31,7 @@ export interface Dataset {
 
 }
 
-interface Database {
+export interface Database {
 	id: string;
 	data: Dataset[];
 	kind: InsightDatasetKind;
@@ -40,7 +39,38 @@ interface Database {
 
 export default class InsightFacade implements IInsightFacade {
 
-	private databases: Database[] = [];
+	private databases: Database[] = [
+		{
+			id: "sections",
+			data: [
+				{
+					dept: "adhe",
+					id: "327",
+					avg: 85.64,
+					instructor: "",
+					title: "teach adult",
+					pass: 22,
+					fail: 0,
+					audit: 0,
+					uuid: "8672",
+					year: 2008
+				},
+				{
+					dept: "adhe",
+					id: "327",
+					avg: 97.15,
+					instructor: "",
+					title: "teach adult",
+					pass: 13,
+					fail: 0,
+					audit: 0,
+					uuid: "8673",
+					year: 2008
+				}
+			],
+			kind: InsightDatasetKind.Sections
+		}
+	];
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
 		try {
@@ -96,6 +126,9 @@ export default class InsightFacade implements IInsightFacade {
 			console.log(err);
 			return Promise.reject(err);
 		}
+		let dataset = getDataset(this.databases, currentDatabaseId);
+		// console.log("########### CHECKING DATASET: ");
+		// console.log(dataset);
 		return Promise.reject("Not implemented.");
 	}
 
