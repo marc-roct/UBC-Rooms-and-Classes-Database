@@ -9,24 +9,29 @@ const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
 		// and call queryParser to check the values inside the object
 		for(let key in query) {
 			switch(key) {
-				case "OR":
+				case "OR": {
 					// STUB
 					// Todo: get all objects and pass them to whereParser
 					// OR can contain more than 1 items in the list
 					// dataCollector = orLogic(query, dataSet);
+					let tempCollector = [];
 					for (let index in query[key]) {
-						dataCollector.concat(whereParser(query[key][index], dataSet));
+						tempCollector.push(whereParser(query[key][index], dataSet));
 					};
+				};
 					break;
-				case "AND":
+				case "AND": {
 					// STUB
 					// Todo: get the target items based on all the criteria
 					// join different sets
 					// e.g. greater and equal
 					// iterate through the array, and join each set
+					let tempCollector = [];
 					for (let index in query[key]) {
-						dataCollector.concat(whereParser(query[key][index], dataSet));
-					};
+						tempCollector.push(whereParser(query[key][index], dataSet));
+					}
+					dataCollector = addLogic(tempCollector);
+				};
 					break;
 				case "LT":
 					dataCollector = dataCollector.concat(lessThanLogic(query["LT"], dataSet));
@@ -80,14 +85,30 @@ const fieldParser = (field: string): string => {
 // TODO: use Set() to collect data to avoid duplicate records
 // TODO: use filter to loop through the dataset
 
-const orLogic = (query: any, dataSet: Dataset[]): string[] => {
-	// STUB
-	return [];
+const orLogic = (tempCollector: Dataset[]): Dataset[] => {
+	// use set to remove duplicate records
+	let union = new Set();
+	let result: Dataset[] = [];
+	tempCollector.forEach((dataset) => {
+		union.add(dataset);
+	});
+	// TODO: figure out how to convert the set to an array
+	// result = Array.from(union);
+	return result;
 };
 
-const addLogic = (query: any, dataSet: Dataset[]): string[] => {
-	// STUB
-	return [];
+const addLogic = (tempCollector: Dataset[][]): Dataset[] => {
+	let intersection: Dataset[] = [];
+	for (let index = 1; index < tempCollector.length; index++) {
+		// compare the results produced by Comparator Helpers
+		// if they are the same, then they are intercepted.
+		tempCollector[index - 1].forEach((course) => {
+			if(tempCollector[index].includes(course)) {
+				intersection.push(course);
+			};
+		});
+	}
+	return intersection;
 };
 
 const isLogic = (query: any, dataSet: Dataset[]): Dataset[] => {
