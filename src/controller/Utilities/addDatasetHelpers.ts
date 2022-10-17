@@ -1,7 +1,9 @@
 import JSZip, {JSZipObject} from "jszip";
 import {InsightError} from "../IInsightFacade";
-import {Dataset} from "../InsightFacade";
+import {Database, Dataset} from "../InsightFacade";
+import * as fs from "fs-extra";
 
+const persistDir = "./data";
 const fileKeys: string[] = ["Subject", "Course", "Avg", "Professor",
 	"Title", "Pass", "Fail", "Audit", "id", "Year"];
 
@@ -105,4 +107,12 @@ const idValidator = function(id: string) {
 
 };
 
-export {contentValidator, idValidator, convertCoursesToDatasets};
+const storeDatabase = async function (database: Database) {
+	let zip = new JSZip();
+	let content = JSON.stringify(database);
+	zip.file(database.id, content);
+	let zipped: string = await zip.generateAsync({type: "base64"});
+	fs.outputFileSync(persistDir + "/" + database.id + ".zip", zipped, "base64");
+};
+
+export {contentValidator, idValidator, convertCoursesToDatasets, storeDatabase, persistDir};

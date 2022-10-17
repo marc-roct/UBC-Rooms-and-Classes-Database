@@ -7,6 +7,7 @@ import {
 	NotFoundError
 } from "./IInsightFacade";
 import JSZip, {JSZipObject} from "jszip";
+import * as fs from "fs-extra";
 import {contentValidator, convertCoursesToDatasets, idValidator} from "./Utilities/addDatasetHelpers";
 import {isJSON, queryValidator} from "./Utilities/queryValidator";
 import {whereParser, getDataset} from "./Utilities/queryParser";
@@ -97,15 +98,24 @@ export default class InsightFacade implements IInsightFacade {
 		}
 	];
 
+	constructor() {
+		console.log("InsightFacadeImpl::init()");
+	}
+
+
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
 		try {
 			idValidator(id);
 		} catch (err) {
 			return Promise.reject(err);
 		}
-		for (const database of this.databases) {
-			if (database.id === id) {
-				return Promise.reject(new InsightError("Invalid id: id has already been added"));
+		if (fs.pathExistsSync(persistDir + "/" + id + ".zip")) {
+			return Promise.reject(new InsightError("Invalid id: id already stored on disk"));
+		} else {
+			for (const database of this.databases) {
+				if (database.id === id) {
+					return Promise.reject(new InsightError("Invalid id: id has already been added"));
+				}
 			}
 		}
 
@@ -120,13 +130,15 @@ export default class InsightFacade implements IInsightFacade {
 		}
 
 		let datasets: Dataset[] = convertCoursesToDatasets(listCourses);
-		this.databases.push({id: id, data: datasets, kind: kind});
+		let newDatabase: Database = {id: id, data: datasets, kind: kind};
+		this.databases.push(newDatabase);
 
 		let idList: string[] = [];
 		for (const database of this.databases) {
 			idList.push(database.id);
 		}
 
+		await storeDatabase(newDatabase);
 		return Promise.resolve(idList);
 	}
 
