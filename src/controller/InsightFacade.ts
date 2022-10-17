@@ -10,6 +10,8 @@ import JSZip, {JSZipObject} from "jszip";
 import {contentValidator, convertCoursesToDatasets, idValidator} from "./Utilities/addDatasetHelpers";
 
 
+import {whereValidator, isJSON, queryValidator, optionValidator} from "./Utilities/queryValidator";
+
 /**
  * This is the main programmatic entry point for the project.
  * Method documentation is in IInsightFacade
@@ -37,6 +39,7 @@ export interface Database {
 }
 
 export default class InsightFacade implements IInsightFacade {
+
 	private databases: Database[] = [];
 
 	constructor() {
@@ -83,6 +86,22 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
+		// TODO: STUB
+		// console.log(this.dataSet);
+		let currentDatabaseId: string;
+		let inputQuery: Record<string, any>;
+		if (isJSON(query)) {
+			inputQuery = query;
+		} else {
+			return Promise.reject("The data type of input query is either null or undefined.");
+		};
+		try {
+			// the id will be used in the query parser
+			currentDatabaseId = queryValidator(query);
+		} catch(err){
+			console.log(err);
+			return Promise.reject(err);
+		}
 		return Promise.reject("Not implemented.");
 	}
 
