@@ -55,13 +55,14 @@ export default class InsightFacade implements IInsightFacade {
 		} catch (err) {
 			return Promise.reject(err);
 		}
-		for (const database of this.databases) {
-			if (database.id === id) {
-				return Promise.reject(new InsightError("Invalid id: id has already been added"));
-			}
-		}
 		if (fs.pathExistsSync(persistDir + "/" + id + ".zip")) {
 			return Promise.reject(new InsightError("Invalid id: id already stored on disk"));
+		} else {
+			for (const database of this.databases) {
+				if (database.id === id) {
+					return Promise.reject(new InsightError("Invalid id: id has already been added"));
+				}
+			}
 		}
 
 		let zip = new JSZip();

@@ -110,7 +110,6 @@ const idValidator = function(id: string) {
 const storeDatabase = async function (database: Database) {
 	let zip = new JSZip();
 	let content = JSON.stringify(database);
-	console.log(typeof content);
 	zip.file(database.id, content);
 	let zipped: string = await zip.generateAsync({type: "base64"});
 	fs.outputFileSync(persistDir + "/" + database.id + ".zip", zipped, "base64");
