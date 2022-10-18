@@ -82,15 +82,30 @@ const orLogic = (tempCollector: Dataset[]): Dataset[] => {
 
 const andLogic = (tempCollector: Dataset[][]): Dataset[] => {
 	let intersection: Dataset[] = [];
-	for (let index = 1; index < tempCollector.length; index++) {
-		// compare the results produced by Comparator Helpers
-		// if they are the same, then they are intercepted.
-		tempCollector[index - 1].forEach((course) => {
-			if(tempCollector[index].includes(course)) {
+	if(tempCollector.length ===  1) {
+		intersection = tempCollector[0];
+		return intersection;
+	} else {
+		tempCollector[0].forEach((course) => {
+			if(tempCollector[1].includes(course)) {
 				intersection.push(course);
-			};
+			}
 		});
 	}
+	if(tempCollector.length > 2) {
+		for (let index = 2; index < tempCollector.length; index++) {
+			let subset: Dataset[] = [];
+			// compare the results produced by Comparator Helpers
+			// if they are the same, then they are intercepted.
+			intersection.forEach((course) => {
+				if(tempCollector[index].includes(course)) {
+					subset.push(course);
+				};
+			});
+			// update intersection
+			intersection = subset;
+		};
+	};
 	return intersection;
 };
 
