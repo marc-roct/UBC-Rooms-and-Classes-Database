@@ -4,7 +4,7 @@ import {
 	InsightDatasetKind,
 	InsightError,
 	InsightResult,
-	NotFoundError
+	NotFoundError, ResultTooLargeError
 } from "./IInsightFacade";
 import JSZip, {JSZipObject} from "jszip";
 import * as fs from "fs-extra";
@@ -42,62 +42,7 @@ export interface Database {
 
 export default class InsightFacade implements IInsightFacade {
 
-	private databases: Database[] = [
-		{
-			id: "sections",
-			data: [
-				{
-					dept: "adhe",
-					id: "327",
-					avg: 85.64,
-					instructor: "",
-					title: "teach adult",
-					pass: 22,
-					fail: 0,
-					audit: 0,
-					uuid: "8672",
-					year: 2008
-				},
-				{
-					dept: "adhe",
-					id: "327",
-					avg: 97.15,
-					instructor: "",
-					title: "teach adult",
-					pass: 13,
-					fail: 0,
-					audit: 0,
-					uuid: "8673",
-					year: 2008
-				},
-				{
-					dept: "bcom",
-					id: "327",
-					avg: 95,
-					instructor: "",
-					title: "teach adult",
-					pass: 22,
-					fail: 0,
-					audit: 0,
-					uuid: "8672",
-					year: 2008
-				},
-				{
-					dept: "cpsc",
-					id: "320",
-					avg: 70,
-					instructor: "",
-					title: "teach adult",
-					pass: 13,
-					fail: 0,
-					audit: 0,
-					uuid: "8673",
-					year: 2005
-				}
-			],
-			kind: InsightDatasetKind.Sections
-		}
-	];
+	private databases: Database[] = [];
 
 	constructor() {
 		console.log("InsightFacadeImpl::init()");
@@ -163,11 +108,16 @@ export default class InsightFacade implements IInsightFacade {
 			return Promise.reject(err);
 		}
 
+		let filteredResult: InsightResult[];
 		let dataset = getDataset(this.databases, currentDatabaseId);
 		let result = whereParser(query["WHERE"], dataset);
-		// console.log(result);
-
-		return Promise.reject("Not implemented.");
+		if(result.length > 5000) {
+			throw new ResultTooLargeError("The result is too big. " +
+				"Only queries with a maximum of 5000 results are supported.");
+		} else {
+			filteredResult = optionFilter(query["OPTIONS"],result);
+		}
+		return Promise.resolve(filteredResult);
 	}
 
 	public listDatasets(): Promise<InsightDataset[]> {
