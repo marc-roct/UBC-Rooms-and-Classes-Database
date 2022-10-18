@@ -4,16 +4,14 @@ import {
 	InsightDatasetKind,
 	InsightError,
 	InsightResult,
-	NotFoundError
+	NotFoundError, ResultTooLargeError
 } from "./IInsightFacade";
 import JSZip, {JSZipObject} from "jszip";
 import * as fs from "fs-extra";
 import {contentValidator, convertCoursesToDatasets, idValidator, storeDatabase,
 	persistDir} from "./Utilities/addDatasetHelpers";
-
-
-import {whereValidator, isJSON, queryValidator, optionValidator} from "./Utilities/queryValidator";
-import {optionFilter} from "./Utilities/queryParser";
+import {isJSON, queryValidator} from "./Utilities/queryValidator";
+import {whereParser, getDataset, optionFilter} from "./Utilities/queryParser";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -22,6 +20,7 @@ import {optionFilter} from "./Utilities/queryParser";
  */
 
 export interface Dataset {
+	[key: string]: string | number;
 	dept: string;
 	id: string;
 	avg: number;
@@ -94,8 +93,6 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
-		// TODO: STUB
-		// console.log(this.dataSet);
 		let currentDatabaseId: string;
 		let inputQuery: Record<string, any>;
 		if (isJSON(query)) {
@@ -105,13 +102,22 @@ export default class InsightFacade implements IInsightFacade {
 		};
 		try {
 			// the id will be used in the query parser
-			currentDatabaseId = queryValidator(query);
+			currentDatabaseId = queryValidator(inputQuery);
 		} catch(err){
 			// console.log(err);
 			return Promise.reject(err);
 		}
 
-		return Promise.reject("Not implemented.");
+		let filteredResult: InsightResult[];
+		let dataset = getDataset(this.databases, currentDatabaseId);
+		let result = whereParser(query["WHERE"], dataset);
+		if(result.length > 5000) {
+			throw new ResultTooLargeError("The result is too big. " +
+				"Only queries with a maximum of 5000 results are supported.");
+		} else {
+			filteredResult = optionFilter(query["OPTIONS"],result);
+		}
+		return Promise.resolve(filteredResult);
 	}
 
 	public listDatasets(): Promise<InsightDataset[]> {

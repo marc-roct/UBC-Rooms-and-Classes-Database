@@ -1,113 +1,186 @@
-import {Dataset} from "../InsightFacade";
+import {Dataset, Database} from "../InsightFacade";
+import {InsightError, InsightResult} from "../IInsightFacade";
 
-const whereParser = (query: Record<string, any>, dataSet: any): string[] => {
-	// TODO: update the datatype to the datatype that addDataset return
-	let dataCollector: string[] = [];
-	if(typeof query === "object" && !Array.isArray(query)) {
-		// if the input data is an object: push the key to the dataCollector
-		// and call queryParser to check the values inside the object
+const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
+	let dataCollector: Dataset[] = [];
+	let keys = Object.keys(query);
+	if(typeof query === "object" && !Array.isArray(query) && keys.length !== 0) {
 		for(let key in query) {
 			switch(key) {
-				case "OR":
-					// STUB
-					// Todo: get all objects and pass them to whereParser
+				case "OR": {
 					// OR can contain more than 1 items in the list
-					dataCollector = orLogic(query, dataSet);
+					// the set should be a union
+					for (let index in query[key]) {
+						dataCollector = dataCollector.concat(whereParser(query[key][index], dataSet));
+					};
+					dataCollector = orLogic(dataCollector);
+				};
 					break;
-				case "AND":
-					// STUB
-					// Todo: get the target items based on all the criteria
-					// join different sets
-					// e.g. greater and equal
+				case "AND": {
+					// AND can contain more than 2 items in the list
+					// the set should be an intersection
+					let tempCollector = [];
+					for (let index in query[key]) {
+						tempCollector.push(whereParser(query[key][index], dataSet));
+					}
+					dataCollector = andLogic(tempCollector);
+				};
 					break;
 				case "LT":
-					// STUB
+					dataCollector = dataCollector.concat(lessThanLogic(query["LT"], dataSet));
 					break;
 				case "GT":
-					// STUB
+					dataCollector = dataCollector.concat(greaterThanLogic(query["GT"], dataSet));
 					break;
 				case "EQ":
-					// STUB
+					dataCollector = dataCollector.concat(equalToLogic(query["EQ"], dataSet));
 					break;
 				case "IS":
-					// STUB
-					// the input should be
+					dataCollector = dataCollector.concat(isLogic(query["IS"], dataSet));
 					break;
-				case "NOT":
-					// STUB
+				case "NOT": {
+					let tempCollector = whereParser(query[key], dataSet);
+					dataCollector = notLogic(dataSet, tempCollector);
+				};
 					break;
 				default:
-					return [];
+					return dataCollector;
 			}
 		}
-	} else if (Array.isArray(query)) {
-		// if the input data is an array: loop through each item and call queryParser()
-		for(let index in query) {
-			// TODO: use Set to combine data
-			dataCollector = dataCollector.concat(whereParser(query[index], dataSet));
-		}
+	} else {
+		// WHERE is empty, thus Object.keys(query).length === 0
+		dataCollector = dataSet;
 	};
 	return dataCollector;
 };
 
-// TODO: use Set() to collect data to avoid duplicate records
-// TODO: use filter to loop through the dataset
-
-const orLogic = (dataSet: any, query: any): string[] => {
-	// STUB
-	return [];
+const getDataset = (databases: Database[], id: string): Dataset[] => {
+	let dataSet: Dataset[] = [];
+	databases.forEach((database) => {
+		if (id === database["id"]) {
+			dataSet = database["data"];
+		} else {
+			throw new InsightError("Referenced dataset " + id + " not added yet");
+		}
+	});
+	return dataSet;
 };
 
-const addLogic = (dataSet: any, query: any): string[] => {
-	// STUB
-	return [];
+const fieldParser = (field: string): string => {
+	let result: string;
+	let keyValues = field.split("_");
+	result = keyValues[1];
+	return result;
 };
 
-const isLogic = (dataSet: any, query: any): string[] => {
-	// STUB
-	return [];
+const orLogic = (tempCollector: Dataset[]): Dataset[] => {
+	// use set to remove duplicate records
+	let union = new Set(tempCollector);
+	let result: Dataset[] = Array.from(union);
+	return result;
 };
 
-const lessThanLogic = (dataSet: any, query: any): string[] => {
-	// STUB
-	return [];
+const andLogic = (tempCollector: Dataset[][]): Dataset[] => {
+	let intersection: Dataset[] = [];
+	if(tempCollector.length ===  1) {
+		intersection = tempCollector[0];
+		return intersection;
+	} else {
+		tempCollector[0].forEach((course) => {
+			if(tempCollector[1].includes(course)) {
+				intersection.push(course);
+			}
+		});
+	}
+	if(tempCollector.length > 2) {
+		for (let index = 2; index < tempCollector.length; index++) {
+			let subset: Dataset[] = [];
+			// compare the results produced by Comparator Helpers
+			// if they are the same, then they are intercepted.
+			intersection.forEach((course) => {
+				if(tempCollector[index].includes(course)) {
+					subset.push(course);
+				};
+			});
+			// update intersection
+			intersection = subset;
+		};
+	};
+	return intersection;
 };
 
-const greaterThanLogic = (dataSet: any, query: any): string[] => {
-	// STUB
-	return [];
+const isLogic = (query: any, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	let key = Object.keys(query);
+	let field = fieldParser(key[0]);
+	let value: string = query[key[0]];
+	dataSet.forEach((course) => {
+		if(course[field] === value) {
+			subset.push(course);
+		}
+	});
+	return subset;
 };
 
-const equalLogic = (dataSet: any, query: any): string[] => {
-	// STUB
-	return [];
+const lessThanLogic = (query: Record<string, any>, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	let key = Object.keys(query);
+	let field = fieldParser(key[0]);
+	let value = query[key[0]];
+	dataSet.forEach((course) => {
+		if(course[field] < value) {
+			subset.push(course);
+		}
+	});
+	return subset;
 };
 
-const notLogic = (dataSet: any, query: any): string[] => {
-	// STUB
-	return [];
+const greaterThanLogic = (query: Record<string, any>, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	let key = Object.keys(query);
+	let field = fieldParser(key[0]);
+	let value = query[key[0]];
+	dataSet.forEach((course) => {
+		if(course[field] > value) {
+			subset.push(course);
+		}
+	});
+	return subset;
 };
 
-/*
-	This function output something like this:
-	[
+const equalToLogic = (query: Record<string, any>, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	let key = Object.keys(query);
+	let field = fieldParser(key[0]);
+	let value: number = query[key[0]];
+	dataSet.forEach((course) => {
+		if(course[field] === value) {
+			subset.push(course);
+		}
+	});
+	return subset;
+};
 
-   { "sections_dept": "math", "sections_avg": 97.09 },
+const notLogic = (dataSet: Dataset[], tempCollector: Dataset[]): Dataset[] => {
+	// convert input dataset arrays to sets
+	let difference = new Set(dataSet);
+	let removable = new Set(tempCollector);
+	for (const item of removable) {
+		difference.delete(item);
+	};
+	let result: Dataset[] = Array.from(difference);
+	return result;
+};
 
-   { "sections_dept": "math", "sections_avg": 97.09 },
-
-   { "sections_dept": "epse", "sections_avg": 97.09 },
-
-   { "sections_dept": "epse", "sections_avg": 97.09 }, ...]
- */
-const optionFilter = (dataSets: Dataset[], query: Record<string, any>): string[] => {
+const optionFilter = (query: any, dataSets: Dataset[]): InsightResult[] => {
+	let keys = Object.keys(query);
 	let columnKeys: string[] = query["COLUMNS"];
 
-	let filteredDatasets: any[] = [];
+	let filteredDatasets: InsightResult[] = [];
 
 	for (let dataset of dataSets as Dataset[]) {
 		type ObjectKey = keyof typeof dataset;
-		let filteredDataset: any = {};
+		let filteredDataset: InsightResult = {};
 
 		for (let key of columnKeys) {
 			let keyValues = key.split("_");
@@ -118,18 +191,21 @@ const optionFilter = (dataSets: Dataset[], query: Record<string, any>): string[]
 		filteredDatasets.push(filteredDataset);
 	}
 
-	let keyToSort = query["ORDER"];
-	return filteredDatasets.sort((dataset1, dataset2) => {
-		if (dataset1[keyToSort] > dataset2[keyToSort]) {
-			return 1;
-		}
+	if (keys.length === 2) {
+		let keyToSort = query["ORDER"];
+		return filteredDatasets.sort((dataset1, dataset2) => {
+			if (dataset1[keyToSort] > dataset2[keyToSort]) {
+				return 1;
+			}
 
-		if (dataset1[keyToSort] < dataset2[keyToSort]) {
-			return -1;
-		}
+			if (dataset1[keyToSort] < dataset2[keyToSort]) {
+				return -1;
+			}
 
-		return 0;
-	});
+			return 0;
+		});
+	};
+	return filteredDatasets;
 };
 
-export {whereParser, optionFilter};
+export {whereParser, getDataset, optionFilter};

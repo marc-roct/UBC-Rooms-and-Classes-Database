@@ -3,7 +3,7 @@
 	"input": {
 		"WHERE": {
 			"GT": {
-				"sections_avg": 97
+				"sections_avg": "97"
 			}
 		},
 		"OPTIONS": {
