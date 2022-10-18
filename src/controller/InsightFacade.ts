@@ -120,7 +120,27 @@ export default class InsightFacade implements IInsightFacade {
 		return Promise.resolve(filteredResult);
 	}
 
+	/*
+	export interface Database {
+	id: string;
+	data: Dataset[];
+	kind: InsightDatasetKind;
+}
+	 */
 	public listDatasets(): Promise<InsightDataset[]> {
-		return Promise.reject("Not implemented.");
+		let datasetList: InsightDataset[] = [];
+		if (this.databases.length > 0) {
+			for(let database of this.databases) {
+				let numberOfRows = database.data.length;
+				let insightDataset = {
+					id: database.id,
+					kind: database.kind,
+					numRows: numberOfRows
+				};
+				datasetList.push(insightDataset);
+			}
+		}
+
+		return Promise.resolve(datasetList);
 	}
 }
