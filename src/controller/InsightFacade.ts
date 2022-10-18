@@ -120,13 +120,6 @@ export default class InsightFacade implements IInsightFacade {
 		return Promise.resolve(filteredResult);
 	}
 
-	/*
-	export interface Database {
-	id: string;
-	data: Dataset[];
-	kind: InsightDatasetKind;
-}
-	 */
 	public listDatasets(): Promise<InsightDataset[]> {
 		let datasetList: InsightDataset[] = [];
 		if (this.databases.length > 0) {
