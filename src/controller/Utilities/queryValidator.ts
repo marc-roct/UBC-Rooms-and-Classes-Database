@@ -126,7 +126,14 @@ const logicValidator = (data: any, logic: string): void =>  {
 	if(!Array.isArray(data)) {
 		throw new InsightError("Invalid query string");
 	} else if (data.length === 0) {
-		throw new InsightError(" must be non-empty array");
+		throw new InsightError(logic + " must be non-empty array");
+	} else {
+		data.forEach((item) => {
+			let keys = Object.keys(item);
+			if (keys.length === 0) {
+				throw new InsightError(logic + " should only have 1 key, has 0");
+			}
+		});
 	};
 };
 
@@ -136,7 +143,9 @@ const mComparisonValidator = (data: any, mComparator: string): void => {
 	};
 
 	let key = Object.keys(data);
-	if (key.length > 1) {
+	if (key.length === 0) {
+		throw new InsightError(mComparator + " should only have 1 key, has 0");
+	} else if (key.length > 1) {
 		throw new InsightError(mComparator + " should only have 1 key, has 2");
 	};
 	if(!mFieldValidator(key[0])) {
@@ -152,13 +161,20 @@ const sComparisonValidator = (data: any, sComparator: string): void => {
 	};
 
 	let key = Object.keys(data);
-	if (key.length > 1) {
+	if(key.length === 0) {
+		throw new InsightError(sComparator + "should only have 1 key, has 0");
+	} else if (key.length > 1) {
 		throw new InsightError(sComparator + "should only have 1 key, has 2");
 	};
 	if(!sFieldValidator(key[0])) {
 		throw new InsightError("Invalid key " + key[0] + " in " + sComparator);
 	} else if(typeof data[key[0]] !== "string") {
 		throw new InsightError("Invalid value type " + sComparator + " should be string");
+	};
+	let value = data[key[0]] as string;
+	let reg = new RegExp("^[*]?([^*]*)[*]?$");
+	if(!reg.test(value)) {
+		throw new InsightError("Asterisks (*) can only be the first or last characters of input strings");
 	};
 };
 

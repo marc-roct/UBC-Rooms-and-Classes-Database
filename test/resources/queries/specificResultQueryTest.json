@@ -1,0 +1,44 @@
+{
+	"title": "SpecificResultQueryTest",
+	"input": {
+		"WHERE": {
+			"AND": [
+				{
+					"IS": {
+						"sections_dept": "math"
+					}
+				},
+				{
+					"EQ": {
+						"sections_avg": 46.52
+					}
+				},
+				{
+					"IS": {
+						"sections_id": "180"
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_avg",
+				"sections_id",
+				"sections_instructor",
+				"sections_title"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_dept": "math",
+			"sections_avg": 46.52,
+			"sections_id": "180",
+			"sections_instructor": "",
+			"sections_title": "dif calc phys ap"
+		}
+	]
+}

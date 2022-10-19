@@ -116,6 +116,9 @@ export default class InsightFacade implements IInsightFacade {
 				"Only queries with a maximum of 5000 results are supported.");
 		} else {
 			filteredResult = optionFilter(query["OPTIONS"],result);
+			// console.log("######### PRINTING OUT RESULT:");
+			// console.log(filteredResult);
+			// console.log("######### PRINTING OUT RESULT END");
 		}
 		return Promise.resolve(filteredResult);
 	}
