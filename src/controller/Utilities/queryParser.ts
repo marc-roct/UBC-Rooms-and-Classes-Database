@@ -56,13 +56,17 @@ const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
 
 const getDataset = (databases: Database[], id: string): Dataset[] => {
 	let dataSet: Dataset[] = [];
+	let foundDataset = false;
+	// console.log(databases);
 	databases.forEach((database) => {
 		if (id === database["id"]) {
 			dataSet = database["data"];
-		} else {
-			throw new InsightError("Referenced dataset " + id + " not added yet");
+			foundDataset = true;
 		}
 	});
+	if(foundDataset === false) {
+		throw new InsightError("Referenced dataset " + id + " not added yet");
+	};
 	return dataSet;
 };
 
