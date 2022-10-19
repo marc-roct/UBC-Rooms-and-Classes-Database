@@ -10,6 +10,7 @@ import * as fs from "fs-extra";
 
 import {folderTest} from "@ubccpsc310/folder-test";
 import {assert, expect} from "chai";
+import {clearDisk} from "../TestUtil";
 
 describe("InsightFacade", function () {
 	let insightFacade: InsightFacade;
@@ -117,5 +118,72 @@ describe("InsightFacade", function () {
 				},
 			}
 		);
+	});
+
+	// List of Datasets
+	describe("listDatasets", function (){
+
+		let facade: InsightFacade;
+
+		beforeEach(function (){
+			// must do clearDisk first
+			// it could when data is loaded right at facade is created
+			// thus put clearDisk after creating facade might not work
+			// clearing the disk can isolate the tests
+			clearDisk();
+			facade = new InsightFacade();
+		});
+
+		it("return no datasets", function () {
+			// "return" is required to allow mocha to wait for the promise
+			// otherwise, it executes the next test; recall async await
+			// recall 210; [] and another [] are different objects
+			return facade.listDatasets().then((insightDatasets) => {
+				expect(insightDatasets).to.be.an.instanceof(Array);
+				expect(insightDatasets).to.have.length(0);
+			});
+		});
+
+		it("successfully return a list of datasets", function () {
+			// 1. add a dataset
+			// 2. list dataset
+			return facade.addDataset("courses", datasetContents.get("sections") ?? "",
+				InsightDatasetKind.Sections)
+				.then(() => {
+					return facade.listDatasets();
+				})
+				.then((insightDatasets) => {
+					expect(insightDatasets).to.deep.equal([
+						{
+							id: "courses",
+							kind: InsightDatasetKind.Sections,
+							numRows: 64612,
+						}
+					]);
+				});
+		});
+
+		it("successfully return multiple lists of datasets", function () {
+			return facade.addDataset("courses", datasetContents.get("sections") ?? "",
+				InsightDatasetKind.Sections)
+				.then(() => {
+					return facade.addDataset("courses-2", datasetContents.get("sections") ?? "",
+						InsightDatasetKind.Sections);
+				})
+				.then(() => {
+					return facade.listDatasets();
+				})
+				.then((insightDatasets) => {
+					expect(insightDatasets).to.be.an.instanceof(Array);
+					expect(insightDatasets).to.have.length(2);
+					const insightDatasetCourses = insightDatasets.find((dataset) => dataset.id === "courses");
+					expect(insightDatasetCourses).to.exist;
+					expect(insightDatasetCourses).to.deep.equal({
+						id: "courses",
+						kind: InsightDatasetKind.Sections,
+						numRows: 64612,
+					});
+				});
+		});
 	});
 });
