@@ -1,0 +1,117 @@
+{
+	"title": "ValidQueryAsteriskEndCaseTest",
+	"input": {
+		"WHERE": {
+			"AND": [
+				{
+					"IS": {
+						"sections_dept": "*th"
+					}
+				},
+				{
+					"GT": {
+						"sections_avg": 95
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg",
+				"sections_dept"
+			],
+			"ORDER": "sections_dept"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_avg": 96.33,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 96.83,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 96.83,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 97.09,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 97.09,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 95.56,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 95.56,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 97.48,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 97.48,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 99.78,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 99.78,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 97.25,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 97.25,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 96.25,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 96.25,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 95.67,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 95.67,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 96.44,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 96.44,
+			"sections_dept": "math"
+		},
+		{
+			"sections_avg": 96,
+			"sections_dept": "pcth"
+		},
+		{
+			"sections_avg": 95.37,
+			"sections_dept": "phth"
+		},
+		{
+			"sections_avg": 95.37,
+			"sections_dept": "phth"
+		}
+	]
+}

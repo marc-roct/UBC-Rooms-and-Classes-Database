@@ -1,0 +1,19 @@
+{
+	"title": "QueryInvalidKeyTypeInISErrorTest",
+	"input": {
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg",
+				"sections_dept"
+			],
+			"ORDER": "sections_avg"
+		},
+		"WHERE": {
+			"IS": {
+				"sections_avg": "stuff"
+			}
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

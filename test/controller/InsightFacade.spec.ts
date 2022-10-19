@@ -9,7 +9,7 @@ import InsightFacade from "../../src/controller/InsightFacade";
 import * as fs from "fs-extra";
 
 import {folderTest} from "@ubccpsc310/folder-test";
-import {expect} from "chai";
+import {assert, expect} from "chai";
 import {clearDisk} from "../TestUtil";
 
 describe("InsightFacade", function () {
@@ -103,6 +103,10 @@ describe("InsightFacade", function () {
 			(input) => insightFacade.performQuery(input),
 			"./test/resources/queries",
 			{
+				assertOnResult: (actual, expected) => {
+					expect(actual).to.have.deep.members(expected);
+					assert.equal(actual.length, expected.length);
+				},
 				errorValidator: (error): error is PQErrorKind =>
 					error === "ResultTooLargeError" || error === "InsightError",
 				assertOnError: (actual, expected) => {

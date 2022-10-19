@@ -1,0 +1,19 @@
+{
+	"title": "QueryOrderKeyNotInColumnsErrorTest",
+	"input": {
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg",
+				"sections_dept"
+			],
+			"ORDER": ""
+		},
+		"WHERE": {
+			"GT": {
+				"sections_avg": 97
+			}
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

@@ -82,28 +82,47 @@ const orLogic = (tempCollector: Dataset[]): Dataset[] => {
 
 const andLogic = (tempCollector: Dataset[][]): Dataset[] => {
 	let intersection: Dataset[] = [];
-	for (let index = 1; index < tempCollector.length; index++) {
-		// compare the results produced by Comparator Helpers
-		// if they are the same, then they are intercepted.
-		tempCollector[index - 1].forEach((course) => {
-			if(tempCollector[index].includes(course)) {
+	if(tempCollector.length ===  1) {
+		intersection = tempCollector[0];
+		return intersection;
+	} else {
+		tempCollector[0].forEach((course) => {
+			if(tempCollector[1].includes(course)) {
 				intersection.push(course);
-			};
+			}
 		});
 	}
+	if(tempCollector.length > 2) {
+		for (let index = 2; index < tempCollector.length; index++) {
+			let subset: Dataset[] = [];
+			// compare the results produced by Comparator Helpers
+			// if they are the same, then they are intercepted.
+			intersection.forEach((course) => {
+				if(tempCollector[index].includes(course)) {
+					subset.push(course);
+				};
+			});
+			// update intersection
+			intersection = subset;
+		};
+	};
 	return intersection;
 };
 
 const isLogic = (query: any, dataSet: Dataset[]): Dataset[] => {
 	let subset: Dataset[] = [];
 	let key = Object.keys(query);
-	let field = fieldParser(key[0]);
+	let field: string = fieldParser(key[0]);
 	let value: string = query[key[0]];
-	dataSet.forEach((course) => {
-		if(course[field] === value) {
-			subset.push(course);
-		}
-	});
+	if(value.split("").includes("*")){
+		subset = wildCaseHelper(field, value, dataSet);
+	} else {
+		dataSet.forEach((course) => {
+			if(course[field] === value) {
+				subset.push(course);
+			}
+		});
+	};
 	return subset;
 };
 
@@ -191,6 +210,46 @@ const optionFilter = (query: any, dataSets: Dataset[]): InsightResult[] => {
 		});
 	};
 	return filteredDatasets;
+};
+
+const wildCaseHelper = (field: string, value: string, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	// asteriskFront example: *char
+	let asteriskFront = new RegExp("^[*]([^*]*)$");
+	// asteriskEnd example: char*
+	let asteriskEnd = new RegExp("^([^*]*)[*]$");
+	// asteriskEachSide example: *char*
+	let asteriskEachSide = new RegExp("^[*]?([^*]*)[*]?$");
+	// asteriskOnly example: **
+	let asteriskOnly = new RegExp("^[*][*]$");
+	if(asteriskFront.test(value)) {
+		let keyword = value.split("*")[1];
+		let keywordRegExp = new RegExp(".(" + keyword + ")$");
+		dataSet.forEach((course) => {
+			if(keywordRegExp.test(course[field] as string)) {
+				subset.push(course);
+			}
+		});
+	} else if (asteriskEnd.test(value)) {
+		let keyword = value.split("*")[0];
+		let keywordRegExp = new RegExp("^(" + keyword + ").");
+		dataSet.forEach((course) => {
+			if(keywordRegExp.test(course[field] as string)) {
+				subset.push(course);
+			}
+		});
+	} else if (asteriskEachSide.test(value)) {
+		let keyword = value.split("*")[1];
+		let keywordRegExp = new RegExp("." + keyword + ".");
+		dataSet.forEach((course) => {
+			if(keywordRegExp.test(course[field] as string)) {
+				subset.push(course);
+			}
+		});
+	} else if (asteriskOnly) {
+		return dataSet;
+	}
+	return subset;
 };
 
 export {whereParser, getDataset, optionFilter};
