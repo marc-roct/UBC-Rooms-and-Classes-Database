@@ -98,7 +98,7 @@ export default class InsightFacade implements IInsightFacade {
 		if (isJSON(query)) {
 			inputQuery = query;
 		} else {
-			return Promise.reject("The data type of input query is either null or undefined.");
+			throw new InsightError("The data type of input query is either null or undefined.");
 		};
 		try {
 			// the id will be used in the query parser
