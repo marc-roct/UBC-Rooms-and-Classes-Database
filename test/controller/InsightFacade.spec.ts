@@ -9,7 +9,7 @@ import InsightFacade from "../../src/controller/InsightFacade";
 import * as fs from "fs-extra";
 
 import {folderTest} from "@ubccpsc310/folder-test";
-import {expect} from "chai";
+import {assert, expect} from "chai";
 
 describe("InsightFacade", function () {
 	let insightFacade: InsightFacade;
@@ -72,23 +72,23 @@ describe("InsightFacade", function () {
 	 * You can still make tests the normal way, this is just a convenient tool for a majority of queries.
 	 */
 	describe("PerformQuery", () => {
-		// before(function () {
-		// 	console.info(`Before: ${this.test?.parent?.title}`);
-		//
-		// 	insightFacade = new InsightFacade();
-		//
-		// 	// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
-		// 	// Will *fail* if there is a problem reading ANY dataset.
-		// 	const loadDatasetPromises = [
-		// 		insightFacade.addDataset(
-		// 			"sections",
-		// 			datasetContents.get("sections") ?? "",
-		// 			InsightDatasetKind.Sections
-		// 		),
-		// 	];
-		//
-		// 	return Promise.all(loadDatasetPromises);
-		// });
+		before(function () {
+			console.info(`Before: ${this.test?.parent?.title}`);
+
+			insightFacade = new InsightFacade();
+
+			// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
+			// Will *fail* if there is a problem reading ANY dataset.
+			const loadDatasetPromises = [
+				insightFacade.addDataset(
+					"sections",
+					datasetContents.get("sections") ?? "",
+					InsightDatasetKind.Sections
+				),
+			];
+
+			return Promise.all(loadDatasetPromises);
+		});
 
 		after(function () {
 			console.info(`After: ${this.test?.parent?.title}`);
@@ -102,6 +102,10 @@ describe("InsightFacade", function () {
 			(input) => insightFacade.performQuery(input),
 			"./test/resources/queries",
 			{
+				assertOnResult: (actual, expected) => {
+					expect(actual).to.have.deep.members(expected);
+					assert.equal(actual.length, expected.length);
+				},
 				errorValidator: (error): error is PQErrorKind =>
 					error === "ResultTooLargeError" || error === "InsightError",
 				assertOnError: (actual, expected) => {

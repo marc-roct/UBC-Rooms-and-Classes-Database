@@ -112,13 +112,17 @@ const andLogic = (tempCollector: Dataset[][]): Dataset[] => {
 const isLogic = (query: any, dataSet: Dataset[]): Dataset[] => {
 	let subset: Dataset[] = [];
 	let key = Object.keys(query);
-	let field = fieldParser(key[0]);
+	let field: string = fieldParser(key[0]);
 	let value: string = query[key[0]];
-	dataSet.forEach((course) => {
-		if(course[field] === value) {
-			subset.push(course);
-		}
-	});
+	if(value.split("").includes("*")){
+		subset = wildCaseHelper(field, value, dataSet);
+	} else {
+		dataSet.forEach((course) => {
+			if(course[field] === value) {
+				subset.push(course);
+			}
+		});
+	};
 	return subset;
 };
 
@@ -206,6 +210,46 @@ const optionFilter = (query: any, dataSets: Dataset[]): InsightResult[] => {
 		});
 	};
 	return filteredDatasets;
+};
+
+const wildCaseHelper = (field: string, value: string, dataSet: Dataset[]): Dataset[] => {
+	let subset: Dataset[] = [];
+	// asteriskFront example: *char
+	let asteriskFront = new RegExp("^[*]([^*]*)$");
+	// asteriskEnd example: char*
+	let asteriskEnd = new RegExp("^([^*]*)[*]$");
+	// asteriskEachSide example: *char*
+	let asteriskEachSide = new RegExp("^[*]?([^*]*)[*]?$");
+	// asteriskOnly example: **
+	let asteriskOnly = new RegExp("^[*][*]$");
+	if(asteriskFront.test(value)) {
+		let keyword = value.split("*")[1];
+		let keywordRegExp = new RegExp(".(" + keyword + ")$");
+		dataSet.forEach((course) => {
+			if(keywordRegExp.test(course[field] as string)) {
+				subset.push(course);
+			}
+		});
+	} else if (asteriskEnd.test(value)) {
+		let keyword = value.split("*")[0];
+		let keywordRegExp = new RegExp("^(" + keyword + ").");
+		dataSet.forEach((course) => {
+			if(keywordRegExp.test(course[field] as string)) {
+				subset.push(course);
+			}
+		});
+	} else if (asteriskEachSide.test(value)) {
+		let keyword = value.split("*")[1];
+		let keywordRegExp = new RegExp("." + keyword + ".");
+		dataSet.forEach((course) => {
+			if(keywordRegExp.test(course[field] as string)) {
+				subset.push(course);
+			}
+		});
+	} else if (asteriskOnly) {
+		return dataSet;
+	}
+	return subset;
 };
 
 export {whereParser, getDataset, optionFilter};
