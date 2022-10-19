@@ -125,16 +125,14 @@ export default class InsightFacade implements IInsightFacade {
 
 	public listDatasets(): Promise<InsightDataset[]> {
 		let datasetList: InsightDataset[] = [];
-		if (this.databases.length > 0) {
-			for(let database of this.databases) {
-				let numberOfRows = database.data.length;
-				let insightDataset = {
-					id: database.id,
-					kind: database.kind,
-					numRows: numberOfRows
-				};
-				datasetList.push(insightDataset);
-			}
+		for(let database of this.databases) {
+			let numberOfRows = database.data.length;
+			let insightDataset = {
+				id: database.id,
+				kind: database.kind,
+				numRows: numberOfRows
+			};
+			datasetList.push(insightDataset);
 		}
 
 		return Promise.resolve(datasetList);
