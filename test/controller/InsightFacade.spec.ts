@@ -82,6 +82,11 @@ describe("InsightFacade", function () {
 			// Will *fail* if there is a problem reading ANY dataset.
 			const loadDatasetPromises = [
 				insightFacade.addDataset(
+					"ubc",
+					datasetContents.get("sections") ?? "",
+					InsightDatasetKind.Sections
+				),
+				insightFacade.addDataset(
 					"sections",
 					datasetContents.get("sections") ?? "",
 					InsightDatasetKind.Sections
