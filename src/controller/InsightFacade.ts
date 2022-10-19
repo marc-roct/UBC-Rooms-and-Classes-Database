@@ -89,7 +89,30 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public removeDataset(id: string): Promise<string> {
-		return Promise.reject("Not implemented.");
+		try {
+			idValidator(id);
+		} catch (err) {
+			return Promise.reject(err);
+		}
+
+		let inStorage: boolean = false;
+		let inClass: boolean = false;
+		if (fs.pathExistsSync(persistDir + "/" + id + ".zip")) {
+			fs.removeSync(persistDir + "/" + id + ".zip");
+			inStorage = true;
+		}
+		for (const [index, database] of this.databases.entries()) {
+			if (database.id === id) {
+				inClass = true;
+				this.databases.splice(index, 1);
+				break;
+			}
+		}
+		if (!inClass && !inStorage) {
+			return Promise.reject(new NotFoundError(" was not found in internal model"));
+		}
+
+		return Promise.resolve(id);
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
