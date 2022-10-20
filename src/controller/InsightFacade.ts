@@ -66,7 +66,11 @@ export default class InsightFacade implements IInsightFacade {
 		}
 
 		let zip = new JSZip();
-		await zip.loadAsync(content, {base64: true});
+		try {
+			await zip.loadAsync(content, {base64: true});
+		} catch (err) {
+			return Promise.reject(new InsightError("Invalid zip"));
+		}
 
 		let listCourses: any[];
 		try {
