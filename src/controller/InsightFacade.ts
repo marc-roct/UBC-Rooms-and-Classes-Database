@@ -121,7 +121,7 @@ export default class InsightFacade implements IInsightFacade {
 		if (isJSON(query)) {
 			inputQuery = query;
 		} else {
-			throw new InsightError("The data type of input query is either null or undefined.");
+			return Promise.reject(new InsightError("The data type of input query is either null or undefined."));
 		};
 		try {
 			// the id will be used in the query parser
@@ -132,13 +132,17 @@ export default class InsightFacade implements IInsightFacade {
 		}
 
 		let filteredResult: InsightResult[];
-		let dataset = getDataset(this.databases, currentDatabaseId);
-		let result = whereParser(query["WHERE"], dataset);
-		if(result.length > 5000) {
-			throw new ResultTooLargeError("The result is too big. " +
-				"Only queries with a maximum of 5000 results are supported.");
-		} else {
-			filteredResult = optionFilter(query["OPTIONS"],result);
+		try{
+			let dataset = getDataset(this.databases, currentDatabaseId);
+			let result = whereParser(query["WHERE"], dataset);
+			if(result.length > 5000) {
+				return Promise.reject(new ResultTooLargeError("The result is too big. " +
+					"Only queries with a maximum of 5000 results are supported."));
+			} else {
+				filteredResult = optionFilter(query["OPTIONS"],result);
+			}
+		} catch(err){
+			return Promise.reject(err);
 		}
 		return Promise.resolve(filteredResult);
 	}
