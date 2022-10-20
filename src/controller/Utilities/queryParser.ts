@@ -244,7 +244,7 @@ const wildCaseHelper = (field: string, value: string, dataSet: Dataset[]): Datas
 		});
 	} else if (asteriskEachSide.test(value)) {
 		let keyword = value.split("*")[1];
-		let keywordRegExp = new RegExp("." + keyword + ".");
+		let keywordRegExp = new RegExp(".*" + keyword + ".*");
 		dataSet.forEach((course) => {
 			if(keywordRegExp.test(course[field] as string)) {
 				subset.push(course);
