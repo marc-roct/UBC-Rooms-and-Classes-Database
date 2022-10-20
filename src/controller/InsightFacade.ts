@@ -121,7 +121,7 @@ export default class InsightFacade implements IInsightFacade {
 		if (isJSON(query)) {
 			inputQuery = query;
 		} else {
-			return Promise.reject("The data type of input query is either null or undefined.");
+			throw new InsightError("The data type of input query is either null or undefined.");
 		};
 		try {
 			// the id will be used in the query parser
@@ -139,9 +139,6 @@ export default class InsightFacade implements IInsightFacade {
 				"Only queries with a maximum of 5000 results are supported.");
 		} else {
 			filteredResult = optionFilter(query["OPTIONS"],result);
-			// console.log("######### PRINTING OUT RESULT:");
-			// console.log(filteredResult);
-			// console.log("######### PRINTING OUT RESULT END");
 		}
 		return Promise.resolve(filteredResult);
 	}

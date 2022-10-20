@@ -1,0 +1,46 @@
+{
+	"title": "wildcard double and query Professor Full Name",
+	"input": {
+		"WHERE": {
+			"AND": [
+				{
+					"AND": [
+						{
+							"GT": {
+								"sections_avg": 90
+							}
+						},
+						{
+							"EQ": {
+								"sections_avg": 91.33
+							}
+						}
+					]
+				},
+				{
+					"IS": {
+						"sections_instructor": "bishundayal, deonarine"
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_id",
+				"sections_avg",
+				"sections_instructor"
+			],
+			"ORDER": "sections_instructor"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_dept": "adhe",
+			"sections_id": "330",
+			"sections_avg": 91.33,
+			"sections_instructor": "bishundayal, deonarine"
+		}
+	]
+}
