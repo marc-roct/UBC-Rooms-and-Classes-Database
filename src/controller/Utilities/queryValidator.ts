@@ -209,7 +209,7 @@ const mFieldValidator = (field: string): boolean => {
 const sFieldValidator = (field: string): boolean => {
 	// TODO: add more fields for room query
 	const listOfValidSFields = ["dept",  "id", "instructor",  "title", "uuid",
-		"fullname", "shortname", "number", "name", "address"];
+		"fullname", "shortname", "number", "name", "address", "type", "furniture", "href"];
 	if(field.includes("_")) {
 		let keyValues = field.split("_");
 		// check if there is no underscore and the key is valid
