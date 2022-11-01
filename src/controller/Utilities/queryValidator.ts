@@ -194,7 +194,8 @@ const negationValidator = (data: any, negation: string): void => {
 };
 
 const mFieldValidator = (field: string): boolean => {
-	const listOfValidMFields = ["avg","pass", "fail", "audit", "year"];
+	// TODO: add more fields for room query
+	const listOfValidMFields = ["avg","pass", "fail", "audit", "year", "lat", "lon", "seats"];
 	if(field.includes("_")) {
 		let keyValues = field.split("_");
 		// check if there is no underscore and the key is valid
@@ -206,7 +207,9 @@ const mFieldValidator = (field: string): boolean => {
 };
 
 const sFieldValidator = (field: string): boolean => {
-	const listOfValidSFields = ["dept",  "id", "instructor",  "title", "uuid"];
+	// TODO: add more fields for room query
+	const listOfValidSFields = ["dept",  "id", "instructor",  "title", "uuid",
+		"fullname", "shortname", "number", "name", "address"];
 	if(field.includes("_")) {
 		let keyValues = field.split("_");
 		// check if there is no underscore and the key is valid
