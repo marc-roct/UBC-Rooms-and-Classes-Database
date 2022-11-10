@@ -3,11 +3,27 @@ import {InsightError} from "../IInsightFacade";
 import {Database, Dataset} from "../InsightFacade";
 import * as fs from "fs-extra";
 
-const persistDir = "./data";
 const fileKeys: string[] = ["Subject", "Course", "Avg", "Professor",
 	"Title", "Pass", "Fail", "Audit", "id", "Year"];
 
-const contentValidator =  async function(zip: JSZip): Promise<JSON[]> {
+const parseContentSections = async function(content: string): Promise<Dataset[]> {
+	let zip = new JSZip();
+	try {
+		await zip.loadAsync(content, {base64: true});
+	} catch (err) {
+		return Promise.reject(new InsightError("Invalid zip"));
+	}
+
+	let listCourses: any[];
+	try {
+		listCourses = await contentValidator(zip);
+	} catch (err) {
+		return Promise.reject(err);
+	}
+
+	return Promise.resolve(convertCoursesToDatasets(listCourses));
+};
+async function contentValidator(zip: JSZip): Promise<JSON[]> {
 	// filters zip for files in root 'courses/'
 	let coursesInFolderCourses: JSZipObject[];
 	coursesInFolderCourses = zipFilterValidator(zip);
@@ -78,7 +94,7 @@ function validJSONObjectFilter(listToFilterJSON: any[]) {
 	return filteredJSON;
 }
 
-const convertCoursesToDatasets = function(listCourses: any[]) {
+function convertCoursesToDatasets(listCourses: any[]) {
 	let listDataset: Dataset[] = [];
 	for (const course of listCourses) {
 		let newDataset: Dataset = {
@@ -104,25 +120,4 @@ const convertCoursesToDatasets = function(listCourses: any[]) {
 	return listDataset;
 };
 
-const idValidator = function(id: string) {
-	if (id.includes("_")) {
-		throw new InsightError("Invalid id: id contains underscore");
-	}
-
-	let whitespaceRegex = new RegExp("^ *$");
-	if (whitespaceRegex.test(id)) {
-		throw new InsightError("Invalid id: id contains only whitespace");
-	}
-
-
-};
-
-const storeDatabase = async function (database: Database) {
-	let zip = new JSZip();
-	let content = JSON.stringify(database);
-	zip.file(database.id, content);
-	let zipped: string = await zip.generateAsync({type: "base64"});
-	fs.outputFileSync(persistDir + "/" + database.id + ".zip", zipped, "base64");
-};
-
-export {contentValidator, idValidator, convertCoursesToDatasets, storeDatabase, persistDir};
+export {contentValidator, convertCoursesToDatasets, parseContentSections};
