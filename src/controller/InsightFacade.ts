@@ -10,8 +10,9 @@ import JSZip, {JSZipObject} from "jszip";
 import * as fs from "fs-extra";
 import {contentValidator, convertCoursesToDatasets, idValidator, storeDatabase,
 	persistDir} from "./Utilities/addDatasetHelpers";
-import {isJSON, queryValidator} from "./Utilities/queryValidator";
-import {whereParser, getDataset, optionFilter} from "./Utilities/queryParser";
+import {queryValidator} from "./Utilities/queryHelpers/queryValidator";
+import {whereParser, getDataset, optionFilter} from "./Utilities/queryHelpers/queryParser";
+import {isJSON} from "./Utilities/jsonHelper";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -131,7 +132,6 @@ export default class InsightFacade implements IInsightFacade {
 			// the id will be used in the query parser
 			currentDatabaseId = queryValidator(inputQuery);
 		} catch(err){
-			// console.log(err);
 			return Promise.reject(err);
 		}
 

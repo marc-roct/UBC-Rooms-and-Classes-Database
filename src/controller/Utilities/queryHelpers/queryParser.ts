@@ -1,5 +1,5 @@
-import {Dataset, Database} from "../InsightFacade";
-import {InsightError, InsightResult} from "../IInsightFacade";
+import {Dataset, Database} from "../../InsightFacade";
+import {InsightError, InsightResult} from "../../IInsightFacade";
 
 const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
 	let dataCollector: Dataset[] = [];
