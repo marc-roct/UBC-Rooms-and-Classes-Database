@@ -1,7 +1,7 @@
 // TODO: to test this new function
-import {InsightError} from "../../IInsightFacade";
+import {InsightError} from "../../../IInsightFacade";
 import {mFieldValidator, sFieldValidator} from "./fieldValidator";
-import {isJSON} from "../jsonHelper";
+import {isJSON} from "../../jsonHelper";
 
 const transformationsValidator = (transformations: Record<string, any>, applyKeyInColumns: string[]): void => {
 	let applyKeyObjects = transformations["APPLY"];

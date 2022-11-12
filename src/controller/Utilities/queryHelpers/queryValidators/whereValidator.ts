@@ -1,6 +1,6 @@
-import {InsightError} from "../../IInsightFacade";
+import {InsightError} from "../../../IInsightFacade";
 import {mFieldValidator, sFieldValidator} from "./fieldValidator";
-import {isJSON} from "../jsonHelper";
+import {isJSON} from "../../jsonHelper";
 
 const whereValidator = (whereClause: Record<string, any>): string[] => {
 	let keyFields: string[] = [];

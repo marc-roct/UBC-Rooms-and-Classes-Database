@@ -10,9 +10,11 @@ import JSZip, {JSZipObject} from "jszip";
 import * as fs from "fs-extra";
 import {contentValidator, convertCoursesToDatasets, idValidator, storeDatabase,
 	persistDir} from "./Utilities/addDatasetHelpers";
-import {queryValidator} from "./Utilities/queryHelpers/queryValidator";
-import {whereParser, getDataset, optionFilter} from "./Utilities/queryHelpers/queryParser";
+import {queryValidator} from "./Utilities/queryHelpers/queryValidators/queryValidator";
+import {whereParser, getDataset} from "./Utilities/queryHelpers/queryParser";
+import {optionFilter} from "./Utilities/queryHelpers/transformationHelpers/filterHelpers";
 import {isJSON} from "./Utilities/jsonHelper";
+import {transformationFilter} from "./Utilities/queryHelpers/transformationHelpers/transformationHelper";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -121,6 +123,7 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
+		let transformationTracker = 0;
 		let currentDatabaseId: string;
 		let inputQuery: Record<string, any>;
 		if (isJSON(query)) {
@@ -130,21 +133,28 @@ export default class InsightFacade implements IInsightFacade {
 		};
 		try {
 			// the id will be used in the query parser
-			currentDatabaseId = queryValidator(inputQuery);
+			[currentDatabaseId, transformationTracker] = queryValidator(inputQuery);
 		} catch(err){
 			return Promise.reject(err);
 		}
 
+		// TODO: added transformation filter; to be tested
 		let filteredResult: InsightResult[];
 		try{
 			let dataset = getDataset(this.databases, currentDatabaseId);
 			let result = whereParser(query["WHERE"], dataset);
-			if(result.length > 5000) {
-				return Promise.reject(new ResultTooLargeError("The result is too big. " +
-					"Only queries with a maximum of 5000 results are supported."));
+			// TODO: updated to check if transformation exists
+			if(transformationTracker > 0) {
+				let transformedResult = transformationFilter(query["TRANSFORMATIONS"], result);
+				filteredResult = optionFilter(query["OPTIONS"],transformedResult);
 			} else {
 				filteredResult = optionFilter(query["OPTIONS"],result);
-			}
+			};
+			// console.log(result);
+			if(filteredResult.length > 5000) {
+				return Promise.reject(new ResultTooLargeError("The result is too big. " +
+					"Only queries with a maximum of 5000 results are supported."));
+			};
 		} catch(err){
 			return Promise.reject(err);
 		}

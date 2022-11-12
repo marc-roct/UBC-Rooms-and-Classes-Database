@@ -1,9 +1,9 @@
-import {InsightError} from "../../IInsightFacade";
+import {InsightError} from "../../../IInsightFacade";
 import {optionValidator} from "./optionValidator";
 import {whereValidator} from "./whereValidator";
 import {transformationsValidator, applyRuleValidator} from "./transformationValidator";
 
-const queryValidator = (query: Record<string, any>): string => {
+const queryValidator = (query: Record<string, any>): [string, number] => {
 	let databaseId: string;
 	let whereTracker = 0;
 	let optionTracker = 0;
@@ -43,7 +43,7 @@ const queryValidator = (query: Record<string, any>): string => {
 		keyFields = keyFields.concat(applyRuleValidator(query["TRANSFORMATIONS"]["APPLY"]));
 	}
 	databaseId = checkDatasetReference(keyFields);
-	return databaseId;
+	return [databaseId, transformationsTracker];
 };
 
 

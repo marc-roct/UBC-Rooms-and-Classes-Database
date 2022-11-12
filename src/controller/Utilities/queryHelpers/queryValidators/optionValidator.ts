@@ -1,4 +1,4 @@
-import {InsightError} from "../../IInsightFacade";
+import {InsightError} from "../../../IInsightFacade";
 import {mFieldValidator, sFieldValidator} from "./fieldValidator";
 
 const optionValidator = (optionClause: Record<string, any>, transformationsTracker: number): string[] => {
