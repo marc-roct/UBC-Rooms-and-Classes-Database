@@ -48,7 +48,7 @@ const orderValidator = (orderClause: any, columns: string[]) => {
 		let orderKeys = Object.keys(orderClause);
 		orderKeys.forEach((key) => {
 			if(!validOrderKeys.includes(key)) {
-				throw new InsightError("Invalid key " + key + " in ORDER");
+				throw new InsightError("Invalid key " + key + " in ORDER; missing 'dir' or 'keys'");
 			}
 		});
 		let validDirection = ["UP", "DOWN"];

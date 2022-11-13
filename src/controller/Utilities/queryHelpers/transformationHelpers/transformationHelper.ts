@@ -31,16 +31,12 @@ const groupFilter = (groupKeys: string[], dataSets: Dataset[]): Group[] => {
 		let key = keyBeforeFormatted.split("_")[1];
 		keys.push(key);
 	});
-	// console.log(keys);
 	dataSets.forEach((dataSet) => {
-		// combine key values as an ID
 		let groupId: string = "";
 		keys.forEach((key)=> {
 			groupId = groupId.concat(dataSet[key].toString());
 		});
 		groupId = groupId.replace(/ /g,"_");
-		// console.log("%%%%%%%%%%%%%%%%%");
-		// console.log(groupId);
 		if(groupIds.has(groupId)) {
 			groups.forEach((group) => {
 				if(group.id === groupId) {
@@ -64,8 +60,6 @@ const applyFilter = (applyRules: object[], groups: Group[]): InsightResult[] => 
 	groups.forEach((group) => {
 		calculatedResults.push(applyRulesToGroup(applyRules, group));
 	});
-	// console.log("%%%%%%%%%%%%%%%%%");
-	// console.log(calculatedResults);
 	return calculatedResults;
 };
 
@@ -81,13 +75,7 @@ const applyRulesToGroup = (applyRules: object[], group: Group): InsightResult =>
 		const ruleBody = Object.entries(ruleObject);
 		let fieldName = ruleBody[0][0];
 		let value = ruleBody[0][1];
-		// console.log("%%%%%%%%%%%%%%%%%");
-		// console.log(ruleObject);
-		// console.log(ruleBody);
-		// console.log(fieldName);
-		// console.log(value);
 		const applyRule = Object.entries(value);
-		// console.log(applyRule);
 		let token = applyRule[0][0];
 		let key = applyRule[0][1] as string;
 		let formattedFieldName = fieldName.toString();
@@ -117,13 +105,10 @@ const applyRulesToGroup = (applyRules: object[], group: Group): InsightResult =>
 				return calculatedResult;
 		}
 		calculatedResult[formattedFieldName] = result;
-		console.log("^^^^^^^^^^^^^^^");
-		console.log(calculatedResult);
 	});
 	return calculatedResult;
 };
 
-// TODO: do more testing to see the casting is correct
 const maxCalculator = (group: Group, key: string): number => {
 	let maxValue = 0;
 	group.members.forEach((dataset) => {
@@ -136,7 +121,7 @@ const maxCalculator = (group: Group, key: string): number => {
 };
 
 const minCalculator = (group: Group, key: string): number => {
-	let minValue = 0;
+	let minValue = Number.MAX_VALUE;
 	group.members.forEach((dataset) => {
 		let valueToCheck: number = dataset[key] as number;
 		if(valueToCheck < minValue) {
@@ -146,7 +131,6 @@ const minCalculator = (group: Group, key: string): number => {
 	return minValue;
 };
 
-// TODO: fix the bug that the valueToCheck is not converted correctly.
 const avgCalculator = (group: Group, key: string): number => {
 	let total: Decimal = new Decimal(0);
 	let numRows = 0;
@@ -156,14 +140,8 @@ const avgCalculator = (group: Group, key: string): number => {
 		total = Decimal.add(total,valueToCheck);
 		numRows++;
 	});
-	// console.log("****************");
-	// console.log(key);
-	// console.log(total);
-	// console.log(numRows);
 	let avg = total.toNumber() / numRows;
 	let result = Number(avg.toFixed(2));
-	// console.log(avg);
-	// console.log(result);
 	return result;
 };
 
@@ -171,13 +149,12 @@ const sumCalculator = (group: Group, key: string): number => {
 	let sum: Decimal = new Decimal(0);
 	group.members.forEach((dataset) => {
 		let valueToCheck = new Decimal(dataset[key] as number);
-		sum.add(valueToCheck);
+		sum = Decimal.add(sum, valueToCheck);
 	});
 	let result = Number(sum.toFixed(2));
 	return result;
 };
 
-// TODO: double check how the count work
 const countCalculator = (group: Group, key: string): number => {
 	let set = new Set();
 	group.members.forEach((dataset) => {

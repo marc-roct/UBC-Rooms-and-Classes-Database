@@ -1,5 +1,6 @@
 import {Dataset} from "../../../InsightFacade";
-import {InsightResult} from "../../../IInsightFacade";
+import {InsightError, InsightResult} from "../../../IInsightFacade";
+import {isJSON} from "../../jsonHelper";
 
 const optionFilter = (query: any, dataSets: Dataset[] | InsightResult[]): InsightResult[] => {
 	let keys = Object.keys(query);
@@ -12,13 +13,10 @@ const optionFilter = (query: any, dataSets: Dataset[] | InsightResult[]): Insigh
 		let filteredDataset: InsightResult = {};
 
 		for (let key of columnKeys) {
-			// console.log("###############");
-			// console.log(key);
 			let keyValue = key;
 			if(keyValue.includes("_")){
 				keyValue = key.split("_")[1];
 			}
-			// console.log(dataset[keyValues[1] as ObjectKey]);
 			filteredDataset[key] = dataset[keyValue as ObjectKey];
 		}
 
@@ -28,24 +26,65 @@ const optionFilter = (query: any, dataSets: Dataset[] | InsightResult[]): Insigh
 	// TODO: move the code below to orderFilter
 	if (keys.length === 2) {
 		let keyToSort = query["ORDER"];
-		return filteredDatasets.sort((dataset1, dataset2) => {
-			if (dataset1[keyToSort] > dataset2[keyToSort]) {
-				return 1;
-			}
-
-			if (dataset1[keyToSort] < dataset2[keyToSort]) {
-				return -1;
-			}
-
-			return 0;
-		});
+		if(typeof keyToSort === "string") {
+			filteredDatasets = sortSingleKey(keyToSort, filteredDatasets);
+		} else if (typeof keyToSort === "object"){
+			filteredDatasets = sortMultipleKeys(keyToSort, filteredDatasets);
+		};
 	};
 	return filteredDatasets;
 };
 
-// TODO: build a new function for ORDER; ORDER is the last logic to process in a query
-const orderFilter = (query: any, insightResults: InsightResult[]): InsightResult[] => {
-	return [];
+const sortSingleKey = (keyToSort: string, filteredDatasets: InsightResult[]): InsightResult[] => {
+	return filteredDatasets.sort((dataset1, dataset2) => {
+		if (dataset1[keyToSort] > dataset2[keyToSort]) {
+			return 1;
+		}
+
+		if (dataset1[keyToSort] < dataset2[keyToSort]) {
+			return -1;
+		}
+
+		return 0;
+	});
+};
+
+const sortMultipleKeys = (keyToSort: object, filteredDatasets: InsightResult[]): InsightResult[] => {
+	let result: InsightResult[] = [];
+	if(!isJSON(keyToSort)) {
+		throw new InsightError("Invalid ORDER type");
+	}
+	let direction = keyToSort["dir"];
+	let keys = keyToSort["keys"] as string[];
+	if(direction === "UP") {
+		result = filteredDatasets.sort((dataset1, dataset2) => {
+			keys.forEach((key) => {
+				if (dataset1[key] > dataset2[key]) {
+					return 1;
+				}
+
+				if (dataset1[key] < dataset2[key]) {
+					return -1;
+				}
+			});
+			return 0;
+		});
+	} else {
+		result = filteredDatasets.sort((dataset1, dataset2) => {
+			keys.forEach((key) => {
+				if (dataset1[key] > dataset2[key]) {
+					return -1;
+				}
+
+				if (dataset1[key] < dataset2[key]) {
+					return 1;
+				}
+			});
+			return 0;
+		});
+	}
+
+	return result;
 };
 
 export {optionFilter};

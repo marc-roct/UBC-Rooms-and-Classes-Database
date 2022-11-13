@@ -10,8 +10,6 @@ const transformationsValidator = (transformations: Record<string, any>, applyKey
 		let key = Object.keys(keyObject);
 		applyKeys.push(key[0]);
 	});
-	// console.log("************ PRINTING OUT APPLY KEYS");
-	// console.log(applyKeys);
 	applyKeys.forEach((key)=> {
 		if(!applyKeyInColumns.includes(key)) {
 			throw new InsightError("Invalid key " + key + " in APPLY");
@@ -35,14 +33,12 @@ const applyRuleValidator = (applyRules: object[]): string[] => {
 	applyRules.forEach((rule) => {
 		rules.push(Object.values(rule)[0]);
 	});
-	// console.log(rules);
 	for (const rule of rules) {
 		if (!isJSON(rule)) {
 			throw new InsightError("APPLY RULE must be object");
 		};
 		let token = Object.keys(rule)[0];
 		let key: string = rule[token] as string;
-		// console.log(token);
 		if(ruleTokens.includes(token)) {
 			mFieldValidator(key);
 		} else if (token === "COUNT") {
@@ -51,8 +47,6 @@ const applyRuleValidator = (applyRules: object[]): string[] => {
 		}
 		applyFields.push(key);
 	}
-	// console.log("%%%%%%%%%%%%%%%%");
-	// console.log(applyFields);
 	return applyFields;
 };
 
