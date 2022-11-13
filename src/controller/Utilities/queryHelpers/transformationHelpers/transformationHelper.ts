@@ -11,19 +11,10 @@ interface Group {
 const transformationFilter = (query: any, dataSets: Dataset[]): InsightResult[] => {
 	let dataSetGroups = groupFilter(query["GROUP"],dataSets);
 	let filteredResult = applyFilter(query["APPLY"], dataSetGroups);
-	// console.log("$$$$$$$$$$$$$$$$$$$");
-	// console.log(dataSetGroups);
 	return filteredResult;
 };
 
-/*
-GROUP: [term1, term2, ...] signifies that a group should be created for every unique set of all N-terms.
-For example, GROUP: [sections_dept, sections_id] would create a group
-for every unique (department, id) pair in the "sections" dataset.
- */
-// TODO: the Dataset type may be changed to InsightResult
 const groupFilter = (groupKeys: string[], dataSets: Dataset[]): Group[] => {
-	// TODO: contact the keys as the id of a group
 	let groups: Group[] = [];
 	const groupIds = new Set();
 	let keys: string[] = [];
