@@ -175,6 +175,10 @@ function findSeats(tdList: Element[]): number {
 		for (let attribute of td.attrs) {
 			if (attribute.value === "views-field views-field-field-room-capacity") {
 				let seatsElement: any = queryNode(td, "#text")[0];
+				let notDigitRegex: RegExp = new RegExp("\\D");
+				if (notDigitRegex.test(seatsElement.value.trim())) {
+					return 0;
+				}
 				return Number(seatsElement.value.trim());
 			}
 		}

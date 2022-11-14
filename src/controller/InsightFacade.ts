@@ -91,7 +91,6 @@ export default class InsightFacade implements IInsightFacade {
 		}
 		newDatabase = {id: id, data: datasets, kind: kind};
 		this.databases.push(newDatabase);
-
 		let idList: string[] = [];
 		for (const database of this.databases) {
 			idList.push(database.id);
