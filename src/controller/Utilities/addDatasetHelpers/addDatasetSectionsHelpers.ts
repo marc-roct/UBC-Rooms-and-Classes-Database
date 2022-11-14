@@ -1,12 +1,12 @@
 import JSZip, {JSZipObject} from "jszip";
 import {InsightError} from "../../IInsightFacade";
-import {Database, Dataset} from "../../InsightFacade";
+import {Database, Dataset, DatasetSections} from "../../InsightFacade";
 import * as fs from "fs-extra";
 
 const fileKeys: string[] = ["Subject", "Course", "Avg", "Professor",
 	"Title", "Pass", "Fail", "Audit", "id", "Year"];
 
-const parseContentSections = async function(content: string): Promise<Dataset[]> {
+const parseContentSections = async function(content: string): Promise<DatasetSections[]> {
 	let zip = new JSZip();
 	try {
 		await zip.loadAsync(content, {base64: true});
@@ -98,9 +98,9 @@ function validJSONObjectFilter(listToFilterJSON: any[]) {
 }
 
 function convertCoursesToDatasets(listCourses: any[]) {
-	let listDataset: Dataset[] = [];
+	let listDataset: DatasetSections[] = [];
 	for (const course of listCourses) {
-		let newDataset: Dataset = {
+		let newDataset: DatasetSections = {
 			dept : course.Subject,
 			id : course.Course,
 			avg : course.Avg,

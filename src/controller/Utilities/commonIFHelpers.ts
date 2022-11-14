@@ -18,7 +18,6 @@ const idValidator = function(id: string) {
 };
 
 const storeDatabase = async function (database: Database) {
-	console.log("in store");
 	let zip = new JSZip();
 	let content = JSON.stringify(database);
 	zip.file(database.id, content);

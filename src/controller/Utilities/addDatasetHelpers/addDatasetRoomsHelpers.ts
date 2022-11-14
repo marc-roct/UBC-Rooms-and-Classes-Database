@@ -43,6 +43,9 @@ const parseContentRooms = async function(content: string): Promise<Dataset[]> {
 async function contentValidator(zip: JSZip) {
 	let index: Document = await zipRoomsValidator(zip, "index.htm");
 	let listIndexBuildings: IndexBuildingData[] = parseIndex(index);
+	if (listIndexBuildings.length === 0) {
+		throw new InsightError("No valid buildings in index.htm");
+	}
 
 	let listGeoLocPromises: Array<Promise<IndexBuildingData>> = [];
 	for (let buildingData of listIndexBuildings) {
@@ -54,7 +57,7 @@ async function contentValidator(zip: JSZip) {
 	// filter those errored results
 	listIndexBuildings.filter((building) => building.lat !== 0);
 	if (listIndexBuildings.length === 0) {
-		throw new InsightError("No valid buildings in index.htm");
+		throw new InsightError("No valid building addresses in index.htm");
 	}
 
 	let listPromises: Array<Promise<DatasetRooms[]>> = [];
@@ -66,6 +69,9 @@ async function contentValidator(zip: JSZip) {
 	let datasetRooms: DatasetRooms[] = [];
 	for (let roomsList of roomsListList) {
 		datasetRooms = datasetRooms.concat(roomsList);
+	}
+	if (!datasetRooms.length) {
+		throw new InsightError("No valid rooms");
 	}
 	return Promise.resolve(datasetRooms);
 }
