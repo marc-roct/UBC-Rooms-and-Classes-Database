@@ -1,5 +1,5 @@
 {
-	"title": "multiple sort",
+	"title": "Sort Data DOWN (non-rooms)",
 	"input": {
 		"WHERE": {
 			"GT": {
