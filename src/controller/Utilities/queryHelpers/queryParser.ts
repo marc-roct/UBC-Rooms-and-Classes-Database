@@ -1,5 +1,5 @@
-import {Dataset, Database} from "../InsightFacade";
-import {InsightError, InsightResult} from "../IInsightFacade";
+import {Dataset, Database} from "../../InsightFacade";
+import {InsightError, InsightResult} from "../../IInsightFacade";
 
 const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
 	let dataCollector: Dataset[] = [];
@@ -180,42 +180,6 @@ const notLogic = (dataSet: Dataset[], tempCollector: Dataset[]): Dataset[] => {
 	return result;
 };
 
-const optionFilter = (query: any, dataSets: Dataset[]): InsightResult[] => {
-	let keys = Object.keys(query);
-	let columnKeys: string[] = query["COLUMNS"];
-
-	let filteredDatasets: InsightResult[] = [];
-
-	for (let dataset of dataSets as Dataset[]) {
-		type ObjectKey = keyof typeof dataset;
-		let filteredDataset: InsightResult = {};
-
-		for (let key of columnKeys) {
-			let keyValues = key.split("_");
-			// console.log(dataset[keyValues[1] as ObjectKey]);
-			filteredDataset[key] = dataset[keyValues[1] as ObjectKey];
-		}
-
-		filteredDatasets.push(filteredDataset);
-	}
-
-	if (keys.length === 2) {
-		let keyToSort = query["ORDER"];
-		return filteredDatasets.sort((dataset1, dataset2) => {
-			if (dataset1[keyToSort] > dataset2[keyToSort]) {
-				return 1;
-			}
-
-			if (dataset1[keyToSort] < dataset2[keyToSort]) {
-				return -1;
-			}
-
-			return 0;
-		});
-	};
-	return filteredDatasets;
-};
-
 const wildCaseHelper = (field: string, value: string, dataSet: Dataset[]): Dataset[] => {
 	let subset: Dataset[] = [];
 	// asteriskFront example: *char
@@ -256,4 +220,4 @@ const wildCaseHelper = (field: string, value: string, dataSet: Dataset[]): Datas
 	return subset;
 };
 
-export {whereParser, getDataset, optionFilter};
+export {whereParser, getDataset};
