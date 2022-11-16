@@ -1,0 +1,18 @@
+{
+	"title": "InvalidDatasetKeyTest",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"sections_avg": 97
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_fake"
+			],
+			"ORDER": "sections_fake"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

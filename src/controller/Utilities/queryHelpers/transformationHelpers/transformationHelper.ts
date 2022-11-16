@@ -65,8 +65,8 @@ const applyRulesToGroup = (applyRules: object[], group: Group): InsightResult =>
 		let result: number = 0;
 		const ruleBody = Object.entries(ruleObject);
 		let fieldName = ruleBody[0][0];
-		let value = ruleBody[0][1];
-		const applyRule = Object.entries(value);
+		let tokenObject = ruleBody[0][1];
+		const applyRule = Object.entries(tokenObject);
 		let token = applyRule[0][0];
 		let key = applyRule[0][1] as string;
 		let formattedFieldName = fieldName.toString();

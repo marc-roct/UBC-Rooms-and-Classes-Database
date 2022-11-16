@@ -44,6 +44,8 @@ const applyRuleValidator = (applyRules: object[]): string[] => {
 		} else if (token === "COUNT") {
 			mFieldValidator(key);
 			sFieldValidator(key);
+		} else {
+			throw new InsightError("Invalid transformation operator");
 		}
 		applyFields.push(key);
 	}
