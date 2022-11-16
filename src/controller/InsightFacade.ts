@@ -4,14 +4,15 @@ import {
 	InsightDatasetKind,
 	InsightError,
 	InsightResult,
-	NotFoundError, ResultTooLargeError
+	NotFoundError,
+	ResultTooLargeError
 } from "./IInsightFacade";
-import JSZip, {JSZipObject} from "jszip";
 import * as fs from "fs-extra";
-import {contentValidator, convertCoursesToDatasets, idValidator, storeDatabase,
-	persistDir} from "./Utilities/addDatasetHelpers";
+import {parseContentSections} from "./Utilities/addDatasetHelpers/addDatasetSectionsHelpers";
+import {parseContentRooms} from "./Utilities/addDatasetHelpers/addDatasetRoomsHelpers";
+import {idValidator, persistDir, storeDatabase} from "./Utilities/commonIFHelpers";
 import {isJSON, queryValidator} from "./Utilities/queryValidator";
-import {whereParser, getDataset, optionFilter} from "./Utilities/queryParser";
+import {getDataset, optionFilter, whereParser} from "./Utilities/queryParser";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -21,6 +22,9 @@ import {whereParser, getDataset, optionFilter} from "./Utilities/queryParser";
 
 export interface Dataset {
 	[key: string]: string | number;
+}
+
+export interface DatasetSections extends Dataset{
 	dept: string;
 	id: string;
 	avg: number;
@@ -31,7 +35,20 @@ export interface Dataset {
 	audit: number;
 	uuid: string;
 	year: number;
+}
 
+export interface DatasetRooms extends Dataset{
+	fullname: string;
+	shortname: string;
+	number: string;
+	name: string;
+	address: string;
+	lat: number;
+	lon: number;
+	seats: number;
+	type: string;
+	furniture: string;
+	href: string;
 }
 
 export interface Database {
@@ -65,24 +82,15 @@ export default class InsightFacade implements IInsightFacade {
 			}
 		}
 
-		let zip = new JSZip();
-		try {
-			await zip.loadAsync(content, {base64: true});
-		} catch (err) {
-			return Promise.reject(new InsightError("Invalid zip"));
+		let newDatabase: Database;
+		let datasets: Dataset[];
+		if (kind === InsightDatasetKind.Sections) {
+			datasets = await parseContentSections(content);
+		} else {
+			datasets = await parseContentRooms(content);
 		}
-
-		let listCourses: any[];
-		try {
-			listCourses = await contentValidator(zip);
-		} catch (err) {
-			return Promise.reject(err);
-		}
-
-		let datasets: Dataset[] = convertCoursesToDatasets(listCourses);
-		let newDatabase: Database = {id: id, data: datasets, kind: kind};
+		newDatabase = {id: id, data: datasets, kind: kind};
 		this.databases.push(newDatabase);
-
 		let idList: string[] = [];
 		for (const database of this.databases) {
 			idList.push(database.id);
@@ -126,7 +134,7 @@ export default class InsightFacade implements IInsightFacade {
 			inputQuery = query;
 		} else {
 			return Promise.reject(new InsightError("The data type of input query is either null or undefined."));
-		};
+		}
 		try {
 			// the id will be used in the query parser
 			currentDatabaseId = queryValidator(inputQuery);
