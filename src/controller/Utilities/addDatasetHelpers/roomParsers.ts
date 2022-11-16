@@ -26,7 +26,7 @@ async function constructDatasetRooms(zip: JSZip, building: IndexBuildingData): P
 			fullname: building.fullname,
 			shortname: building.shortname,
 			number: roomsData.number,
-			name: building.shortname + roomsData.number,
+			name: building.shortname + "_" + roomsData.number,
 			address: building.address,
 			lat: building.lat,
 			lon: building.lon,
