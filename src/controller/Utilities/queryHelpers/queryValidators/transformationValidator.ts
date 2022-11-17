@@ -14,15 +14,20 @@ const transformationsValidator = (transformations: Record<string, any>, applyKey
 			throw new InsightError("Invalid key " + key + " in COLUMNS");
 		}
 	});
-	let groupKeys: string[] = transformations["GROUP"];
+	let groupKeys = transformations["GROUP"];
+	if(isJSON(groupKeys)) {
+		throw new InsightError("GROUP must be a non-empty array");
+	} else {
+		groupKeys = groupKeys as string[];
+	}
 	if(groupKeys.length === 0) {
 		throw new InsightError("GROUP must be a non-empty array");
 	}
-	groupKeys.forEach((key)=> {
+	for (const key of groupKeys) {
 		if(!mFieldValidator(key) && !sFieldValidator(key)) {
 			throw new InsightError("Invalid key " + key + " in COLUMNS");
 		}
-	});
+	};
 	let allTransformationKeys = groupKeys.concat(applyKeys);
 	// keys in columns should be the subset of keys in transformations
 	applyKeyInColumns.forEach((key)=> {

@@ -1,0 +1,27 @@
+{
+	"title": "empty object in apply array",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"sections_avg": 95
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_instructor",
+				"overallAvg"
+			]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"sections_instructor",
+				"sections_title"
+			],
+			"APPLY": [
+				{}
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
