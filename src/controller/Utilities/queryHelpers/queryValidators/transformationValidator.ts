@@ -38,7 +38,7 @@ const transformationsValidator = (transformations: Record<string, any>, applyKey
 };
 
 const applyRuleValidator = (applyRules: object[]): string[] => {
-	const ruleTokens = ["MAX", "MIN", "AVG", "SUM", "COUNT"];
+	const ruleTokens = ["MAX", "MIN", "AVG", "SUM"];
 	let rules: object[] = [];
 	let applyFields: string[] = [];
 	applyRules.forEach((rule) => {
@@ -61,7 +61,8 @@ const applyRuleValidator = (applyRules: object[]): string[] => {
 			if(!mFieldValidator(key)) {
 				throw new InsightError("Invalid key type in " + token);
 			};
-			if((token === "COUNT") && !sFieldValidator(key)) {
+		} else if (token === "COUNT") {
+			if(!mFieldValidator(key) && !sFieldValidator(key)) {
 				throw new InsightError("Invalid apply rule target key");
 			}
 		} else {
