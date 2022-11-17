@@ -59,6 +59,8 @@ const sortMultipleKeys = (keyToSort: object, filteredDatasets: InsightResult[]):
 	if(direction === "UP") {
 		result = filteredDatasets.sort((dataset1, dataset2) => {
 			keys.forEach((key) => {
+				// console.log(dataset1);
+				// console.log(dataset2);
 				if (dataset1[key] > dataset2[key]) {
 					return 1;
 				}
