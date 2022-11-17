@@ -1,17 +1,22 @@
 {
-	"title": "KeysInColumnsMustBeInGroupErrorTest",
+	"title": "invalid field in group",
 	"input": {
-		"WHERE": {},
+		"WHERE": {
+			"GT": {
+				"sections_avg": 95
+			}
+		},
 		"OPTIONS": {
 			"COLUMNS": [
-				"sections_title",
 				"sections_instructor",
 				"overallAvg"
 			]
 		},
 		"TRANSFORMATIONS": {
 			"GROUP": [
-				"sections_instructor"
+				"sections_instructor",
+				"sections_title",
+				"hello"
 			],
 			"APPLY": [
 				{

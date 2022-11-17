@@ -1,5 +1,7 @@
 const mFieldValidator = (field: string): boolean => {
 	const listOfValidMFields = ["avg","pass", "fail", "audit", "year", "lat", "lon", "seats"];
+	console.log("checking the input field:");
+	console.log(field);
 	if(field.includes("_")) {
 		let keyValues = field.split("_");
 		// check if there is no underscore and the key is valid
