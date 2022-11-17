@@ -2,7 +2,7 @@ import {InsightError} from "../../../IInsightFacade";
 import {mFieldValidator, sFieldValidator} from "./fieldValidator";
 import {isJSON} from "../../jsonHelper";
 
-const transformationsValidator = (transformations: Record<string, any>, applyKeyInColumns: string[]): void => {
+const transformationsValidator = (transformations: Record<string, any>, applyKeyInColumns: string[]): string[] => {
 	let applyKeyObjects = transformations["APPLY"];
 	let applyKeys: string [] = [];
 	applyKeyObjects.forEach((keyObject: object) => {
@@ -35,6 +35,7 @@ const transformationsValidator = (transformations: Record<string, any>, applyKey
 			throw new InsightError("Keys in COLUMNS must be in GROUP or APPLY when TRANSFORMATIONS is present");
 		}
 	});
+	return applyKeys.concat(groupKeys);
 };
 
 const applyRuleValidator = (applyRules: object[]): string[] => {
