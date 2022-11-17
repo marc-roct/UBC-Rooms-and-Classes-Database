@@ -1,5 +1,6 @@
 import {InsightError} from "../../../IInsightFacade";
 import {mFieldValidator, sFieldValidator} from "./fieldValidator";
+import {isJSON} from "../../jsonHelper";
 
 const optionValidator = (optionClause: Record<string, any>, transformationsTracker: number): string[] => {
 	let keyFields: string[] = [];
@@ -62,6 +63,8 @@ const orderValidator = (orderClause: any, columns: string[]) => {
 		let keyValues = orderClause["keys"];
 		if(keyValues.length === 0) {
 			throw new InsightError("keys in ORDER cannot be empty");
+		} else if (isJSON(keyValues)) {
+			throw new InsightError("ORDER keys must be a non-empty array");
 		} else {
 			for (const value of keyValues) {
 				if(!columns.includes(value)) {
