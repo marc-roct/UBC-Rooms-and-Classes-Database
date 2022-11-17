@@ -1,9 +1,9 @@
-import {InsightError} from "../../../IInsightFacade";
+import {InsightDatasetKind, InsightError} from "../../../IInsightFacade";
 import {optionValidator} from "./optionValidator";
 import {whereValidator} from "./whereValidator";
-import {transformationsValidator, applyRuleValidator} from "./transformationValidator";
+import {applyRuleValidator, transformationsValidator} from "./transformationValidator";
 
-const queryValidator = (query: Record<string, any>): [string, number] => {
+const queryValidator = (query: Record<string, any>): [string, number, string[]] => {
 	let databaseId: string;
 	let whereTracker = 0;
 	let optionTracker = 0;
@@ -39,11 +39,11 @@ const queryValidator = (query: Record<string, any>): [string, number] => {
 	keyFields = keyFields.concat(whereValidator(query["WHERE"]));
 	keyFields = keyFields.concat(columns);
 	if(transformationsTracker !== 0) {
-		transformationsValidator(query["TRANSFORMATIONS"], columns);
+		keyFields = keyFields.concat(transformationsValidator(query["TRANSFORMATIONS"], columns));
 		keyFields = keyFields.concat(applyRuleValidator(query["TRANSFORMATIONS"]["APPLY"]));
 	}
 	databaseId = checkDatasetReference(keyFields);
-	return [databaseId, transformationsTracker];
+	return [databaseId, transformationsTracker, keyFields];
 };
 
 
@@ -64,5 +64,27 @@ const checkDatasetReference = (keyFields: string[]): string => {
 	return id;
 };
 
+const checkFieldsAgainstDatasetKind = (fields: string[], datasetKind: InsightDatasetKind): void => {
+	const validSectionFields = ["avg","pass", "fail", "audit", "year", "dept",  "id", "instructor",  "title", "uuid"];
+	const validRoomFields = ["lat", "lon", "seats", "fullname", "shortname", "number", "name", "address", "type",
+		"furniture", "href"];
+	fields.forEach((field) => {
+		if(field.includes("_")) {
+			let keyValues = field.split("_");
+			if(datasetKind === InsightDatasetKind.Sections) {
+				if(!validSectionFields.includes(keyValues[1])) {
+					throw new InsightError("Invalid key in the query for section datasets");
+				};
+			} else if (datasetKind === InsightDatasetKind.Rooms) {
+				if(!validRoomFields.includes(keyValues[1])) {
+					throw new InsightError("Invalid key in the query for room datasets");
+				};
+			} else {
+				throw new InsightError("Invalid key in the query for the given dataset kind");
+			};
+		};
+	});
+};
 
-export {queryValidator};
+
+export {queryValidator, checkFieldsAgainstDatasetKind};

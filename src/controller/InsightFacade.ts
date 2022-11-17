@@ -8,8 +8,8 @@ import {
 	ResultTooLargeError
 } from "./IInsightFacade";
 import * as fs from "fs-extra";
-import {queryValidator} from "./Utilities/queryHelpers/queryValidators/queryValidator";
-import {whereParser, getDataset} from "./Utilities/queryHelpers/queryParser";
+import {checkFieldsAgainstDatasetKind, queryValidator} from "./Utilities/queryHelpers/queryValidators/queryValidator";
+import {whereParser, getDatabase} from "./Utilities/queryHelpers/queryParser";
 import {optionFilter} from "./Utilities/queryHelpers/transformationHelpers/filterHelpers";
 import {isJSON} from "./Utilities/jsonHelper";
 import {transformationFilter} from "./Utilities/queryHelpers/transformationHelpers/transformationHelper";
@@ -134,6 +134,7 @@ export default class InsightFacade implements IInsightFacade {
 		let transformationTracker = 0;
 		let currentDatabaseId: string;
 		let inputQuery: Record<string, any>;
+		let allFieldsInQuery: string[];
 		if (isJSON(query)) {
 			inputQuery = query;
 		} else {
@@ -141,7 +142,7 @@ export default class InsightFacade implements IInsightFacade {
 		}
 		try {
 			// the id will be used in the query parser
-			[currentDatabaseId, transformationTracker] = queryValidator(inputQuery);
+			[currentDatabaseId, transformationTracker, allFieldsInQuery] = queryValidator(inputQuery);
 		} catch(err){
 			return Promise.reject(err);
 		}
@@ -149,8 +150,9 @@ export default class InsightFacade implements IInsightFacade {
 		// TODO: added transformation filter; to be tested
 		let filteredResult: InsightResult[];
 		try{
-			let dataset = getDataset(this.databases, currentDatabaseId);
-			let result = whereParser(query["WHERE"], dataset);
+			let database = getDatabase(this.databases, currentDatabaseId);
+			checkFieldsAgainstDatasetKind(allFieldsInQuery, database["kind"]);
+			let result = whereParser(query["WHERE"], database["data"]);
 			// TODO: updated to check if transformation exists
 			if(transformationTracker > 0) {
 				let transformedResult = transformationFilter(query["TRANSFORMATIONS"], result);
