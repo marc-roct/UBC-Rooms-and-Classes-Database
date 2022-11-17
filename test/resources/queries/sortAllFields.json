@@ -1,0 +1,91 @@
+{
+	"title": "sort all fields",
+	"input": {
+		"WHERE": {
+			"AND": [
+				{
+					"IS": {
+						"rooms_furniture": "*Tables*"
+					}
+				},
+				{
+					"GT": {
+						"rooms_seats": 300
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_shortname",
+				"rooms_fullname",
+				"rooms_name",
+				"rooms_lat",
+				"rooms_lon",
+				"maxSeats"
+			],
+			"ORDER": {
+				"keys": [
+					"rooms_shortname",
+					"rooms_fullname",
+					"rooms_name",
+					"rooms_lat",
+					"rooms_lon",
+					"maxSeats"
+				],
+				"dir": "DOWN"
+			}
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"rooms_shortname",
+				"rooms_fullname",
+				"rooms_lat",
+				"rooms_lon",
+				"rooms_name"
+			],
+			"APPLY": [
+				{
+					"maxSeats": {
+						"MAX": "rooms_seats"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_shortname": "OSBO",
+			"rooms_fullname": "Robert F. Osborne Centre",
+			"rooms_name": "OSBO_A",
+			"rooms_lat": 49.26047,
+			"rooms_lon": -123.24467,
+			"maxSeats": 442
+		},
+		{
+			"rooms_shortname": "LSC",
+			"rooms_fullname": "Life Sciences Centre",
+			"rooms_name": "LSC_1002",
+			"rooms_lat": 49.26236,
+			"rooms_lon": -123.24494,
+			"maxSeats": 350
+		},
+		{
+			"rooms_shortname": "LSC",
+			"rooms_fullname": "Life Sciences Centre",
+			"rooms_name": "LSC_1001",
+			"rooms_lat": 49.26236,
+			"rooms_lon": -123.24494,
+			"maxSeats": 350
+		},
+		{
+			"rooms_shortname": "HEBB",
+			"rooms_fullname": "Hebb",
+			"rooms_name": "HEBB_100",
+			"rooms_lat": 49.2661,
+			"rooms_lon": -123.25165,
+			"maxSeats": 375
+		}
+	]
+}
