@@ -46,6 +46,9 @@ const orderValidator = (orderClause: any, columns: string[]) => {
 	} else if (typeof orderClause === "object") {
 		let validOrderKeys = ["dir", "keys"];
 		let orderKeys = Object.keys(orderClause);
+		if(orderKeys.length === 0) {
+			throw new InsightError("ORDER missing 'dir' key");
+		}
 		orderKeys.forEach((key) => {
 			if(!validOrderKeys.includes(key)) {
 				throw new InsightError("Invalid key " + key + " in ORDER; missing 'dir' or 'keys'");

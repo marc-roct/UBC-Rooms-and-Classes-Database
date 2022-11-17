@@ -1,5 +1,5 @@
 {
-	"title": "Sort Data Down",
+	"title": "invalid field in apply",
 	"input": {
 		"WHERE": {
 			"AND": [
@@ -18,41 +18,39 @@
 		"OPTIONS": {
 			"COLUMNS": [
 				"rooms_shortname",
+				"rooms_fullname",
+				"rooms_name",
+				"rooms_lat",
+				"rooms_lon",
+				"rooms_furniture",
 				"maxSeats"
 			],
 			"ORDER": {
-				"dir": "DOWN",
 				"keys": [
-					"maxSeats"
-				]
+					"rooms_name",
+					"rooms_lon"
+				],
+				"dir": "DOWN"
 			}
 		},
 		"TRANSFORMATIONS": {
 			"GROUP": [
-				"rooms_shortname"
+				"rooms_shortname",
+				"rooms_fullname",
+				"rooms_lat",
+				"rooms_lon",
+				"rooms_name",
+				"rooms_furniture"
 			],
 			"APPLY": [
 				{
-					"maxSeats": {
+					"maxSeats1": {
 						"MAX": "rooms_seats"
 					}
 				}
 			]
 		}
 	},
-	"errorExpected": false,
-	"expected": [
-		{
-			"rooms_shortname": "OSBO",
-			"maxSeats": 442
-		},
-		{
-			"rooms_shortname": "HEBB",
-			"maxSeats": 375
-		},
-		{
-			"rooms_shortname": "LSC",
-			"maxSeats": 350
-		}
-	]
+	"errorExpected": true,
+	"expected": "InsightError"
 }

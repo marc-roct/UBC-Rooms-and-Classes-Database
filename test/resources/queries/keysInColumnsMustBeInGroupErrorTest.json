@@ -1,21 +1,22 @@
 {
-	"title": "Invalid Apply Token",
+	"title": "KeysInColumnsMustBeInGroupErrorTest",
 	"input": {
 		"WHERE": {},
 		"OPTIONS": {
 			"COLUMNS": [
 				"sections_title",
+				"sections_instructor",
 				"overallAvg"
 			]
 		},
 		"TRANSFORMATIONS": {
 			"GROUP": [
-				"sections_title"
+				"sections_instructor"
 			],
 			"APPLY": [
 				{
 					"overallAvg": {
-						"HELLO": "sections_avg"
+						"AVG": "sections_avg"
 					}
 				}
 			]

@@ -1,4 +1,3 @@
-// TODO: to test this new function
 import {InsightError} from "../../../IInsightFacade";
 import {mFieldValidator, sFieldValidator} from "./fieldValidator";
 import {isJSON} from "../../jsonHelper";
@@ -10,20 +9,21 @@ const transformationsValidator = (transformations: Record<string, any>, applyKey
 		let key = Object.keys(keyObject);
 		applyKeys.push(key[0]);
 	});
-	applyKeys.forEach((key)=> {
-		if(!applyKeyInColumns.includes(key)) {
-			throw new InsightError("Invalid key " + key + " in APPLY");
-		}
-	});
 	let groupKeys = transformations["GROUP"];
 	if(groupKeys.length === 0) {
 		throw new InsightError("GROUP must be a non-empty array");
 	}
-	for (const key of groupKeys) {
-		if(!applyKeyInColumns.includes(key)) {
+	let allTransformationKeys = groupKeys.concat(applyKeys);
+	applyKeyInColumns.forEach((key)=> {
+		if(!allTransformationKeys.includes(key)) {
 			throw new InsightError("Keys in COLUMNS must be in GROUP or APPLY when TRANSFORMATIONS is present");
 		}
-	}
+	});
+	applyKeys.forEach((key)=> {
+		if(!applyKeyInColumns.includes(key)) {
+			throw new InsightError("Invalid key " + key + " in COLUMNS");
+		}
+	});
 };
 
 const applyRuleValidator = (applyRules: object[]): string[] => {
