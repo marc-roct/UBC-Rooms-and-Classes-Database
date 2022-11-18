@@ -60,7 +60,6 @@ const checkClauseType = (query: Record<string, any>, transformationsTracker: num
 	}
 };
 
-// TODO: function updated - require more testing
 const checkDatasetReference = (keyFields: string[]): string => {
 	const dataSetId = new Set();
 	let id: string = "id not found";
