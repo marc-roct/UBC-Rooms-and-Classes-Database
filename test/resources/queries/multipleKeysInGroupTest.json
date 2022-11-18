@@ -1,0 +1,748 @@
+{
+	"title": "MultipleKeysInGroupTest",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"sections_avg": 95
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_instructor",
+				"overallAvg"
+			]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"sections_instructor",
+				"sections_title"
+			],
+			"APPLY": [
+				{
+					"overallAvg": {
+						"AVG": "sections_avg"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_instructor": "bishundayal, deonarine",
+			"overallAvg": 96.11
+		},
+		{
+			"sections_instructor": "wassink, berend",
+			"overallAvg": 95.73
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.94
+		},
+		{
+			"sections_instructor": "adelman, sharon",
+			"overallAvg": 96.9
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.9
+		},
+		{
+			"sections_instructor": "hodgson, antony",
+			"overallAvg": 95.15
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.15
+		},
+		{
+			"sections_instructor": "gopaluni, bhushan",
+			"overallAvg": 95.54
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.54
+		},
+		{
+			"sections_instructor": "gopaluni, bhushan",
+			"overallAvg": 95.31
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.31
+		},
+		{
+			"sections_instructor": "ventura, carlos estuardo",
+			"overallAvg": 96.27
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.27
+		},
+		{
+			"sections_instructor": "owens, rhea",
+			"overallAvg": 95.78
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.78
+		},
+		{
+			"sections_instructor": "weinberg, mark",
+			"overallAvg": 95.36
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.36
+		},
+		{
+			"sections_instructor": "cox, daniel",
+			"overallAvg": 99.19
+		},
+		{
+			"sections_instructor": "neault, roberta a",
+			"overallAvg": 97.47
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.47
+		},
+		{
+			"sections_instructor": "cox, daniel",
+			"overallAvg": 96.33
+		},
+		{
+			"sections_instructor": "carter, john",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.16
+		},
+		{
+			"sections_instructor": "munteanu, mircea",
+			"overallAvg": 95.36
+		},
+		{
+			"sections_instructor": "campbell, deborah",
+			"overallAvg": 95.7
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.7
+		},
+		{
+			"sections_instructor": "medved, maureen",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "campbell, deborah",
+			"overallAvg": 97
+		},
+		{
+			"sections_instructor": "taylor, timothy",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "maillard, keith",
+			"overallAvg": 96.67
+		},
+		{
+			"sections_instructor": "galloway, steve",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "grady, albert wayne",
+			"overallAvg": 98
+		},
+		{
+			"sections_instructor": "magee, theresa",
+			"overallAvg": 95.58
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.58
+		},
+		{
+			"sections_instructor": "marker, michael",
+			"overallAvg": 95.78
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.78
+		},
+		{
+			"sections_instructor": "vanwynsberghe, robert",
+			"overallAvg": 96.46
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.46
+		},
+		{
+			"sections_instructor": "morgan, tannis",
+			"overallAvg": 97.5
+		},
+		{
+			"sections_instructor": "adler, james douglas;scott, sandra",
+			"overallAvg": 95.16
+		},
+		{
+			"sections_instructor": "coria, lino",
+			"overallAvg": 98.75
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 98.75
+		},
+		{
+			"sections_instructor": "porath, marion",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "stockman, james",
+			"overallAvg": 96.03
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.03
+		},
+		{
+			"sections_instructor": "gaster, sean",
+			"overallAvg": 96.9
+		},
+		{
+			"sections_instructor": "romero, amber",
+			"overallAvg": 95.15
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.27
+		},
+		{
+			"sections_instructor": "porath, marion",
+			"overallAvg": 95.22
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.22
+		},
+		{
+			"sections_instructor": "mceachern hughes, tammy",
+			"overallAvg": 95.5
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.5
+		},
+		{
+			"sections_instructor": "levinson, tami",
+			"overallAvg": 95.67
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.67
+		},
+		{
+			"sections_instructor": "cole, kenneth",
+			"overallAvg": 97.57
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.83
+		},
+		{
+			"sections_instructor": "ervin, ruth",
+			"overallAvg": 96.21
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.67
+		},
+		{
+			"sections_instructor": "smith, gillian",
+			"overallAvg": 95.13
+		},
+		{
+			"sections_instructor": "champion, kathleen",
+			"overallAvg": 95.47
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.47
+		},
+		{
+			"sections_instructor": "grow, laura",
+			"overallAvg": 97.57
+		},
+		{
+			"sections_instructor": "wilk, diana",
+			"overallAvg": 97.41
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.69
+		},
+		{
+			"sections_instructor": "kishor, nand",
+			"overallAvg": 95.11
+		},
+		{
+			"sections_instructor": "porath, marion",
+			"overallAvg": 96.23
+		},
+		{
+			"sections_instructor": "porath, marion",
+			"overallAvg": 95.41
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.3
+		},
+		{
+			"sections_instructor": "cannon, joanna",
+			"overallAvg": 98.45
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 98.45
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.83
+		},
+		{
+			"sections_instructor": "mcquarrie, maureen",
+			"overallAvg": 96.33
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.33
+		},
+		{
+			"sections_instructor": "kishor, nand",
+			"overallAvg": 95.57
+		},
+		{
+			"sections_instructor": "chan, eric",
+			"overallAvg": 95.86
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.86
+		},
+		{
+			"sections_instructor": "amaral, deborah;ford, laurie",
+			"overallAvg": 97.39
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.41
+		},
+		{
+			"sections_instructor": "grow, laura",
+			"overallAvg": 97.69
+		},
+		{
+			"sections_instructor": "ford, laurie",
+			"overallAvg": 95.31
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.31
+		},
+		{
+			"sections_instructor": "weber, rachel",
+			"overallAvg": 95.17
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.17
+		},
+		{
+			"sections_instructor": "wu, amery",
+			"overallAvg": 95.67
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.16
+		},
+		{
+			"sections_instructor": "kishor, nand",
+			"overallAvg": 95.13
+		},
+		{
+			"sections_instructor": "kishor, nand",
+			"overallAvg": 96.21
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.09
+		},
+		{
+			"sections_instructor": "porath, marion",
+			"overallAvg": 97.67
+		},
+		{
+			"sections_instructor": "marker, michael",
+			"overallAvg": 95.63
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.63
+		},
+		{
+			"sections_instructor": "feng, francis",
+			"overallAvg": 95.33
+		},
+		{
+			"sections_instructor": "petrina, stephen",
+			"overallAvg": 95.63
+		},
+		{
+			"sections_instructor": "milner-bolotin, marina",
+			"overallAvg": 95.58
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.58
+		},
+		{
+			"sections_instructor": "wenzek, rob",
+			"overallAvg": 96.4
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.4
+		},
+		{
+			"sections_instructor": "timko, joleen",
+			"overallAvg": 96.36
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.36
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.28
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.71
+		},
+		{
+			"sections_instructor": "farrell, adam",
+			"overallAvg": 96.1
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.1
+		},
+		{
+			"sections_instructor": "karu, kalle",
+			"overallAvg": 96.44
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.44
+		},
+		{
+			"sections_instructor": "murugan, mathav",
+			"overallAvg": 95.67
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.67
+		},
+		{
+			"sections_instructor": "wei, juncheng",
+			"overallAvg": 96.25
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.25
+		},
+		{
+			"sections_instructor": "fraser, ailana",
+			"overallAvg": 97.25
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.25
+		},
+		{
+			"sections_instructor": "gomez, jose",
+			"overallAvg": 99.78
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 99.78
+		},
+		{
+			"sections_instructor": "karu, kalle",
+			"overallAvg": 97.48
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.48
+		},
+		{
+			"sections_instructor": "gordon, julia yulia",
+			"overallAvg": 95.56
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.56
+		},
+		{
+			"sections_instructor": "laba, izabella",
+			"overallAvg": 97.09
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.09
+		},
+		{
+			"sections_instructor": "nachmias, asaf",
+			"overallAvg": 96.83
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.83
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.33
+		},
+		{
+			"sections_instructor": "mcrae, lorna",
+			"overallAvg": 96.5
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.5
+		},
+		{
+			"sections_instructor": "veiga, marcello",
+			"overallAvg": 96.59
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.18
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.43
+		},
+		{
+			"sections_instructor": "dunbar, w scott",
+			"overallAvg": 95.52
+		},
+		{
+			"sections_instructor": "dixon, david",
+			"overallAvg": 96.25
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.25
+		},
+		{
+			"sections_instructor": "girard, jonathan",
+			"overallAvg": 95.38
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.67
+		},
+		{
+			"sections_instructor": "girard, jonathan",
+			"overallAvg": 96.5
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.5
+		},
+		{
+			"sections_instructor": "brew, nancy",
+			"overallAvg": 97.07
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.55
+		},
+		{
+			"sections_instructor": "krist, jennifer",
+			"overallAvg": 98.21
+		},
+		{
+			"sections_instructor": "harding, jillian",
+			"overallAvg": 95.13
+		},
+		{
+			"sections_instructor": "krist, jennifer;mccuaig, fairleth",
+			"overallAvg": 95.29
+		},
+		{
+			"sections_instructor": "krist, jennifer",
+			"overallAvg": 96.64
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.97
+		},
+		{
+			"sections_instructor": "burrows, marlene;harding, jillian;krist, jennifer;mccuaig, fairleth",
+			"overallAvg": 98.02
+		},
+		{
+			"sections_instructor": "burrows, marlene",
+			"overallAvg": 96.73
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 97.03
+		},
+		{
+			"sections_instructor": "brew, nancy",
+			"overallAvg": 97.33
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "lalji, fawziah;seto, katherine",
+			"overallAvg": 95.07
+		},
+		{
+			"sections_instructor": "jackson, howard",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.37
+		},
+		{
+			"sections_instructor": "stamp, philip c",
+			"overallAvg": 95.43
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.43
+		},
+		{
+			"sections_instructor": "dorcey, anthony h j",
+			"overallAvg": 96.47
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.47
+		},
+		{
+			"sections_instructor": "de longis, anita",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96
+		},
+		{
+			"sections_instructor": "sochting, ingrid",
+			"overallAvg": 95.75
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.75
+		},
+		{
+			"sections_instructor": "wagner, john",
+			"overallAvg": 95.25
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.25
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.5
+		},
+		{
+			"sections_instructor": "gill, deana",
+			"overallAvg": 95.93
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.04
+		},
+		{
+			"sections_instructor": "bryson, stephanie;o'connor, deborah;stainton, timothy;sullivan, t richard;tester, frank",
+			"overallAvg": 96.15
+		},
+		{
+			"sections_instructor": "gill, deana",
+			"overallAvg": 96.09
+		},
+		{
+			"sections_instructor": "frankish, charles james",
+			"overallAvg": 96.96
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.76
+		},
+		{
+			"sections_instructor": "frank, erica",
+			"overallAvg": 98.98
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 98.98
+		},
+		{
+			"sections_instructor": "sobolev, boris",
+			"overallAvg": 95.11
+		},
+		{
+			"sections_instructor": "kishchenko, svetlana",
+			"overallAvg": 96.8
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 96.8
+		},
+		{
+			"sections_instructor": "pourbohloul, babak",
+			"overallAvg": 95.75
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.75
+		},
+		{
+			"sections_instructor": "frankish, charles james",
+			"overallAvg": 95.09
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.09
+		},
+		{
+			"sections_instructor": "mclean, jayson",
+			"overallAvg": 95.2
+		},
+		{
+			"sections_instructor": "",
+			"overallAvg": 95.2
+		}
+	]
+}
