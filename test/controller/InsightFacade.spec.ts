@@ -185,10 +185,33 @@ describe("InsightFacade", function () {
 		folderTest<unknown, Promise<InsightResult[]>, PQErrorKind>(
 			"Dynamic InsightFacade PerformQuery tests",
 			(input) => insightFacade.performQuery(input),
-			"./test/resources/queries",
+			"./test/resources/queries/sections_queries",
 			{
 				assertOnResult: (actual, expected) => {
 					expect(actual).to.have.deep.members(expected);
+					assert.equal(actual.length, expected.length);
+				},
+				errorValidator: (error): error is PQErrorKind =>
+					error === "ResultTooLargeError" || error === "InsightError",
+				assertOnError: (actual, expected) => {
+					if (expected === "ResultTooLargeError") {
+						expect(actual).to.be.instanceof(ResultTooLargeError);
+					} else {
+						expect(actual).to.be.instanceof(InsightError);
+					}
+				},
+			}
+		);
+		// test transformation orders
+		folderTest<unknown, Promise<InsightResult[]>, PQErrorKind>(
+			"Dynamic InsightFacade PerformQuery tests",
+			(input) => insightFacade.performQuery(input),
+			"./test/resources/queries/rooms_and_transform_queries",
+			{
+				assertOnResult: (actual, expected) => {
+					// console.log(actual);
+					// console.log(expected);
+					expect(actual).to.have.deep.equal(expected);
 					assert.equal(actual.length, expected.length);
 				},
 				errorValidator: (error): error is PQErrorKind =>

@@ -13,7 +13,7 @@ const optionValidator = (optionClause: Record<string, any>, transformationsTrack
 		throw new InsightError("OPTIONS missing COLUMNS");
 	} else {
 		columns = optionClause["COLUMNS"];
-		if(columns.length === 0) {
+		if(columns.length === 0 || isJSON(columns)) {
 			throw new InsightError("COLUMNS must be a non-empty array");
 		} else {
 			columns.forEach((column: string) => {

@@ -1,0 +1,16 @@
+{
+	"title": "QueryColumnsKeyIsEmptyError",
+	"input": {
+		"OPTIONS": {
+			"COLUMNS": [],
+			"ORDER": "sections_dept"
+		},
+		"WHERE": {
+			"GT": {
+				"sections_avg": 97
+			}
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

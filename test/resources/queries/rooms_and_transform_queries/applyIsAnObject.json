@@ -1,25 +1,18 @@
 {
-	"title": "room key in section",
+	"title": "apply is an object",
 	"input": {
 		"WHERE": {},
 		"OPTIONS": {
 			"COLUMNS": [
 				"sections_title",
-				"overallCount"
+				"overallAvg"
 			]
 		},
 		"TRANSFORMATIONS": {
 			"GROUP": [
-				"sections_title",
-				"sections_lat"
+				"sections_title"
 			],
-			"APPLY": [
-				{
-					"overallCount": {
-						"COUNT": "sections_avg"
-					}
-				}
-			]
+			"APPLY": {}
 		}
 	},
 	"errorExpected": true,

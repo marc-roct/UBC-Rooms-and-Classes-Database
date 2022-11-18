@@ -1,0 +1,4700 @@
+{
+	"title": "QueryNestedANDwithNOTTest",
+	"input": {
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg",
+				"sections_dept",
+				"sections_instructor",
+				"sections_title"
+			],
+			"ORDER": "sections_avg"
+		},
+		"WHERE": {
+			"AND": [
+				{
+					"IS": {
+						"sections_dept": "*th"
+					}
+				},
+				{
+					"AND": [
+						{
+							"NOT": {
+								"IS": {
+									"sections_dept": "a*"
+								}
+							}
+						},
+						{
+							"NOT": {
+								"IS": {
+									"sections_dept": "m*"
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_avg": 62.33,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 62.33,
+			"sections_dept": "pcth",
+			"sections_instructor": "pang, catherine c",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 64.67,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 64.67,
+			"sections_dept": "pcth",
+			"sections_instructor": "pang, catherine c",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 68.44,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 68.44,
+			"sections_dept": "pcth",
+			"sections_instructor": "pang, catherine c",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 72.06,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 72.06,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 72.6,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 72.6,
+			"sections_dept": "pcth",
+			"sections_instructor": "pang, catherine c",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 73.11,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 73.11,
+			"sections_dept": "pcth",
+			"sections_instructor": "shabbits, jennifer anne",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 73.23,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 73.23,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 73.47,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 73.47,
+			"sections_dept": "path",
+			"sections_instructor": "tba",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 74.37,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 74.37,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;isaac-renton, judith;lau, timmy;mclean, donald;morshed, muhammad;noble, michael allen;petric, martin;roscoe, diane;scott, mark;tang, patrick kwok chuen",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 74.44,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 74.44,
+			"sections_dept": "pcth",
+			"sections_instructor": "abadi, shirin s.a.;barr, alasdair;godin, david;horne, andrew;leung, joanne y t;pang, catherine c;schwarz, stephan;wright, james",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 74.83,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 74.83,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 74.96,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 74.96,
+			"sections_dept": "path",
+			"sections_instructor": "gilks, cyril blake;haley, lawrence;lee, lawrence;luo, honglin;ng, tony;skinnider, brian;yip, stephen",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 75.14,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 75.14,
+			"sections_dept": "path",
+			"sections_instructor": "kizhakkedathu, jayachandran;o'kusky, john",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 75.65,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 75.65,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 75.94,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 75.94,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 76,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 76,
+			"sections_dept": "path",
+			"sections_instructor": "doheny, g. james;dyck, helen;park, carol;smith, brenda",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 76.13,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 76.13,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 76.18,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 76.18,
+			"sections_dept": "path",
+			"sections_instructor": "li, juliana",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 76.29,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 76.29,
+			"sections_dept": "path",
+			"sections_instructor": "bruyere, helene;gillan, tanya",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 76.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 76.33,
+			"sections_dept": "path",
+			"sections_instructor": "chantler, janet k",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 76.42,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 76.42,
+			"sections_dept": "pcth",
+			"sections_instructor": "abadi, shirin s.a.;barr, alasdair;horne, andrew;karim, sultan;kurata, harley;pang, catherine c;schwarz, stephan;walker, michael j a;wright, james",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 76.45,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 76.45,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 76.61,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 76.61,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 76.65,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 76.65,
+			"sections_dept": "path",
+			"sections_instructor": "nielsen, torsten;park, carol;xenakis, jennifer",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 76.79,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 76.79,
+			"sections_dept": "path",
+			"sections_instructor": "goh, swee-han",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 76.86,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 76.86,
+			"sections_dept": "path",
+			"sections_instructor": "keller, bernd",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 77,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 77,
+			"sections_dept": "path",
+			"sections_instructor": "henry, bonnie;naus, monika",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 77.02,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 77.02,
+			"sections_dept": "pcth",
+			"sections_instructor": "horne, andrew;shabbits, jennifer anne",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 77.1,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 77.1,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 77.1,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 77.1,
+			"sections_dept": "path",
+			"sections_instructor": "xenakis, jennifer",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 77.13,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 77.13,
+			"sections_dept": "path",
+			"sections_instructor": "xenakis, jennifer",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 77.21,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 77.21,
+			"sections_dept": "path",
+			"sections_instructor": "morshed, muhammad",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 77.25,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 77.25,
+			"sections_dept": "path",
+			"sections_instructor": "chantler, janet k",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 77.3,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 77.3,
+			"sections_dept": "path",
+			"sections_instructor": "casey, brett;dooley, kent;frohlich, jiri;halstead, anne catherine;hill, john stuart;holmes, daniel;keller, bernd;mattman, andre;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;urquhart, nadine;vallance, hilary",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 77.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 77.33,
+			"sections_dept": "path",
+			"sections_instructor": "kizhakkedathu, jayachandran;o'kusky, john",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 77.46,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 77.46,
+			"sections_dept": "pcth",
+			"sections_instructor": "fedida, david;horne, andrew;karim, sultan;pang, catherine c;walker, michael j a",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 77.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 77.5,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 77.64,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab safety"
+		},
+		{
+			"sections_avg": 77.64,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab safety"
+		},
+		{
+			"sections_avg": 77.71,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 77.71,
+			"sections_dept": "path",
+			"sections_instructor": "doheny, g. james;park, carol",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 77.84,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 77.84,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 77.85,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 77.85,
+			"sections_dept": "path",
+			"sections_instructor": "dooley, kent;frohlich, jiri;hauff, kristin;hill, john stuart;holmes, daniel;jung, benjamin;mattman, andre;monsalve, maria victoria;palaty, jan;pudek, morris;schreiber, william;tomalty, cheryl;tucker, tracy;vallance, hilary",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 77.87,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 77.87,
+			"sections_dept": "path",
+			"sections_instructor": "henry, bonnie;naus, monika",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 78,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 78,
+			"sections_dept": "path",
+			"sections_instructor": "o'kusky, john",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 78.1,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 78.1,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 78.1,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 78.1,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 78.13,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 78.13,
+			"sections_dept": "path",
+			"sections_instructor": "xenakis, jennifer",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 78.13,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 78.13,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;hsiao, william;imperial, miguel;lau, timmy;mclean, donald;morshed, muhammad;petric, martin;roscoe, diane;scott, mark;tang, patrick kwok chuen",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 78.25,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 78.25,
+			"sections_dept": "path",
+			"sections_instructor": "dhasi, sonny;sedgwick, ted;smith, craig;thomson, stephanie",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 78.36,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 78.36,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;hsiao, william;imperial, miguel;jassem, agata;krajden, mel;morshed, muhammad;petric, martin;prystajecky, natalie;roscoe, diane;scott, mark",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 78.42,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 78.42,
+			"sections_dept": "path",
+			"sections_instructor": "coulter-mackie, marion;keller, bernd;kizhakkedathu, jayachandran;seow, chun yong;young, sean",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 78.43,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 78.43,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 78.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 78.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 78.57,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 78.57,
+			"sections_dept": "path",
+			"sections_instructor": "chantler, janet k",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 78.62,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drugs & society"
+		},
+		{
+			"sections_avg": 78.62,
+			"sections_dept": "pcth",
+			"sections_instructor": "bernatchez, pascal;griesdale, donald e;horne, andrew;leung, joanne y t;pang, catherine c;shabbits, jennifer anne",
+			"sections_title": "drugs & society"
+		},
+		{
+			"sections_avg": 78.69,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 78.69,
+			"sections_dept": "pcth",
+			"sections_instructor": "shabbits, jennifer anne",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 78.81,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 78.81,
+			"sections_dept": "path",
+			"sections_instructor": "godolphin, william;park, carol",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 78.83,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 78.83,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 79,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 79,
+			"sections_dept": "pcth",
+			"sections_instructor": "pang, catherine c",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 79,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 79,
+			"sections_dept": "path",
+			"sections_instructor": "chantler, janet k",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 79,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 79,
+			"sections_dept": "path",
+			"sections_instructor": "gilks, cyril blake;haley, lawrence;luo, honglin;nimmo, michael;park, carol;skinnider, brian;walters, rebecca",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 79.07,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 79.07,
+			"sections_dept": "path",
+			"sections_instructor": "tba",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 79.29,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 79.29,
+			"sections_dept": "path",
+			"sections_instructor": "o'kusky, john",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 79.44,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 79.44,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 79.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 79.5,
+			"sections_dept": "path",
+			"sections_instructor": "henry, bonnie;naus, monika",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 79.58,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab safety"
+		},
+		{
+			"sections_avg": 79.58,
+			"sections_dept": "path",
+			"sections_instructor": "thomson, stephanie",
+			"sections_title": "med lab safety"
+		},
+		{
+			"sections_avg": 79.65,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 79.65,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 79.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 79.67,
+			"sections_dept": "path",
+			"sections_instructor": "nielsen, torsten;park, carol;xenakis, jennifer",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 79.69,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 79.69,
+			"sections_dept": "pcth",
+			"sections_instructor": "shabbits, jennifer anne",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 79.7,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 79.7,
+			"sections_dept": "path",
+			"sections_instructor": "halstead, anne catherine;holmes, daniel;keown, paul anthony;li, dailin;martz, walter;mattman, andre;pudek, morris;purssell, roy",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 79.75,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 79.75,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 79.95,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 79.95,
+			"sections_dept": "path",
+			"sections_instructor": "xenakis, jennifer",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 80.06,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 80.06,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 80.11,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 80.11,
+			"sections_dept": "path",
+			"sections_instructor": "doheny, g. james;nimmo, michael;quandt, jacqueline;walters, rebecca",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 80.13,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 80.13,
+			"sections_dept": "path",
+			"sections_instructor": "doheny, g. james;park, carol",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 80.14,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 80.14,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "cytogenetics"
+		},
+		{
+			"sections_avg": 80.17,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 80.17,
+			"sections_dept": "path",
+			"sections_instructor": "kizhakkedathu, jayachandran;o'kusky, john",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 80.21,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 80.21,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 80.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 80.33,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;hsiao, william;imperial, miguel;morshed, muhammad;petric, martin;roscoe, diane;scott, mark;tang, patrick kwok chuen",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 80.37,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 80.37,
+			"sections_dept": "path",
+			"sections_instructor": "keller, bernd",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 80.4,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 80.4,
+			"sections_dept": "path",
+			"sections_instructor": "xenakis, jennifer",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 80.41,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 80.41,
+			"sections_dept": "path",
+			"sections_instructor": "au, nicholas;bradley, amanda;keown, paul anthony;scott, mark;vercauteren, suzanne",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 80.42,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 80.42,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 80.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 80.5,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;huynh, hanh;issa, maria;junker, anne kristine;magil, alexander;tai, joseph",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 80.55,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 80.55,
+			"sections_dept": "path",
+			"sections_instructor": "naus, monika",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 80.57,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drugs & society"
+		},
+		{
+			"sections_avg": 80.57,
+			"sections_dept": "pcth",
+			"sections_instructor": "horne, andrew",
+			"sections_title": "drugs & society"
+		},
+		{
+			"sections_avg": 80.58,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 80.58,
+			"sections_dept": "path",
+			"sections_instructor": "al rawahi, ghada;roberts, frederick;stefanovic, aleksandra",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 80.58,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 80.58,
+			"sections_dept": "path",
+			"sections_instructor": "coulter-mackie, marion;keller, bernd;kizhakkedathu, jayachandran;seow, chun yong",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 80.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 80.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 80.67,
+			"sections_dept": "path",
+			"sections_instructor": "godolphin, william;park, carol",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 80.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 80.67,
+			"sections_dept": "path",
+			"sections_instructor": "o'kusky, john",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 80.76,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 80.76,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;isaac-renton, judith;lau, timmy;mclean, donald;morshed, muhammad;noble, michael allen;petric, martin;roscoe, diane;scott, mark;tang, patrick kwok chuen",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 80.78,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 80.78,
+			"sections_dept": "path",
+			"sections_instructor": "dooley, kent;frohlich, jiri;hill, john stuart;holmes, daniel;mattman, andre;monsalve, maria victoria;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;vallance, hilary",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 80.79,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 80.79,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;huynh, hanh;junker, anne kristine;magil, alexander;quandt, jacqueline",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 80.79,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 80.79,
+			"sections_dept": "path",
+			"sections_instructor": "keller, bernd;kizhakkedathu, jayachandran;seow, chun yong;young, sean;zaph, colby",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 80.86,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 80.86,
+			"sections_dept": "path",
+			"sections_instructor": "gilks, cyril blake;haley, lawrence;luo, honglin;skinnider, brian",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 80.91,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 80.91,
+			"sections_dept": "path",
+			"sections_instructor": "xenakis, jennifer",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 80.95,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 80.95,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 81,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 81,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 81,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 81,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 81,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 81,
+			"sections_dept": "path",
+			"sections_instructor": "casey, brett;dooley, kent;frohlich, jiri;halstead, anne catherine;hill, john stuart;holmes, daniel;keller, bernd;mattman, andre;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;urquhart, nadine;vallance, hilary",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 81.05,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 81.05,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 81.05,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 81.05,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 81.08,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab safety"
+		},
+		{
+			"sections_avg": 81.08,
+			"sections_dept": "path",
+			"sections_instructor": "dhasi, sonny;sedgwick, ted;tba;thomson, stephanie",
+			"sections_title": "med lab safety"
+		},
+		{
+			"sections_avg": 81.17,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 81.17,
+			"sections_dept": "path",
+			"sections_instructor": "gilks, cyril blake;haley, lawrence;luo, honglin;nimmo, michael;park, carol;skinnider, brian;walters, rebecca",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 81.26,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 81.26,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 81.29,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 81.29,
+			"sections_dept": "pcth",
+			"sections_instructor": "abadi, shirin s.a.;hackett, tillie-louise;horne, andrew;laher, ismail;leung, joanne y t;pang, catherine c;shabbits, jennifer anne",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 81.3,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 81.3,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;huynh, hanh;issa, maria;junker, anne kristine;magil, alexander;tai, joseph",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 81.32,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 81.32,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 81.47,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 81.47,
+			"sections_dept": "path",
+			"sections_instructor": "o'kusky, john;walker, david",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 81.53,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 81.53,
+			"sections_dept": "path",
+			"sections_instructor": "nimmo, michael;van den elzen, peter",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 81.61,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 81.61,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;huynh, hanh;junker, anne kristine;magil, alexander;quandt, jacqueline;zaph, colby",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 81.81,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 81.81,
+			"sections_dept": "path",
+			"sections_instructor": "coulter-mackie, marion;keller, bernd;kizhakkedathu, jayachandran;seow, chun yong",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 81.83,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 81.83,
+			"sections_dept": "path",
+			"sections_instructor": "nimmo, michael",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 81.85,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drugs & society"
+		},
+		{
+			"sections_avg": 81.85,
+			"sections_dept": "pcth",
+			"sections_instructor": "bernatchez, pascal;horne, andrew;leung, joanne y t;pang, catherine c;shabbits, jennifer anne;warriner, charles brian",
+			"sections_title": "drugs & society"
+		},
+		{
+			"sections_avg": 81.91,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 81.91,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;godolphin, william;huynh, hanh",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 81.92,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 81.92,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "tai, joseph",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "mock, thomas",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 82,
+			"sections_dept": "path",
+			"sections_instructor": "dhasi, sonny;sedgwick, ted;tba;thomson, stephanie",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 82.14,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 82.14,
+			"sections_dept": "path",
+			"sections_instructor": "pudek, morris",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 82.15,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 82.15,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 82.2,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 82.2,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "viral infections"
+		},
+		{
+			"sections_avg": 82.21,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 82.21,
+			"sections_dept": "path",
+			"sections_instructor": "henry, bonnie;naus, monika",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 82.21,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 82.21,
+			"sections_dept": "path",
+			"sections_instructor": "al rawahi, ghada;roberts, frederick;stefanovic, aleksandra",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 82.21,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 82.21,
+			"sections_dept": "path",
+			"sections_instructor": "au, nicholas;bruyere, helene;carter, cedric john;conway, edward;mcnagny, kelly marshall;medvedev, nadejda;roland, kristine;schubert, peter;scott, mark;skinnider, brian;vercauteren, suzanne",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 82.28,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 82.28,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 82.3,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 82.33,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 82.33,
+			"sections_dept": "phth",
+			"sections_instructor": "gruenig, simone",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 82.38,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 82.38,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;huynh, hanh;issa, maria;junker, anne kristine;magil, alexander;tai, joseph",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 82.39,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 82.39,
+			"sections_dept": "path",
+			"sections_instructor": "nimmo, michael",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 82.46,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 82.46,
+			"sections_dept": "path",
+			"sections_instructor": "naus, monika;patrick, david",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 82.47,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 82.47,
+			"sections_dept": "path",
+			"sections_instructor": "nielsen, torsten;park, carol;xenakis, jennifer",
+			"sections_title": "histochemistry"
+		},
+		{
+			"sections_avg": 82.5,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 82.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 82.5,
+			"sections_dept": "path",
+			"sections_instructor": "gilks, cyril blake;haley, lawrence;luo, honglin;nimmo, michael;park, carol;skinnider, brian;walters, rebecca",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 82.52,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 82.52,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 82.53,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 82.55,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 82.55,
+			"sections_dept": "pcth",
+			"sections_instructor": "shabbits, jennifer anne",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 82.56,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 82.56,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 82.65,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 82.65,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 82.67,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 82.67,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 82.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab safety"
+		},
+		{
+			"sections_avg": 82.67,
+			"sections_dept": "path",
+			"sections_instructor": "thomson, stephanie",
+			"sections_title": "med lab safety"
+		},
+		{
+			"sections_avg": 82.71,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 82.71,
+			"sections_dept": "path",
+			"sections_instructor": "xenakis, jennifer",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 82.75,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 82.75,
+			"sections_dept": "path",
+			"sections_instructor": "gilks, cyril blake;haley, lawrence;luo, honglin;skinnider, brian;tba",
+			"sections_title": "hum histology"
+		},
+		{
+			"sections_avg": 82.76,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 82.76,
+			"sections_dept": "pcth",
+			"sections_instructor": "ansermino, john mark;barr, alasdair;bernatchez, pascal;bhagavatula, sastry;choi, peter tsz lung;etminan, mahyar;fedida, david;griesdale, donald e;hackett, tillie-louise;horne, andrew;kurata, harley;laher, ismail;preston, roanne;schwarz, stephan;walker, michael j a;warriner, charles brian;wright, james",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 82.81,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 82.81,
+			"sections_dept": "path",
+			"sections_instructor": "roberts, frederick",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 82.82,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 82.82,
+			"sections_dept": "pcth",
+			"sections_instructor": "shabbits, jennifer anne",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 82.83,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ii"
+		},
+		{
+			"sections_avg": 82.83,
+			"sections_dept": "phth",
+			"sections_instructor": "gruenig, simone",
+			"sections_title": "clin prac ii"
+		},
+		{
+			"sections_avg": 82.9,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 82.9,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;godolphin, william;huynh, hanh;park, carol",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 82.93,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 2"
+		},
+		{
+			"sections_avg": 82.93,
+			"sections_dept": "phth",
+			"sections_instructor": "camp, patricia",
+			"sections_title": "path for pt 2"
+		},
+		{
+			"sections_avg": 82.98,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drugs & society"
+		},
+		{
+			"sections_avg": 82.98,
+			"sections_dept": "pcth",
+			"sections_instructor": "horne, andrew",
+			"sections_title": "drugs & society"
+		},
+		{
+			"sections_avg": 83,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 83,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "infection contro"
+		},
+		{
+			"sections_avg": 83.24,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ii"
+		},
+		{
+			"sections_avg": 83.24,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ii"
+		},
+		{
+			"sections_avg": 83.24,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 83.24,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 83.28,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 83.28,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 83.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 83.33,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;huynh, hanh;junker, anne kristine;magil, alexander;quandt, jacqueline",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 83.44,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 2"
+		},
+		{
+			"sections_avg": 83.44,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 2"
+		},
+		{
+			"sections_avg": 83.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 83.5,
+			"sections_dept": "path",
+			"sections_instructor": "o'kusky, john;walker, david",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 83.51,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi a"
+		},
+		{
+			"sections_avg": 83.51,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi a"
+		},
+		{
+			"sections_avg": 83.53,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 83.53,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 83.55,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 83.66,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 83.66,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 83.68,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 83.68,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 83.68,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 83.68,
+			"sections_dept": "pcth",
+			"sections_instructor": "fedida, david;horne, andrew;leung, joanne y t;pang, catherine c",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 83.69,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 83.7,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 83.7,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "backgrd med lab"
+		},
+		{
+			"sections_avg": 83.74,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 83.74,
+			"sections_dept": "path",
+			"sections_instructor": "park, carol",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 83.75,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 83.75,
+			"sections_dept": "path",
+			"sections_instructor": "greene, wayne m",
+			"sections_title": "nuclear medicine"
+		},
+		{
+			"sections_avg": 83.79,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 83.79,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 83.82,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_avg": 83.82,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_avg": 83.85,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 83.85,
+			"sections_dept": "pcth",
+			"sections_instructor": "ansermino, john mark;barr, alasdair;bernatchez, pascal;bhagavatula, sastry;choi, peter tsz lung;etminan, mahyar;griesdale, donald e;hackett, tillie-louise;horne, andrew;laher, ismail;preston, roanne;schwarz, stephan;warriner, charles brian;wright, james",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 83.91,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 83.91,
+			"sections_dept": "path",
+			"sections_instructor": "dooley, kent;frohlich, jiri;hill, john stuart;holmes, daniel;keller, bernd;mattman, andre;monsalve, maria victoria;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;vallance, hilary",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 83.96,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 83.96,
+			"sections_dept": "path",
+			"sections_instructor": "ong, corinne",
+			"sections_title": "biochem med lab"
+		},
+		{
+			"sections_avg": 84,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 84,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 84,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 84,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 84.06,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 84.06,
+			"sections_dept": "pcth",
+			"sections_instructor": "abadi, shirin s.a.;hackett, tillie-louise;horne, andrew;laher, ismail;leung, joanne y t;pang, catherine c;shabbits, jennifer anne;warriner, charles brian;wright, james",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 84.06,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 84.06,
+			"sections_dept": "path",
+			"sections_instructor": "au, nicholas;broady, raewyn;bruyere, helene;carter, cedric john;coupland, robert william;mcnagny, kelly marshall;medvedev, nadejda;schubert, peter;scott, mark;serrano, katherine;vercauteren, suzanne",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 84.08,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 84.08,
+			"sections_dept": "pcth",
+			"sections_instructor": "abadi, shirin s.a.;barr, alasdair;horne, andrew;karim, sultan;kurata, harley;pang, catherine c;schwarz, stephan;walker, michael j a;wright, james",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 84.09,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 84.12,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 84.12,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 84.13,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi b"
+		},
+		{
+			"sections_avg": 84.13,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi b"
+		},
+		{
+			"sections_avg": 84.17,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 84.17,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;godolphin, william;huynh, hanh;park, carol",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 84.18,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "exercise move i"
+		},
+		{
+			"sections_avg": 84.18,
+			"sections_dept": "phth",
+			"sections_instructor": "terlicher, nadine",
+			"sections_title": "exercise move i"
+		},
+		{
+			"sections_avg": 84.19,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi a"
+		},
+		{
+			"sections_avg": 84.19,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi a"
+		},
+		{
+			"sections_avg": 84.2,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi a"
+		},
+		{
+			"sections_avg": 84.2,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi a"
+		},
+		{
+			"sections_avg": 84.25,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 84.25,
+			"sections_dept": "path",
+			"sections_instructor": "o'kusky, john;walker, david",
+			"sections_title": "mod microscopy"
+		},
+		{
+			"sections_avg": 84.27,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 84.27,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;godolphin, william;huynh, hanh;park, carol",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 84.31,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ivb"
+		},
+		{
+			"sections_avg": 84.31,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ivb"
+		},
+		{
+			"sections_avg": 84.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biolgy of cancer"
+		},
+		{
+			"sections_avg": 84.33,
+			"sections_dept": "path",
+			"sections_instructor": "morin, gregg",
+			"sections_title": "biolgy of cancer"
+		},
+		{
+			"sections_avg": 84.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 84.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 84.33,
+			"sections_dept": "path",
+			"sections_instructor": "coupland, robert william",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 84.39,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 84.39,
+			"sections_dept": "path",
+			"sections_instructor": "tba",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 84.4,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 84.4,
+			"sections_dept": "pcth",
+			"sections_instructor": "barr, alasdair;bernatchez, pascal;horne, andrew",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 84.43,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 84.43,
+			"sections_dept": "path",
+			"sections_instructor": "au, nicholas;broady, raewyn;bruyere, helene;carter, cedric john;coupland, robert william;mcnagny, kelly marshall;medvedev, nadejda;schubert, peter;scott, mark;serrano, katherine;vercauteren, suzanne",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 84.44,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case intgr iii"
+		},
+		{
+			"sections_avg": 84.44,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case intgr iii"
+		},
+		{
+			"sections_avg": 84.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 84.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 84.5,
+			"sections_dept": "path",
+			"sections_instructor": "halstead, anne catherine;holmes, daniel;keown, paul anthony;li, dailin;martz, walter;mattman, andre;pudek, morris;purssell, roy",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 84.56,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case intgr iii"
+		},
+		{
+			"sections_avg": 84.56,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case intgr iii"
+		},
+		{
+			"sections_avg": 84.6,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 84.6,
+			"sections_dept": "pcth",
+			"sections_instructor": "pang, catherine c",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 84.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 84.67,
+			"sections_dept": "path",
+			"sections_instructor": "li, dailin",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 84.68,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 84.68,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 84.7,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 84.75,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "fnd humn histopt"
+		},
+		{
+			"sections_avg": 84.75,
+			"sections_dept": "path",
+			"sections_instructor": "quandt, jacqueline",
+			"sections_title": "fnd humn histopt"
+		},
+		{
+			"sections_avg": 84.78,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 84.78,
+			"sections_dept": "path",
+			"sections_instructor": "tai, joseph",
+			"sections_title": "immunopathology"
+		},
+		{
+			"sections_avg": 84.8,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 84.8,
+			"sections_dept": "path",
+			"sections_instructor": "naus, monika;patrick, david",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 84.8,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 84.8,
+			"sections_dept": "path",
+			"sections_instructor": "henry, bonnie;naus, monika",
+			"sections_title": "epid infect cont"
+		},
+		{
+			"sections_avg": 84.8,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 84.8,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 84.87,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 84.87,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 84.9,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin practice i"
+		},
+		{
+			"sections_avg": 84.9,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin practice i"
+		},
+		{
+			"sections_avg": 84.91,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 84.91,
+			"sections_dept": "path",
+			"sections_instructor": "holmes, daniel;keown, paul anthony;li, dailin;martz, walter;mattman, andre;pudek, morris;purssell, roy",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 84.91,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 84.91,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;godolphin, william;huynh, hanh;keller, bernd",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 84.95,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ivb"
+		},
+		{
+			"sections_avg": 84.95,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ivb"
+		},
+		{
+			"sections_avg": 84.96,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi b"
+		},
+		{
+			"sections_avg": 84.96,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi b"
+		},
+		{
+			"sections_avg": 84.97,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 84.97,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 85,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 85,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 85,
+			"sections_dept": "path",
+			"sections_instructor": "walker, david",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 85,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 85,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 85,
+			"sections_dept": "path",
+			"sections_instructor": "walker, david",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 85,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 85,
+			"sections_dept": "path",
+			"sections_instructor": "roberts, frederick",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 85.08,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 85.08,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 85.1,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 2"
+		},
+		{
+			"sections_avg": 85.1,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 2"
+		},
+		{
+			"sections_avg": 85.1,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 85.1,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 85.11,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 85.14,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 2"
+		},
+		{
+			"sections_avg": 85.14,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 2"
+		},
+		{
+			"sections_avg": 85.19,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi b"
+		},
+		{
+			"sections_avg": 85.19,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi b"
+		},
+		{
+			"sections_avg": 85.2,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ii"
+		},
+		{
+			"sections_avg": 85.2,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ii"
+		},
+		{
+			"sections_avg": 85.2,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 85.2,
+			"sections_dept": "pcth",
+			"sections_instructor": "mclarnon, james gordon",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 85.25,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin practice i"
+		},
+		{
+			"sections_avg": 85.25,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin practice i"
+		},
+		{
+			"sections_avg": 85.29,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 85.29,
+			"sections_dept": "pcth",
+			"sections_instructor": "barr, alasdair;bernatchez, pascal;horne, andrew;kurata, harley;walker, michael j a",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 85.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 85.33,
+			"sections_dept": "path",
+			"sections_instructor": "walker, david",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 85.37,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ii"
+		},
+		{
+			"sections_avg": 85.37,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ii"
+		},
+		{
+			"sections_avg": 85.38,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 85.38,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 85.42,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 85.42,
+			"sections_dept": "path",
+			"sections_instructor": "tba",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 85.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 85.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 85.54,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 85.54,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;isaac-renton, judith;lau, timmy;mclean, donald;morshed, muhammad;noble, michael allen;petric, martin;roscoe, diane;scott, mark;tang, patrick kwok chuen",
+			"sections_title": "bac,myc,vir&para"
+		},
+		{
+			"sections_avg": 85.59,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin practice i"
+		},
+		{
+			"sections_avg": 85.59,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin practice i"
+		},
+		{
+			"sections_avg": 85.6,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 85.6,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 85.6,
+			"sections_dept": "path",
+			"sections_instructor": "holmes, daniel;jung, benjamin;keown, paul anthony;li, dailin;nislow, corey;pudek, morris;purssell, roy;xenakis, jennifer",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 85.63,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 85.63,
+			"sections_dept": "pcth",
+			"sections_instructor": "mclarnon, james gordon",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 85.72,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 85.72,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 3"
+		},
+		{
+			"sections_avg": 85.75,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 85.75,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;godolphin, william;sutherland, michael",
+			"sections_title": "sem curr topics"
+		},
+		{
+			"sections_avg": 85.76,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "fnd humn histopt"
+		},
+		{
+			"sections_avg": 85.76,
+			"sections_dept": "path",
+			"sections_instructor": "lee, anna;myles, nickolas;quandt, jacqueline;walker, david;yip, stephen",
+			"sections_title": "fnd humn histopt"
+		},
+		{
+			"sections_avg": 85.76,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 85.76,
+			"sections_dept": "path",
+			"sections_instructor": "godolphin, william",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 85.8,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 85.83,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 85.83,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 85.87,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 85.87,
+			"sections_dept": "path",
+			"sections_instructor": "casey, brett;dooley, kent;frohlich, jiri;halstead, anne catherine;hill, john stuart;holmes, daniel;keller, bernd;mattman, andre;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;urquhart, nadine;vallance, hilary",
+			"sections_title": "clin chem"
+		},
+		{
+			"sections_avg": 85.89,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin practice i"
+		},
+		{
+			"sections_avg": 85.89,
+			"sections_dept": "phth",
+			"sections_instructor": "greig, alison",
+			"sections_title": "clin practice i"
+		},
+		{
+			"sections_avg": 85.89,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 85.89,
+			"sections_dept": "pcth",
+			"sections_instructor": "mclarnon, james gordon",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 85.96,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 85.96,
+			"sections_dept": "path",
+			"sections_instructor": "nimmo, michael",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 86,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 86,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "design & bioassy"
+		},
+		{
+			"sections_avg": 86,
+			"sections_dept": "pcth",
+			"sections_instructor": "dormuth, colin",
+			"sections_title": "design & bioassy"
+		},
+		{
+			"sections_avg": 86,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 86,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 86,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 86,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 86,
+			"sections_dept": "path",
+			"sections_instructor": "au, nicholas;broady, raewyn;bruyere, helene;carter, cedric john;coupland, robert william;mcnagny, kelly marshall;medvedev, nadejda;schubert, peter;scott, mark;serrano, katherine;vercauteren, suzanne",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 86.17,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 86.17,
+			"sections_dept": "pcth",
+			"sections_instructor": "pang, catherine c",
+			"sections_title": "human pharmclgy"
+		},
+		{
+			"sections_avg": 86.25,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 86.29,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 86.29,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 86.32,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 86.32,
+			"sections_dept": "pcth",
+			"sections_instructor": "abadi, shirin s.a.;barr, alasdair;godin, david;horne, andrew;leung, joanne y t;pang, catherine c;schwarz, stephan;wright, james",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 86.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 86.36,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 86.36,
+			"sections_dept": "pcth",
+			"sections_instructor": "shabbits, jennifer anne",
+			"sections_title": "rnl bs drug ther"
+		},
+		{
+			"sections_avg": 86.39,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 86.39,
+			"sections_dept": "path",
+			"sections_instructor": "roberts, frederick",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 86.4,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 86.47,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac iv"
+		},
+		{
+			"sections_avg": 86.47,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac iv"
+		},
+		{
+			"sections_avg": 86.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 86.52,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 86.52,
+			"sections_dept": "phth",
+			"sections_instructor": "scott, alexander",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 86.52,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 86.52,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 86.57,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 86.57,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 86.6,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 86.6,
+			"sections_dept": "path",
+			"sections_instructor": "bradley, amanda;tai, jenny",
+			"sections_title": "lab admin"
+		},
+		{
+			"sections_avg": 86.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 86.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 86.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 86.75,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 86.75,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 86.75,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 86.93,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 86.93,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c",
+			"sections_title": "intro pharmaclgy"
+		},
+		{
+			"sections_avg": 87,
+			"sections_dept": "path",
+			"sections_instructor": "walker, david",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 87,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 87,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 87,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 87,
+			"sections_dept": "path",
+			"sections_instructor": "ng, david",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 87,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 87,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roberts, frederick;roscoe, diane",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 87.06,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 87.06,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roberts, frederick;roscoe, diane",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 87.08,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 87.08,
+			"sections_dept": "pcth",
+			"sections_instructor": "mclarnon, james gordon",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 87.12,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case integr i"
+		},
+		{
+			"sections_avg": 87.12,
+			"sections_dept": "phth",
+			"sections_instructor": "rankin, anne",
+			"sections_title": "case integr i"
+		},
+		{
+			"sections_avg": 87.14,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 87.14,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 87.17,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac iva"
+		},
+		{
+			"sections_avg": 87.17,
+			"sections_dept": "phth",
+			"sections_instructor": "klassen, tara;sauve, karen",
+			"sections_title": "clin prac iva"
+		},
+		{
+			"sections_avg": 87.23,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi b"
+		},
+		{
+			"sections_avg": 87.23,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac vi b"
+		},
+		{
+			"sections_avg": 87.25,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 87.32,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 87.32,
+			"sections_dept": "path",
+			"sections_instructor": "ford, jason",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 87.32,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 87.32,
+			"sections_dept": "path",
+			"sections_instructor": "au, nicholas;bruyere, helene;carter, cedric john;coupland, robert william;mcnagny, kelly marshall;medvedev, nadejda;schubert, peter;scott, mark;skinnider, brian;vercauteren, suzanne",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 87.33,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_avg": 87.33,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_avg": 87.33,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 87.35,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 87.35,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roberts, frederick;roscoe, diane",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 87.37,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "exercise move i"
+		},
+		{
+			"sections_avg": 87.37,
+			"sections_dept": "phth",
+			"sections_instructor": "campbell, kristin;eng, janice;hunt, michael anthony;scott, alexander;virji-babul, naznin",
+			"sections_title": "exercise move i"
+		},
+		{
+			"sections_avg": 87.5,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_avg": 87.5,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_avg": 87.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 87.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 87.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 87.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 87.54,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 87.54,
+			"sections_dept": "phth",
+			"sections_instructor": "hull, mark;scott, alexander",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 87.54,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 87.54,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 87.57,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 87.63,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 87.63,
+			"sections_dept": "pcth",
+			"sections_instructor": "pang, catherine c",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 87.69,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 87.75,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 87.81,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 87.81,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "intro human path"
+		},
+		{
+			"sections_avg": 87.83,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 87.83,
+			"sections_dept": "path",
+			"sections_instructor": "ng, david",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 87.83,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 87.84,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ivb"
+		},
+		{
+			"sections_avg": 87.84,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac ivb"
+		},
+		{
+			"sections_avg": 87.86,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 87.86,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roberts, frederick;roscoe, diane",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 87.91,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "exercise move i"
+		},
+		{
+			"sections_avg": 87.91,
+			"sections_dept": "phth",
+			"sections_instructor": "campbell, kristin;eng, janice;scott, alexander;virji-babul, naznin",
+			"sections_title": "exercise move i"
+		},
+		{
+			"sections_avg": 87.95,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 87.95,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 87.99,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case intgr iii"
+		},
+		{
+			"sections_avg": 87.99,
+			"sections_dept": "phth",
+			"sections_instructor": "klassen, tara",
+			"sections_title": "case intgr iii"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "pcth",
+			"sections_instructor": "godin, david v",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "pcth",
+			"sections_instructor": "knight, darryl",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "pcth",
+			"sections_instructor": "knight, darryl",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "pcth",
+			"sections_instructor": "horne, andrew;karim, sultan;kurata, harley;pang, catherine c;walker, michael j a",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 88,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "micr infectn ctl"
+		},
+		{
+			"sections_avg": 88.06,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case integr i"
+		},
+		{
+			"sections_avg": 88.06,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case integr i"
+		},
+		{
+			"sections_avg": 88.06,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case integr i"
+		},
+		{
+			"sections_avg": 88.06,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case integr i"
+		},
+		{
+			"sections_avg": 88.08,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "exercise move ii"
+		},
+		{
+			"sections_avg": 88.08,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "exercise move ii"
+		},
+		{
+			"sections_avg": 88.09,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac iva"
+		},
+		{
+			"sections_avg": 88.09,
+			"sections_dept": "phth",
+			"sections_instructor": "klassen, tara",
+			"sections_title": "clin prac iva"
+		},
+		{
+			"sections_avg": 88.11,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 88.13,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene;kalloger, steve ernest;wellington, cheryl lea",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 88.17,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 88.17,
+			"sections_dept": "pcth",
+			"sections_instructor": "macleod, bernard a",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 88.24,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 88.24,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 88.27,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 88.27,
+			"sections_dept": "path",
+			"sections_instructor": "holmes, daniel;keown, paul anthony;li, dailin;mattman, andre;pudek, morris;purssell, roy",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 88.28,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "exercise move ii"
+		},
+		{
+			"sections_avg": 88.28,
+			"sections_dept": "phth",
+			"sections_instructor": "terlicher, nadine",
+			"sections_title": "exercise move ii"
+		},
+		{
+			"sections_avg": 88.31,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 88.31,
+			"sections_dept": "pcth",
+			"sections_instructor": "mclarnon, james gordon",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 88.33,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 88.33,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 88.33,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 88.37,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 88.37,
+			"sections_dept": "path",
+			"sections_instructor": "ng, david",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 88.4,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac iva"
+		},
+		{
+			"sections_avg": 88.4,
+			"sections_dept": "phth",
+			"sections_instructor": "klassen, tara;sauve, karen;zwicker, jill",
+			"sections_title": "clin prac iva"
+		},
+		{
+			"sections_avg": 88.4,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 88.4,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c;walker, michael j a",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 88.42,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 88.42,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 88.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 88.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "knight, darryl",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 88.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 88.54,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 88.54,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 88.6,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 88.6,
+			"sections_dept": "pcth",
+			"sections_instructor": "horne, andrew",
+			"sections_title": "drug assay&phrmc"
+		},
+		{
+			"sections_avg": 88.71,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 88.71,
+			"sections_dept": "path",
+			"sections_instructor": "ng, david",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 88.75,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 88.75,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c;walker, michael j a",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 88.76,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 88.76,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "path for pt 1"
+		},
+		{
+			"sections_avg": 88.81,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 88.81,
+			"sections_dept": "path",
+			"sections_instructor": "carter, cedric john",
+			"sections_title": "haematology"
+		},
+		{
+			"sections_avg": 88.88,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 88.91,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 88.91,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 89,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 89,
+			"sections_dept": "pcth",
+			"sections_instructor": "macleod, bernard a",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 89,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 89,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene;kalloger, steve ernest;laule, cornelia;lockwood, william;wellington, cheryl lea",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 89,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 89,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 89.07,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 89.07,
+			"sections_dept": "path",
+			"sections_instructor": "halstead, anne catherine;holmes, daniel;keown, paul anthony;li, dailin;martz, walter;mattman, andre;pudek, morris;purssell, roy",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 89.13,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene;kalloger, steve ernest;laule, cornelia;lockwood, william;wellington, cheryl lea",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 89.15,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 89.15,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 89.17,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 89.17,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "systematic pcol"
+		},
+		{
+			"sections_avg": 89.2,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac iva"
+		},
+		{
+			"sections_avg": 89.2,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin prac iva"
+		},
+		{
+			"sections_avg": 89.21,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 89.24,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 89.24,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 89.29,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 89.29,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c;walker, michael j a",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 89.33,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene;kalloger, steve ernest;laule, cornelia;lockwood, william;wellington, cheryl lea",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 89.4,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 89.47,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_avg": 89.47,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_avg": 89.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 89.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 89.5,
+			"sections_dept": "path",
+			"sections_instructor": "bally, marcel bertran",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 89.56,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 89.83,
+			"sections_dept": "path",
+			"sections_instructor": "bally, marcel bertran",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 89.88,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 89.88,
+			"sections_dept": "path",
+			"sections_instructor": "ng, david",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "path",
+			"sections_instructor": "walker, david",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 90,
+			"sections_dept": "path",
+			"sections_instructor": "bryce, elizabeth;roscoe, diane",
+			"sections_title": "clk in lab medic"
+		},
+		{
+			"sections_avg": 90.03,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec i"
+		},
+		{
+			"sections_avg": 90.03,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec i"
+		},
+		{
+			"sections_avg": 90.07,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "design & bioassy"
+		},
+		{
+			"sections_avg": 90.07,
+			"sections_dept": "pcth",
+			"sections_instructor": "walker, michael j a",
+			"sections_title": "design & bioassy"
+		},
+		{
+			"sections_avg": 90.11,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 90.25,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 90.25,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "drugs &intercell"
+		},
+		{
+			"sections_avg": 90.25,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 90.25,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "med lab toxiclgy"
+		},
+		{
+			"sections_avg": 90.35,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec i"
+		},
+		{
+			"sections_avg": 90.35,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec i"
+		},
+		{
+			"sections_avg": 90.4,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "design & bioassy"
+		},
+		{
+			"sections_avg": 90.4,
+			"sections_dept": "pcth",
+			"sections_instructor": "walker, michael j a",
+			"sections_title": "design & bioassy"
+		},
+		{
+			"sections_avg": 90.4,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 90.4,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 90.43,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 90.46,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 90.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 90.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c;walker, michael j a",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 90.61,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case integr i"
+		},
+		{
+			"sections_avg": 90.61,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "case integr i"
+		},
+		{
+			"sections_avg": 90.67,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 90.67,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 90.71,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 90.71,
+			"sections_dept": "path",
+			"sections_instructor": "ng, david",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 90.79,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 90.79,
+			"sections_dept": "path",
+			"sections_instructor": "ng, david",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 90.86,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 90.86,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 90.91,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 90.91,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 90.93,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 90.93,
+			"sections_dept": "pcth",
+			"sections_instructor": "pang, catherine c",
+			"sections_title": "intro to pcol"
+		},
+		{
+			"sections_avg": 90.99,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec i"
+		},
+		{
+			"sections_avg": 90.99,
+			"sections_dept": "phth",
+			"sections_instructor": "murphy, susan",
+			"sections_title": "clinical dec i"
+		},
+		{
+			"sections_avg": 91,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "biolgy of cancer"
+		},
+		{
+			"sections_avg": 91,
+			"sections_dept": "path",
+			"sections_instructor": "morin, gregg",
+			"sections_title": "biolgy of cancer"
+		},
+		{
+			"sections_avg": 91.06,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.1,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.17,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 91.17,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c;walker, michael j a",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 91.17,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene;kalloger, steve ernest;wellington, cheryl lea",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.2,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.2,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.22,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "design & bioassy"
+		},
+		{
+			"sections_avg": 91.22,
+			"sections_dept": "pcth",
+			"sections_instructor": "dormuth, colin",
+			"sections_title": "design & bioassy"
+		},
+		{
+			"sections_avg": 91.27,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.31,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.4,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 91.4,
+			"sections_dept": "pcth",
+			"sections_instructor": "macleod, bernard a",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 91.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 91.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "knight, darryl",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 91.5,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 91.55,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 91.55,
+			"sections_dept": "path",
+			"sections_instructor": "ng, david",
+			"sections_title": "tech mlc biol&ex"
+		},
+		{
+			"sections_avg": 91.56,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.78,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.79,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tpcs path rsrch"
+		},
+		{
+			"sections_avg": 91.79,
+			"sections_dept": "path",
+			"sections_instructor": "bennewith, kevin;cote, helene;devlin, angela;granville, david;lockwood, william;shah, sohrab;steidl, christian;verchere, bruce;wellington, cheryl lea;weng, andrew",
+			"sections_title": "tpcs path rsrch"
+		},
+		{
+			"sections_avg": 91.8,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 91.8,
+			"sections_dept": "pcth",
+			"sections_instructor": "karim, sultan;pang, catherine c;walker, michael j a",
+			"sections_title": "systmtc pcol lab"
+		},
+		{
+			"sections_avg": 91.83,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 91.89,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec i"
+		},
+		{
+			"sections_avg": 91.89,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec i"
+		},
+		{
+			"sections_avg": 92,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 92,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 92.04,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_avg": 92.04,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_avg": 92.2,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 92.2,
+			"sections_dept": "pcth",
+			"sections_instructor": "macleod, bernard a",
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_avg": 92.25,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 92.58,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "tpcs path rsrch"
+		},
+		{
+			"sections_avg": 92.58,
+			"sections_dept": "path",
+			"sections_instructor": "bally, marcel bertran;bennewith, kevin;cote, helene;devlin, angela;rajcan-separovic, evica;shah, sohrab;steidl, christian;verchere, bruce;wellington, cheryl lea;weng, andrew",
+			"sections_title": "tpcs path rsrch"
+		},
+		{
+			"sections_avg": 93,
+			"sections_dept": "pcth",
+			"sections_instructor": "bhagavatula, sastry",
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_avg": 93,
+			"sections_dept": "path",
+			"sections_instructor": "cote, helene",
+			"sections_title": "seminar"
+		},
+		{
+			"sections_avg": 93.5,
+			"sections_dept": "path",
+			"sections_instructor": "",
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_avg": 94.32,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_avg": 94.32,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_avg": 95.37,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_avg": 95.37,
+			"sections_dept": "phth",
+			"sections_instructor": "",
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_avg": 96,
+			"sections_dept": "pcth",
+			"sections_instructor": "",
+			"sections_title": "ms thesis"
+		}
+	]
+}

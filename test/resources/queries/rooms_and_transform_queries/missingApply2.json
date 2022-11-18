@@ -1,0 +1,19 @@
+{
+	"title": "Missing Apply 2",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_title",
+				"overallAvg"
+			]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"sections_title"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

@@ -3,8 +3,38 @@ import {mFieldValidator, sFieldValidator} from "./fieldValidator";
 import {isJSON} from "../../jsonHelper";
 
 const transformationsValidator = (transformations: Record<string, any>, applyKeyInColumns: string[]): string[] => {
+	// checkTransformationKeys(transformations);
+	let trackGroupKey = 0;
+	let trackApplyKey = 0;
+	let transformationKeys = Object.keys(transformations);
+	if(transformationKeys.length === 0) {
+		throw new InsightError("TRANSFORMATIONS missing GROUP");
+	}
+	transformationKeys.forEach((key)=> {
+		if (key === "GROUP") {
+			trackGroupKey++;
+		} else if (key === "APPLY") {
+			trackApplyKey++;
+		}
+	});
+	if(trackGroupKey === 0) {
+		throw new InsightError("TRANSFORMATIONS missing GROUP");
+	}
+	if(trackApplyKey === 0) {
+		throw new InsightError("TRANSFORMATIONS missing APPLY");
+	};
+	let transformationsKeys = [];
+	transformationsKeys = checkTransformationKeys(transformations, applyKeyInColumns);
+	return transformationsKeys;
+
+};
+
+const checkTransformationKeys = (transformations: Record<string, any>, applyKeyInColumns: string[]): string[] => {
 	let applyKeyObjects = transformations["APPLY"];
 	let applyKeys: string [] = [];
+	if(isJSON(applyKeyObjects)) {
+		throw new InsightError("APPLY must be an array");
+	};
 	applyKeyObjects.forEach((keyObject: object) => {
 		let key = Object.keys(keyObject);
 		applyKeys.push(key[0]);
