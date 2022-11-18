@@ -79,6 +79,10 @@ const applyKeyValidator = (applyKeys: string[]): void => {
 			throw new InsightError("Cannot have underscore in applyKey");
 		};
 	});
+	let checkDuplicates = new Set(applyKeys);
+	if (applyKeys.length !== checkDuplicates.size) {
+		throw new InsightError("Duplicate APPLY key overallAvg");
+	}
 };
 
 const applyRuleValidator = (applyRules: object[]): string[] => {
