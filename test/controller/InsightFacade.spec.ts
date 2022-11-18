@@ -209,8 +209,6 @@ describe("InsightFacade", function () {
 			"./test/resources/queries/rooms_and_transform_queries",
 			{
 				assertOnResult: (actual, expected) => {
-					// console.log(actual);
-					// console.log(expected);
 					expect(actual).to.have.deep.equal(expected);
 					assert.equal(actual.length, expected.length);
 				},
