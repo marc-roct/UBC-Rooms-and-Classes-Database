@@ -56,9 +56,6 @@ const sortMultipleKeys = (keyToSort: object, filteredDatasets: InsightResult[]):
 	}
 	let direction = keyToSort["dir"];
 	let keys = keyToSort["keys"] as string[];
-	// console.log("********************");
-	// console.log(keys);
-	// console.log(filteredDatasets);
 	if(direction === "UP") {
 		result = filteredDatasets.sort((dataset1, dataset2) => {
 			for(const key of keys) {
@@ -86,8 +83,6 @@ const sortMultipleKeys = (keyToSort: object, filteredDatasets: InsightResult[]):
 			return 0;
 		});
 	}
-	// console.log("^^^^^^^^^^^^^^^^^^^^^^");
-	// console.log(result);
 	return result;
 };
 

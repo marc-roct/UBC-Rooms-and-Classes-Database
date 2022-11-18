@@ -39,6 +39,7 @@ const checkTransformationKeys = (transformations: Record<string, any>, applyKeyI
 		let key = Object.keys(keyObject);
 		applyKeys.push(key[0]);
 	});
+	applyKeyValidator(applyKeys);
 	applyKeys.forEach((key)=> {
 		if(!applyKeyInColumns.includes(key)) {
 			throw new InsightError("Invalid key " + key + " in COLUMNS");
@@ -66,6 +67,14 @@ const checkTransformationKeys = (transformations: Record<string, any>, applyKeyI
 		}
 	});
 	return applyKeys.concat(groupKeys);
+};
+
+const applyKeyValidator = (applyKeys: string[]): void => {
+	applyKeys.forEach((key) => {
+		if (key.includes("_")) {
+			throw new InsightError("Cannot have underscore in applyKey");
+		};
+	});
 };
 
 const applyRuleValidator = (applyRules: object[]): string[] => {
