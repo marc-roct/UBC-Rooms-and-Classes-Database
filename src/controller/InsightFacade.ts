@@ -160,6 +160,7 @@ export default class InsightFacade implements IInsightFacade {
 			} else {
 				filteredResult = optionFilter(query["OPTIONS"],result);
 			};
+			// console.log(filteredResult);
 			// console.log(result);
 			if(filteredResult.length > 5000) {
 				return Promise.reject(new ResultTooLargeError("The result is too big. " +

@@ -1,0 +1,161 @@
+{
+	"title": "QueryISinstructorTest",
+	"input": {
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg",
+				"sections_dept",
+				"sections_instructor"
+			],
+			"ORDER": "sections_avg"
+		},
+		"WHERE": {
+			"IS": {
+				"sections_instructor": "king, mary ann"
+			}
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_avg": 50,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 64,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 64.45,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 64.56,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 64.6,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 64.62,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 64.89,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 65.82,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 67.09,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 67.43,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 67.72,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 68.21,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 68.25,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 68.67,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 68.92,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 69.29,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 69.71,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 70.19,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 70.46,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 70.55,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 70.69,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 70.9,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 71.26,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 71.74,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 73.27,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 79.8,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 80.5,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		},
+		{
+			"sections_avg": 83,
+			"sections_dept": "psyc",
+			"sections_instructor": "king, mary ann"
+		}
+	]
+}

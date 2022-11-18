@@ -1,0 +1,6 @@
+{
+	"title": "randomString",
+	"input": "sdfa123",
+	"errorExpected": true,
+	"expected": "InsightError"
+}

@@ -1,0 +1,36 @@
+{
+	"title": "Invalid Order Direction 2",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_id",
+				"overallCount"
+			],
+			"ORDER": {
+				"dir": [],
+				"keys": [
+					"overallCount",
+					"sections_dept",
+					"sections_id"
+				]
+			}
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"sections_dept",
+				"sections_id"
+			],
+			"APPLY": [
+				{
+					"overallCount": {
+						"COUNT": "sections_instructor"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

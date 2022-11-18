@@ -2,6 +2,7 @@ import {InsightDatasetKind, InsightError} from "../../../IInsightFacade";
 import {optionValidator} from "./optionValidator";
 import {whereValidator} from "./whereValidator";
 import {applyRuleValidator, transformationsValidator} from "./transformationValidator";
+import {isJSON} from "../../jsonHelper";
 
 const queryValidator = (query: Record<string, any>): [string, number, string[]] => {
 	let databaseId: string;
@@ -28,8 +29,7 @@ const queryValidator = (query: Record<string, any>): [string, number, string[]] 
 	if (whereTracker > 1 || optionTracker > 1) {
 		throw new InsightError("Invalid Query");
 	};
-
-	// TODO: this validation may be required as it's not on the spec
+	checkClauseType(query, transformationsTracker);
 	let whereBody = Object.keys(query["WHERE"]);
 	if(whereBody.length > 1) {
 		throw new InsightError("WHERE should only have 1 key, has 2");
@@ -46,6 +46,19 @@ const queryValidator = (query: Record<string, any>): [string, number, string[]] 
 	return [databaseId, transformationsTracker, keyFields];
 };
 
+const checkClauseType = (query: Record<string, any>, transformationsTracker: number): void => {
+	if(!isJSON(query["WHERE"])) {
+		throw new InsightError("WHERE must be object");
+	};
+	if(!isJSON(query["OPTIONS"])) {
+		throw new InsightError("OPTIONS must be object");
+	}
+	if(transformationsTracker !== 0) {
+		if(!isJSON(query["TRANSFORMATIONS"])) {
+			throw new InsightError("TRANSFORMATIONS not well typed");
+		}
+	}
+};
 
 // TODO: function updated - require more testing
 const checkDatasetReference = (keyFields: string[]): string => {
