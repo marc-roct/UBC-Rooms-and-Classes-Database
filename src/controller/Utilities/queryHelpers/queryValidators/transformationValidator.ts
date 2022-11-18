@@ -37,7 +37,11 @@ const checkTransformationKeys = (transformations: Record<string, any>, applyKeyI
 	};
 	applyKeyObjects.forEach((keyObject: object) => {
 		let key = Object.keys(keyObject);
-		applyKeys.push(key[0]);
+		if(key.length === 0) {
+			throw new InsightError("Apply rule should only have 1 key, has 0");
+		} else {
+			applyKeys.push(key[0]);
+		}
 	});
 	applyKeyValidator(applyKeys);
 	applyKeys.forEach((key)=> {
