@@ -9,7 +9,7 @@ import InsightFacade from "../../src/controller/InsightFacade";
 import * as fs from "fs-extra";
 
 import {folderTest} from "@ubccpsc310/folder-test";
-import {assert, expect} from "chai";
+import {assert, AssertionError, expect} from "chai";
 import {clearDisk} from "../TestUtil";
 
 describe("InsightFacade", function () {
@@ -18,10 +18,17 @@ describe("InsightFacade", function () {
 	const persistDirectory = "./data";
 	const datasetContents = new Map<string, string>();
 
-	// Reference any datasets you've added to test/resources/archives here and they will
+	// Reference any datasets you've added to test/resources/archives here, and they will
 	// automatically be loaded in the 'before' hook.
 	const datasetsToLoad: {[key: string]: string} = {
 		sections: "./test/resources/archives/pair.zip",
+		rooms: "./test/resources/archives/rooms.zip",
+		testRooms: "./test/resources/archives/testrooms.zip",
+		noIndex: "./test/resources/archives/noIndex.zip",
+		noRooms: "./test/resources/archives/noRooms.zip",
+		invalidZIP: "./test/resources/archives/invalidZip.zip",
+		geoLocation: "./test/resources/archives/geoLocation.zip",
+		seats: "./test/resources/archives/testSeatsDefault.zip"
 	};
 
 	before(function () {
@@ -58,12 +65,84 @@ describe("InsightFacade", function () {
 		});
 
 		// This is a unit test. You should create more like this!
-		it("Should add a valid dataset", function () {
+		it("Should add a valid section dataset", function () {
 			const id: string = "sections";
 			const content: string = datasetContents.get("sections") ?? "";
 			const expected: string[] = [id];
 			return insightFacade.addDataset(id, content, InsightDatasetKind.Sections)
 				.then((result: string[]) => expect(result).to.deep.equal(expected));
+		});
+
+		it("Should add a valid room dataset", function () {
+			const id: string = "rooms1";
+			const content: string = datasetContents.get("rooms") ?? "";
+			const expected: string[] = [id];
+			return insightFacade.addDataset(id, content, InsightDatasetKind.Rooms)
+				.then((result: string[]) => expect(result).to.deep.equal(expected));
+		});
+
+		it("Should add a valid room testdataset", function () {
+			const id: string = "testRooms";
+			const content: string = datasetContents.get("testRooms") ?? "";
+			const expected: string[] = [id];
+			return insightFacade.addDataset(id, content, InsightDatasetKind.Rooms)
+				.then((result: string[]) => expect(result).to.deep.equal(expected));
+		});
+
+		it("Should add a valid room seatsDataset", function () {
+			const id: string = "seats";
+			const content: string = datasetContents.get("seats") ?? "";
+			const expected: string[] = [id];
+			return insightFacade.addDataset(id, content, InsightDatasetKind.Rooms)
+				.then((result: string[]) => expect(result).to.deep.equal(expected));
+		});
+
+		it("Should throw an insight error for adding zip with a missing index", function () {
+			const id: string = "noIndex";
+			const content: string = datasetContents.get("noIndex") ?? "";
+			const expected: string[] = [id];
+			return insightFacade.addDataset(id, content, InsightDatasetKind.Rooms)
+				.then((result: string[]) => expect.fail("addDataset should've failed"))
+				.catch((expectedError) => {
+					expect(expectedError).to.be.an.instanceof(InsightError);
+				});
+		});
+
+		it("Should throw an insight error for adding invalid zip", function () {
+			const id: string = "invalidZip";
+			const content: string = datasetContents.get("invalidZip") ?? "";
+			const expected: string[] = [id];
+			return insightFacade.addDataset(id, content, InsightDatasetKind.Rooms)
+				.then((result: string[]) => expect.fail("addDataset should've failed"))
+				.catch((expectedError) => {
+					expect(expectedError).to.be.an.instanceof(InsightError);
+				});
+		});
+
+		it("Should throw an insight error for having no valid geoLocations", function () {
+			const id: string = "geo";
+			const content: string = datasetContents.get("geoLocation") ?? "";
+			const expected: string[] = [id];
+			return insightFacade.addDataset(id, content, InsightDatasetKind.Rooms)
+				.then((result: string[]) => expect.fail("addDataset should've failed"))
+				.catch((expectedError) => {
+					expect(expectedError).to.be.an.instanceof(InsightError);
+				});
+		});
+
+		it("Should throw an error for not having any rooms", function () {
+			const id: string = "noRooms";
+			const content: string = datasetContents.get("noRooms") ?? "";
+			const expected: string[] = [id];
+			return insightFacade.addDataset(id, content, InsightDatasetKind.Rooms)
+				.then((result: string[]) => expect.fail("addDataset should've failed, returned: " + result))
+				.catch((expectedError) => {
+					if (expectedError instanceof AssertionError) {
+						throw expectedError;
+					} else {
+						expect(expectedError).to.be.an.instanceof(InsightError);
+					}
+				});
 		});
 	});
 
@@ -188,6 +267,10 @@ describe("InsightFacade", function () {
 						kind: InsightDatasetKind.Sections,
 						numRows: 64612,
 					});
+				})
+				.then(() => {
+					return facade.addDataset("rooms-1", datasetContents.get("testRooms") ?? "",
+						InsightDatasetKind.Rooms);
 				});
 		});
 	});
