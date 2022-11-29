@@ -1,0 +1,8194 @@
+{
+	"title": "group by year sort by year up",
+	"input": {
+		"WHERE": {
+			"LT": {
+				"sections_year": 2019
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_year",
+				"sections_dept",
+				"countYear"
+			],
+			"ORDER": {
+				"dir": "UP",
+				"keys": [
+					"sections_year"
+				]
+			}
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"sections_year",
+				"sections_dept"
+			],
+			"APPLY": [
+				{
+					"countYear": {
+						"COUNT": "sections_year"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_year": 1900,
+			"sections_dept": "aanb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "apbi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "appp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "arbc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "arcl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "asic",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "ba",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bait",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bala",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bama",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "biof",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bmeg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "caps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "ceen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cics",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "clch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cnto",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "coec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cpen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "dani",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "edcp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "elec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "enph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fhis",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fnel",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fnis",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "gbpr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "geob",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "gpp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "grek",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "grsj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "gsat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "hebr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "hgse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "hinu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "hunu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "iar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "igen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "info",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "iwme",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "kin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "lais",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "laso",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "last",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "latn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "lfs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "medi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "mrne",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "name",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "pers",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "phrm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "phth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "poli",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "pols",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "port",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "relg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "rgla",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "rhsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "rmes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "rmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "rsot",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "russ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "sans",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "scan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "scie",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "soci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "soil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "sowk",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "span",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "spha",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "spph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "stat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "sts",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "surg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "swed",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "test",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "thtr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "udes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "ufor",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "urst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "ursy",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "vant",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "visa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "wood",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "wrds",
+			"countYear": 1
+		},
+		{
+			"sections_year": 1900,
+			"sections_dept": "zool",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "asic",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "bama",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "biof",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "cics",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "hinu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "hunu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "last",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "mrne",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "pols",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "port",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2007,
+			"sections_dept": "relg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "asic",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "bait",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "bala",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "biof",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "hinu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "hunu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "last",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "medi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "poli",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "pols",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "relg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "rgla",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "rhsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "rmes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "rmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "rsot",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "russ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "sans",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "scan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "soci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "soil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "sowk",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "span",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "spha",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "spph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "stat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "surg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "thtr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "urst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "visa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "wood",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2008,
+			"sections_dept": "zool",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "apbi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "bala",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "biof",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "ceen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "cics",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "geob",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "hinu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "laso",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "lfs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "medi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "poli",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "rgla",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "rhsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "rmes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "rmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "rsot",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "russ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "sans",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "soci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "sowk",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "span",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "spha",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "spph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "stat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "surg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "thtr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "urst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "visa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "wood",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2009,
+			"sections_dept": "zool",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "apbi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "asic",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "ba",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bait",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bala",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bama",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bmeg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "ceen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "cics",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "edcp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "geob",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "gsat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "hinu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "hunu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "laso",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "last",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "lfs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "medi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "poli",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "pols",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "relg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "rgla",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "rhsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "rmes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "rmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "rsot",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "russ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "sans",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "scan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "scie",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "soci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "soil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "sowk",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "span",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "spha",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "spph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "stat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "surg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "thtr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "urst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "visa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "wood",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2010,
+			"sections_dept": "zool",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "apbi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "asic",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "ba",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bait",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bala",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bama",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "biof",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bmeg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "ceen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "cics",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "edcp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "enph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "geob",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "gsat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "hunu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "igen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "laso",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "last",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "lfs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "medi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "mrne",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "pers",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "poli",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "pols",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "port",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "relg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "rgla",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "rhsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "rmes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "rmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "rsot",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "russ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "sans",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "scan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "scie",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "soci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "soil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "sowk",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "span",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "spha",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "spph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "stat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "surg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "thtr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "urst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "visa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "wood",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2011,
+			"sections_dept": "zool",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "apbi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "asic",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "ba",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bait",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bala",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bama",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "biof",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bmeg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "ceen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "cics",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "edcp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "enph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "geob",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "gsat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "hinu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "hunu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "igen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "kin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "laso",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "last",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "lfs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "medi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "mrne",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "pers",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "phth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "poli",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "pols",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "port",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "relg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "rgla",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "rhsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "rmes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "rsot",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "russ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "sans",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "scan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "scie",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "soci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "soil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "sowk",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "span",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "spha",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "spph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "stat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "sts",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "surg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "thtr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "urst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "visa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "wood",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2012,
+			"sections_dept": "zool",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "apbi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "asic",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "ba",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bait",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bala",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bama",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "biof",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bmeg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "caps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "ceen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "cics",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "dani",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "edcp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "enph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "geob",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "grsj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "gsat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "hgse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "hinu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "hunu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "igen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "kin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "laso",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "last",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "lfs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "medi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "mrne",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "name",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "pers",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "phth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "poli",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "pols",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "port",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "relg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "rgla",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "rhsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "rmes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "rmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "rsot",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "russ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "sans",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "scan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "scie",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "soci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "soil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "sowk",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "span",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "spha",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "spph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "stat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "sts",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "surg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "swed",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "thtr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "urst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "visa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "wood",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2013,
+			"sections_dept": "zool",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "apbi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "arbc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "arcl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "ba",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bait",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bala",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bama",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "biof",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bmeg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "caps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "ceen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "cics",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "clch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "dani",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "edcp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "enph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "fhis",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "geob",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "grek",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "grsj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "gsat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "hebr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "hgse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "hunu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "igen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "kin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "laso",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "last",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "latn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "lfs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "medi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "mrne",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "name",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "pers",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "phth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "poli",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "pols",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "port",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "relg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "rgla",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "rhsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "rmes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "rmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "rsot",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "russ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "sans",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "scan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "scie",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "soci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "soil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "sowk",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "span",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "spha",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "spph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "stat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "sts",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "surg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "swed",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "thtr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "udes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "urst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "vant",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "visa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "wood",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "wrds",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2014,
+			"sections_dept": "zool",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "aanb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "apbi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "appp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "arbc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "arcl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "asic",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "atsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "ba",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bait",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bala",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bama",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "biof",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bmeg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "caps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "ccst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "ceen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cell",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "chil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cics",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "clch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cnrs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cnto",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "coec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cpen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "dani",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "dent",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "dhyg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "edcp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "elec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "enph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fhis",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fish",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fnel",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fnis",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "gbpr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "geob",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "gpp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "grek",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "grsj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "gsat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "hebr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "hgse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "hinu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "hunu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "iar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "igen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "info",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "iwme",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "jrnl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "kin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "lais",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "laso",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "last",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "latn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "law",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "lfs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "mdvl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "mech",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "medi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "name",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "nrsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "obst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "onco",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "path",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "pers",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "phrm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "phth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "poli",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "pols",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "port",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "psyc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "punj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "relg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "rgla",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "rhsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "rmes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "rmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "rsot",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "russ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "sans",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "scan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "scie",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "soci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "soil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "sowk",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "span",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "spha",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "spph",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "stat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "sts",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "surg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "swed",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "thtr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "udes",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "ufor",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "urst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "ursy",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "vant",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "visa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "wood",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "wrds",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2015,
+			"sections_dept": "zool",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "adhe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "anat",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "anth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "apbi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "appp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "apsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "arch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "arst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "arth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "asia",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "astr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "astu",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "audi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "ba",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "baac",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "babs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "baen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "bafi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "bahr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "bait",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "bama",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "bams",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "bapa",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "basc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "basm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "baul",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "bioc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "biol",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "bmeg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "bota",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "busi",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "caps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "cens",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "chbe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "chem",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "chin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "civl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "clch",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "clst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "cnps",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "coec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "cogs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "cohr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "comm",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "cons",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "cpen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "cpsc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "crwr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "dani",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "eced",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "econ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "edcp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "edst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "educ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "eece",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "elec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "ends",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "engl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "envr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "eosc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "epse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "etec",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "fipr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "fist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "fmst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "fnel",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "fnh",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "food",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "fopr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "fre",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "fren",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "frst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "geob",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "geog",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "germ",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "gpp",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "grek",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "grsj",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "hebr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "hgse",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "hist",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "igen",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "isci",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "ital",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "itst",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "japn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "kin",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "korn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "lais",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "larc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "latn",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "lfs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "libe",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "libr",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "ling",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "lled",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "math",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "medg",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "micb",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "midw",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "mine",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "mtrl",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "musc",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "nest",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "nurs",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "pcth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "phar",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "phil",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "phth",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "phys",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "plan",
+			"countYear": 1
+		},
+		{
+			"sections_year": 2016,
+			"sections_dept": "poli",
+			"countYear": 1
+		}
+	]
+}

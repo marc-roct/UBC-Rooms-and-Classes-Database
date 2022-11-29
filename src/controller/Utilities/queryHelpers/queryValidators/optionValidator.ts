@@ -1,5 +1,6 @@
 import {InsightError} from "../../../IInsightFacade";
 import {mFieldValidator, sFieldValidator} from "./fieldValidator";
+import {isJSON} from "../../jsonHelper";
 
 const optionValidator = (optionClause: Record<string, any>, transformationsTracker: number): string[] => {
 	let keyFields: string[] = [];
@@ -12,7 +13,7 @@ const optionValidator = (optionClause: Record<string, any>, transformationsTrack
 		throw new InsightError("OPTIONS missing COLUMNS");
 	} else {
 		columns = optionClause["COLUMNS"];
-		if(columns.length === 0) {
+		if(columns.length === 0 || isJSON(columns)) {
 			throw new InsightError("COLUMNS must be a non-empty array");
 		} else {
 			columns.forEach((column: string) => {
@@ -46,6 +47,9 @@ const orderValidator = (orderClause: any, columns: string[]) => {
 	} else if (typeof orderClause === "object") {
 		let validOrderKeys = ["dir", "keys"];
 		let orderKeys = Object.keys(orderClause);
+		if(orderKeys.length === 0) {
+			throw new InsightError("ORDER missing 'dir' key");
+		}
 		orderKeys.forEach((key) => {
 			if(!validOrderKeys.includes(key)) {
 				throw new InsightError("Invalid key " + key + " in ORDER; missing 'dir' or 'keys'");
@@ -59,6 +63,8 @@ const orderValidator = (orderClause: any, columns: string[]) => {
 		let keyValues = orderClause["keys"];
 		if(keyValues.length === 0) {
 			throw new InsightError("keys in ORDER cannot be empty");
+		} else if (isJSON(keyValues)) {
+			throw new InsightError("ORDER keys must be a non-empty array");
 		} else {
 			for (const value of keyValues) {
 				if(!columns.includes(value)) {

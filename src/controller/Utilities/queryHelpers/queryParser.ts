@@ -1,5 +1,5 @@
-import {Dataset, Database} from "../../InsightFacade";
-import {InsightError, InsightResult} from "../../IInsightFacade";
+import {Database, Dataset} from "../../InsightFacade";
+import {InsightDatasetKind, InsightError} from "../../IInsightFacade";
 
 const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
 	let dataCollector: Dataset[] = [];
@@ -54,20 +54,26 @@ const whereParser = (query: any, dataSet: Dataset[]): Dataset[] => {
 	return dataCollector;
 };
 
-const getDataset = (databases: Database[], id: string): Dataset[] => {
-	let dataSet: Dataset[] = [];
+const getDatabase = (databases: Database[], id: string): Database => {
+	let result: Database = {
+		id: "",
+		data: [],
+		kind: InsightDatasetKind.Sections
+	};
 	let foundDataset = false;
+	let datasetKind = "";
 	// console.log(databases);
 	databases.forEach((database) => {
 		if (id === database["id"]) {
-			dataSet = database["data"];
+			result = database;
+			datasetKind = database["kind"];
 			foundDataset = true;
 		}
 	});
 	if(foundDataset === false) {
 		throw new InsightError("Referenced dataset " + id + " not added yet");
 	};
-	return dataSet;
+	return result;
 };
 
 const fieldParser = (field: string): string => {
@@ -220,4 +226,4 @@ const wildCaseHelper = (field: string, value: string, dataSet: Dataset[]): Datas
 	return subset;
 };
 
-export {whereParser, getDataset};
+export {whereParser, getDatabase};

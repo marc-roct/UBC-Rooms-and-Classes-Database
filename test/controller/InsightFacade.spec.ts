@@ -28,7 +28,8 @@ describe("InsightFacade", function () {
 		noRooms: "./test/resources/archives/noRooms.zip",
 		invalidZIP: "./test/resources/archives/invalidZip.zip",
 		geoLocation: "./test/resources/archives/geoLocation.zip",
-		seats: "./test/resources/archives/testSeatsDefault.zip"
+		seats: "./test/resources/archives/testSeatsDefault.zip",
+		missingInfo: "./test/resources/archives/missingInfo.zip"
 	};
 
 	before(function () {
@@ -130,6 +131,18 @@ describe("InsightFacade", function () {
 				});
 		});
 
+		it("Should throw an insight error for missing room info", function () {
+			const id: string = "missingInfo";
+			const content: string = datasetContents.get("missingInfo") ?? "";
+			const expected: string[] = [id];
+			return insightFacade.addDataset(id, content, InsightDatasetKind.Rooms)
+				.then((result: string[]) => expect.fail("addDataset should've failed"))
+				.catch((expectedError) => {
+					expect(expectedError).to.be.an.instanceof(InsightError);
+					console.log(expectedError);
+				});
+		});
+
 		it("Should throw an error for not having any rooms", function () {
 			const id: string = "noRooms";
 			const content: string = datasetContents.get("noRooms") ?? "";
@@ -161,9 +174,9 @@ describe("InsightFacade", function () {
 			// Will *fail* if there is a problem reading ANY dataset.
 			const loadDatasetPromises = [
 				insightFacade.addDataset(
-					"ubc",
-					datasetContents.get("sections") ?? "",
-					InsightDatasetKind.Sections
+					"rooms",
+					datasetContents.get("rooms") ?? "",
+					InsightDatasetKind.Rooms
 				),
 				insightFacade.addDataset(
 					"sections",
@@ -185,10 +198,33 @@ describe("InsightFacade", function () {
 		folderTest<unknown, Promise<InsightResult[]>, PQErrorKind>(
 			"Dynamic InsightFacade PerformQuery tests",
 			(input) => insightFacade.performQuery(input),
-			"./test/resources/queries",
+			"./test/resources/queries/sections_queries",
 			{
 				assertOnResult: (actual, expected) => {
 					expect(actual).to.have.deep.members(expected);
+					assert.equal(actual.length, expected.length);
+				},
+				errorValidator: (error): error is PQErrorKind =>
+					error === "ResultTooLargeError" || error === "InsightError",
+				assertOnError: (actual, expected) => {
+					if (expected === "ResultTooLargeError") {
+						expect(actual).to.be.instanceof(ResultTooLargeError);
+					} else {
+						expect(actual).to.be.instanceof(InsightError);
+					}
+				},
+			}
+		);
+		// test transformation orders
+		folderTest<unknown, Promise<InsightResult[]>, PQErrorKind>(
+			"Dynamic InsightFacade PerformQuery tests",
+			(input) => insightFacade.performQuery(input),
+			"./test/resources/queries/rooms_and_transform_queries",
+			{
+				assertOnResult: (actual, expected) => {
+					// console.log(actual);
+					// console.log(expected);
+					expect(actual).to.have.deep.equal(expected);
 					assert.equal(actual.length, expected.length);
 				},
 				errorValidator: (error): error is PQErrorKind =>

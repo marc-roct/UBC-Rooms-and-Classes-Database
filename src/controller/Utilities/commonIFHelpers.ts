@@ -25,7 +25,7 @@ const storeDatabase = async function (database: Database) {
 	zip.file(database.id, content);
 	let zipped: string = await zip.generateAsync({type: "base64"});
 	// console.log(zipped);
-	fs.outputFileSync(persistDir + "/" + database.id + ".zipped", zipped, "base64");
+	fs.outputFileSync(persistDir + "/" + database.id + ".zip", zipped, "base64");
 };
 
 export {idValidator, storeDatabase, persistDir};
