@@ -37,8 +37,13 @@ const checkTransformationKeys = (transformations: Record<string, any>, applyKeyI
 	};
 	applyKeyObjects.forEach((keyObject: object) => {
 		let key = Object.keys(keyObject);
-		applyKeys.push(key[0]);
+		if(key.length === 0) {
+			throw new InsightError("Apply rule should only have 1 key, has 0");
+		} else {
+			applyKeys.push(key[0]);
+		}
 	});
+	applyKeyValidator(applyKeys);
 	applyKeys.forEach((key)=> {
 		if(!applyKeyInColumns.includes(key)) {
 			throw new InsightError("Invalid key " + key + " in COLUMNS");
@@ -66,6 +71,18 @@ const checkTransformationKeys = (transformations: Record<string, any>, applyKeyI
 		}
 	});
 	return applyKeys.concat(groupKeys);
+};
+
+const applyKeyValidator = (applyKeys: string[]): void => {
+	applyKeys.forEach((key) => {
+		if (key.includes("_")) {
+			throw new InsightError("Cannot have underscore in applyKey");
+		};
+	});
+	let checkDuplicates = new Set(applyKeys);
+	if (applyKeys.length !== checkDuplicates.size) {
+		throw new InsightError("Duplicate APPLY key overallAvg");
+	}
 };
 
 const applyRuleValidator = (applyRules: object[]): string[] => {
