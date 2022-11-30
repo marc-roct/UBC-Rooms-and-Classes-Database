@@ -6,7 +6,23 @@
 		<link href="/style.css" rel="stylesheet" />
 	</head>
 	<body>
-		<button id="click-me-button" class="button" >Click Me!</button>
+		<div class="button-container">
+			<label for="file">Add Dataset</label>
+			<input type="file" name="file" id="file" hidden/>
+			<input type="submit" class="button" id="add-dataset">
+		</div>
+
+		<div class="button-container">
+			<button id="list-dataset" class="button" >List Dataset</button>
+			<table>
+				<tr>
+					<td>Dataset ID</td>
+					<td>Type</td>
+					<td>Size of The Dataset</td>
+				</tr>
+			</table>
+		</div>
+
 
 		<script type="text/javascript" src="/frontend.js"></script>
 	</body>
