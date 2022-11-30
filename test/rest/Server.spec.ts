@@ -21,11 +21,11 @@ describe("Server", function () {
 	});
 
 	beforeEach(function () {
-		// might want to add some process logging here to keep track of what"s going on
+		// might want to add some process logging here to keep track of what's going on
 	});
 
 	afterEach(function () {
-		// might want to add some process logging here to keep track of what"s going on
+		// might want to add some process logging here to keep track of what's going on
 	});
 
 	// Sample on how to format PUT requests

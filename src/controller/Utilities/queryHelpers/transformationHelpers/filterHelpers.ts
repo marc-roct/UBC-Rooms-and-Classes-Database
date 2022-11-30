@@ -23,7 +23,6 @@ const optionFilter = (query: any, dataSets: Dataset[] | InsightResult[]): Insigh
 		filteredDatasets.push(filteredDataset);
 	}
 
-	// TODO: move the code below to orderFilter
 	if (keys.length === 2) {
 		let keyToSort = query["ORDER"];
 		if(typeof keyToSort === "string") {
