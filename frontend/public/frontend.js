@@ -1,5 +1,53 @@
-document.getElementById("click-me-button").addEventListener("click", handleClickMe);
+document.getElementById("add-dataset").addEventListener("click", handleAddDataset);
 
-function handleClickMe() {
-	alert("Button Clicked!");
+function handleAddDataset() {
+	const data = document.getElementById('file').value;
+	console.log(data);
+	// var getValue = document.getElementById('ddlViewBy').selectedOptions[0].value
+	const id = document.getElementById('id').value;
+	const kind = document.getElementById('kind').selectedOptions[0].value;
+	console.log("printing values: ");
+	console.log(id);
+	console.log(kind);
+	console.log("#####");
+	let url = "http://localhost:4321/dataset/" + id + "/" + kind;
+	fetch(url, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	}).then(function (response) {
+		console.log("printing response:");
+		console.log(response);
+		return response.json();
+	}).then(function(data) {
+		console.log("printing data:");
+		console.log(data);
+	}).catch(function(err){
+		console.log('Error: ', err);
+	});
+	// alert("Add Dataset Button Clicked!");
+
 }
+
+document.getElementById("list-dataset").addEventListener("click", handleListDataset);
+
+function handleListDataset() {
+	let result = "data is not fetched";
+	fetch('http://localhost:4321/datasets')
+		.then(function (response) {
+			console.log("printing response:");
+			console.log(response);
+			return response.json();
+		}).then(function (data) {
+			result = data;
+			console.log("printing data:");
+			console.log(result);
+	}).catch(function(err) {
+		console.log(err);
+	})
+	// alert("List dataset Button Clicked!" + result);
+}
+
+

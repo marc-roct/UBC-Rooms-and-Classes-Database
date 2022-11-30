@@ -33,7 +33,7 @@ export default class Server {
 		// NOTE: you can serve static frontend files in from your express server
 		// by uncommenting the line below. This makes files in ./frontend/public
 		// accessible at http://localhost:<port>/
-		// this.express.use(express.static("./frontend/public"))
+		this.express.use(express.static("./frontend/public"));
 
 	}
 
@@ -156,12 +156,12 @@ export default class Server {
 			const id = req.params.id;
 			const kind = req.params.kind;
 			const inputFile = Buffer.from(req.body, "base64");
-			console.log(inputFile);
+			// console.log(inputFile);
 			// const content = fs.readFileSync(inputFile).toString("base64");
 			// console.log(content);
 			let insightFacade = req.app.get("insightFacade");
 			let addedDataSet = await insightFacade.addDataset(id,inputFile,kind);
-			console.log(addedDataSet);
+			// console.log(addedDataSet);
 			res.status(200).json({result: addedDataSet});
 		} catch (err) {
 			if(err instanceof InsightError) {
