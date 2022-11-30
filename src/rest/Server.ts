@@ -1,6 +1,7 @@
 import express, {Application, Request, Response} from "express";
 import * as http from "http";
 import cors from "cors";
+import {readFileSync} from "node:fs";
 
 import {
 	InsightDataset,
@@ -10,6 +11,7 @@ import {
 	ResultTooLargeError
 } from "../../src/controller/IInsightFacade";
 import InsightFacade from "../../src/controller/InsightFacade";
+import * as fs from "fs";
 
 export default class Server {
 	private readonly port: number;
@@ -153,7 +155,14 @@ export default class Server {
 		try {
 			const id = req.params.id;
 			const kind = req.params.kind;
+			const inputFile = Buffer.from(req.body, "base64");
+			console.log(inputFile);
+			// const content = fs.readFileSync(inputFile).toString("base64");
+			// console.log(content);
 			let insightFacade = req.app.get("insightFacade");
+			let addedDataSet = await insightFacade.addDataset(id,inputFile,kind);
+			console.log(addedDataSet);
+			res.status(200).json({result: addedDataSet});
 		} catch (err) {
 			if(err instanceof InsightError) {
 				res.status(400).json({error: err.message});
