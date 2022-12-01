@@ -25,8 +25,6 @@ const optionValidator = (optionClause: Record<string, any>, transformationsTrack
 			});
 		};
 	}
-
-	// TODO: function updated - require more testing; factored out logic that process "ORDER"
 	if(keys.length === 2) {
 		if(keys[1] !== "ORDER") {
 			throw new InsightError("Invalid keys in OPTIONS");
@@ -38,7 +36,6 @@ const optionValidator = (optionClause: Record<string, any>, transformationsTrack
 	return keyFields;
 };
 
-// TODO: function updated - require more testing
 const orderValidator = (orderClause: any, columns: string[]) => {
 	if(typeof orderClause === "string") {
 		if(!columns.includes(orderClause)) {
