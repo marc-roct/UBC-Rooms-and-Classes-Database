@@ -150,7 +150,8 @@ export default class Server {
 		}
 	}
 
-	// TODO: how to upload a file
+	// TODO: check all the error messages are return correctly
+	// TODO: check the local data to see if the dataset is already exists
 	private  static async addDataset(req: Request, res: Response) {
 		try {
 			const id = req.params.id;
@@ -163,11 +164,11 @@ export default class Server {
 			let addedDataSet = await insightFacade.addDataset(id,inputFile,kind);
 			console.log(addedDataSet);
 			res.status(200).json({result: addedDataSet});
-		} catch (err) {
+		} catch (err: any) {
 			if(err instanceof InsightError) {
 				res.status(400).json({error: err.message});
 			} else {
-				res.status(400).json({error:err});
+				res.status(400).json({error:err.message});
 			}
 		}
 	}
