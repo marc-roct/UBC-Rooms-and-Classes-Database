@@ -37,17 +37,61 @@ function handleListDataset() {
 	let result = "data is not fetched";
 	fetch('http://localhost:4321/datasets')
 		.then(function (response) {
-			console.log("printing response:");
-			console.log(response);
+			// console.log("printing response:");
+			// console.log(response);
 			return response.json();
 		}).then(function (data) {
-			result = data;
-			console.log("printing data:");
-			console.log(result);
+			result = data.result;
+			// console.log("printing data:");
+			// console.log(result);
+			// console.log(result.length);
+			createTable(result);
 	}).catch(function(err) {
 		console.log(err);
 	})
 	// alert("List dataset Button Clicked!" + result);
 }
 
+function createTable(data) {
+	const table = document.getElementById("dataset-list");
+	if(data.length < 1) {
+		let newTable = document.createElement("table");
+		newTable.setAttribute("id", "dataset-list");
+		let noDataset = document.createElement("tr");
+		let heading = document.createElement("th");
+		heading.innerText = "No Dataset Exists";
+		noDataset.appendChild(heading);
+		newTable.appendChild(noDataset);
+		table.parentNode.replaceChild(newTable, table);
+	} else {
+		let newTable = document.createElement("table");
+		newTable.setAttribute("id", "dataset-list");
+		let dataList = document.createElement("tr");
+		let idHeading = document.createElement("th");
+		idHeading.innerText = "Dataset ID";
+		let typeHeading = document.createElement("th");
+		typeHeading.innerText = "Type";
+		let sizeHeading = document.createElement("th");
+		sizeHeading.innerText = "Size of the Dataset";
+
+		dataList.appendChild(idHeading);
+		dataList.appendChild(typeHeading);
+		dataList.appendChild(sizeHeading);
+
+		newTable.appendChild(dataList);
+
+		data.forEach((dateset)=> {
+			let row = document.createElement("tr");
+			let values = Object.values(dateset);
+			for(const value of values) {
+				let cell = document.createElement("td");
+				cell.innerText = value.toString();
+				row.appendChild(cell);
+			}
+			newTable.appendChild(row);
+		});
+		table.parentNode.replaceChild(newTable, table);
+	}
+
+}
 
