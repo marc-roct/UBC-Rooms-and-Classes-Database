@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<title>310 Frontend</title>
+		<link href="/style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="button-container">
+			<label for="file" class="button">Add Dataset</label>
+			<input type="file" name="file" id="file" accept=".zip" required/>
+
+			<div class="userInput-container">
+				<label for="id" class="title">database id</label>
+				<input type="text" name="text" id="id" required/>
+			</div>
+
+			<div class="userInput-container">
+				<label for="kind" class="title">kind</label>
+				<select name="kind" id="kind" required>
+					<option value=Null>-- Choose an option --</option>
+					<option value="sections">Sections</option>
+					<option value="rooms">Rooms</option>
+				</select>
+			</div>
+
+			<input type="Submit" class="button" id="add-dataset">
+			<b id="response" hidden></b>
+		</div>
+
+		<div class="button-container">
+			<button id="list-dataset" class="button" >List Dataset</button>
+			<table id="dataset-list">
+			</table>
+		</div>
+
+		<script type="text/javascript" src="/frontend.js"></script>
+	</body>
+</html>

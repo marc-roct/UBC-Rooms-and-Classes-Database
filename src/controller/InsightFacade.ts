@@ -15,7 +15,7 @@ import {isJSON} from "./Utilities/jsonHelper";
 import {transformationFilter} from "./Utilities/queryHelpers/transformationHelpers/transformationHelper";
 import {parseContentSections} from "./Utilities/addDatasetHelpers/addDatasetSectionsHelpers";
 import {parseContentRooms} from "./Utilities/addDatasetHelpers/addDatasetRoomsHelpers";
-import {idValidator, persistDir, storeDatabase} from "./Utilities/commonIFHelpers";
+import {idValidator, persistDir, readData, storeDatabase} from "./Utilities/commonIFHelpers";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -70,18 +70,15 @@ export default class InsightFacade implements IInsightFacade {
 
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
+		this.databases = this.databases.concat(await readData(this.databases.length));
 		try {
 			idValidator(id);
 		} catch (err) {
 			return Promise.reject(err);
 		}
-		if (fs.pathExistsSync(persistDir + "/" + id + ".zip")) {
-			return Promise.reject(new InsightError("Invalid id: id already stored on disk"));
-		} else {
-			for (const database of this.databases) {
-				if (database.id === id) {
-					return Promise.reject(new InsightError("Invalid id: id has already been added"));
-				}
+		for (const database of this.databases) {
+			if (database.id === id) {
+				return Promise.reject(new InsightError("Invalid id: " + id + " has already been added"));
 			}
 		}
 
@@ -103,7 +100,8 @@ export default class InsightFacade implements IInsightFacade {
 		return Promise.resolve(idList);
 	}
 
-	public removeDataset(id: string): Promise<string> {
+	public async removeDataset(id: string): Promise<string> {
+		this.databases = this.databases.concat(await readData(this.databases.length));
 		try {
 			idValidator(id);
 		} catch (err) {
@@ -124,13 +122,14 @@ export default class InsightFacade implements IInsightFacade {
 			}
 		}
 		if (!inClass && !inStorage) {
-			return Promise.reject(new NotFoundError(" was not found in internal model"));
+			return Promise.reject(new NotFoundError(id + " was not found in internal model"));
 		}
 
 		return Promise.resolve(id);
 	}
 
-	public performQuery(query: unknown): Promise<InsightResult[]> {
+	public async performQuery(query: unknown): Promise<InsightResult[]> {
+		this.databases = this.databases.concat(await readData(this.databases.length));
 		let transformationTracker = 0;
 		let currentDatabaseId: string;
 		let inputQuery: Record<string, any>;
@@ -172,7 +171,8 @@ export default class InsightFacade implements IInsightFacade {
 		return Promise.resolve(filteredResult);
 	}
 
-	public listDatasets(): Promise<InsightDataset[]> {
+	public async listDatasets(): Promise<InsightDataset[]> {
+		this.databases = this.databases.concat(await readData(this.databases.length));
 		let datasetList: InsightDataset[] = [];
 		for(let database of this.databases) {
 			let numberOfRows = database.data.length;
