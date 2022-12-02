@@ -7,7 +7,7 @@ async function handleAddDataset() {
 	const id = document.getElementById('id').value;
 	const kind = document.getElementById('kind').selectedOptions[0].value;
 	const url = "http://localhost:4321/dataset/" + id + "/" + kind;
-
+	const responseMessage = document.getElementById('response');
 	fetch(url, {
 		method: 'PUT',
 		headers: {
@@ -16,7 +16,7 @@ async function handleAddDataset() {
 		body: file,
 	}).then(async function (response) {
 		// console.log("printing response:");
-		console.log(response);
+		// console.log(response);
 		let responseJson = await response.json();
 		if (response.status !== 200) {
 			throw new Error(responseJson.error);
@@ -24,19 +24,27 @@ async function handleAddDataset() {
 		return responseJson;
 	}).then(function(data) {
 		// console.log("printing data:");
-		// console.log(data.result[0]);
-		const response = document.getElementById('response');
-		response.innerText = "Dataset successfully added";
-		response.hidden = false;
+		// console.log(data.result);
+		responseMessage.innerText = "Dataset successfully added: " + id + ".";
+		// response.hidden = false;
 	}).catch(function(err){
-		const response = document.getElementById('response');
-		response.innerText = err;
-		response.hidden = false;
+		if(err instanceof  SyntaxError) {
+			responseMessage.innerText = "Invalid submission. Please check your input.";
+		} else {
+			responseMessage.innerText = err.message;
+		}
+		console.log(err);
+		// response.hidden = false;
 	});
 	// alert("Add Dataset Button Clicked!");
-
 }
 
+document.getElementById("file").addEventListener("click", clearResponseMessage);
+
+function clearResponseMessage() {
+	const responseMessage = document.getElementById('response');
+	responseMessage.innerText = "";
+}
 
 document.getElementById("list-dataset").addEventListener("click", handleListDataset);
 
