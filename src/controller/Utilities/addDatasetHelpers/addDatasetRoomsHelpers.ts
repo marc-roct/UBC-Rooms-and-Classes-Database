@@ -22,6 +22,7 @@ export interface BuildingRoomData {
 	type: string;
 	href: string;
 }
+
 const parseContentRooms = async function(content: string): Promise<Dataset[]> {
 	let zip = new JSZip();
 	try {

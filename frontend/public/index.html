@@ -8,11 +8,11 @@
 	<body>
 		<div class="button-container">
 			<label for="file" class="button">Add Dataset</label>
-			<input type="file" name="file" id="file" accept=".zip" required/>
+			<input type="file" name="file" id="file" accept=".zip" checked="checked"/>
 
 			<div class="userInput-container">
 				<label for="id" class="title">database id</label>
-				<input type="text" name="text" id="id" required/>
+				<input type="text" name="text" id="id" checked="checked"/>
 			</div>
 
 			<div class="userInput-container">
@@ -24,7 +24,7 @@
 				</select>
 			</div>
 
-			<input type="Submit" class="button" id="add-dataset">
+			<input type="Submit" class="button" id="add-dataset" disabled="disabled">
 			<b id="response" hidden></b>
 		</div>
 
