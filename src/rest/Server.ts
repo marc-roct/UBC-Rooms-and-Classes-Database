@@ -140,6 +140,7 @@ export default class Server {
 			let datasetList: InsightDataset[] = [];
 			let insightFacade = req.app.get("insightFacade");
 			datasetList = await insightFacade.listDatasets();
+			console.log("in list dataset");
 			res.status(200).json({result: datasetList});
 		} catch (err) {
 			if(err instanceof InsightError) {

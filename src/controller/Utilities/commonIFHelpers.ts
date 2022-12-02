@@ -20,12 +20,49 @@ const idValidator = function(id: string) {
 const storeDatabase = async function (database: Database) {
 	let zip = new JSZip();
 	let content = JSON.stringify(database);
-	// console.log(database);
-	// console.log(content);
 	zip.file(database.id, content);
 	let zipped: string = await zip.generateAsync({type: "base64"});
 	// console.log(zipped);
-	fs.outputFileSync(persistDir + "/" + database.id + ".json", zipped, "base64");
+	fs.outputFileSync(persistDir + "/" + database.id + ".zip", zipped, "base64");
 };
 
-export {idValidator, storeDatabase, persistDir};
+const readData = async function (databaseLength: number): Promise<Database[]> {
+	let storedCount: number = 0;
+	if (fs.pathExistsSync(persistDir)) {
+		fs.readdirSync(persistDir).forEach((file) => {
+			storedCount++;
+		});
+
+		if (storedCount === databaseLength) {
+			return [];
+		}
+	} else {
+		return [];
+	}
+
+	return await getStoreDatabases();;
+};
+
+async function getStoreDatabases(): Promise<Database[]> {
+	let zip = new JSZip();
+	let readDatabasePromises: Array<Promise<JSZip>> = [];
+	fs.readdirSync(persistDir).forEach((file) => {
+		let fileData: string = fs.readFileSync(persistDir + "/" + file, {encoding: "base64"});
+		readDatabasePromises.push(zip.loadAsync(fileData, {base64: true}));
+	});
+
+	await Promise.all(readDatabasePromises);
+	let storedDatabasesPromise: Array<Promise<string>> = [];
+	zip.forEach((path, file) => {
+		storedDatabasesPromise.push(file.async("string"));
+	});
+
+	let stringDatabases: string[] = await Promise.all(storedDatabasesPromise);
+	let storedDatabases: Database[] = [];
+	for (let databaseString of stringDatabases) {
+		storedDatabases.push(JSON.parse(databaseString));
+	}
+	return Promise.resolve(storedDatabases);
+}
+
+export {idValidator, storeDatabase, readData, persistDir};

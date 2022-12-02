@@ -1,0 +1,1842 @@
+{
+	"title": "ColumnsIncludesApplyKeyButNoGroupKeyTest",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"sections_avg": 90
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"overallSum"
+			]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"sections_title"
+			],
+			"APPLY": [
+				{
+					"overallSum": {
+						"SUM": "sections_avg"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"overallSum": 188.88
+		},
+		{
+			"overallSum": 462.82
+		},
+		{
+			"overallSum": 727.67
+		},
+		{
+			"overallSum": 180.34
+		},
+		{
+			"overallSum": 184
+		},
+		{
+			"overallSum": 183.34
+		},
+		{
+			"overallSum": 181.84
+		},
+		{
+			"overallSum": 276.58
+		},
+		{
+			"overallSum": 91.86
+		},
+		{
+			"overallSum": 2035.17
+		},
+		{
+			"overallSum": 556.86
+		},
+		{
+			"overallSum": 193.88
+		},
+		{
+			"overallSum": 180.94
+		},
+		{
+			"overallSum": 186
+		},
+		{
+			"overallSum": 822.17
+		},
+		{
+			"overallSum": 182.8
+		},
+		{
+			"overallSum": 1107.02
+		},
+		{
+			"overallSum": 184
+		},
+		{
+			"overallSum": 182.8
+		},
+		{
+			"overallSum": 922.44
+		},
+		{
+			"overallSum": 373.62
+		},
+		{
+			"overallSum": 180.76
+		},
+		{
+			"overallSum": 366.78
+		},
+		{
+			"overallSum": 363.7
+		},
+		{
+			"overallSum": 365.5
+		},
+		{
+			"overallSum": 362.9
+		},
+		{
+			"overallSum": 184.9
+		},
+		{
+			"overallSum": 744.48
+		},
+		{
+			"overallSum": 372.48
+		},
+		{
+			"overallSum": 365.66
+		},
+		{
+			"overallSum": 734.52
+		},
+		{
+			"overallSum": 372.88
+		},
+		{
+			"overallSum": 1126.25
+		},
+		{
+			"overallSum": 363.2
+		},
+		{
+			"overallSum": 181.9
+		},
+		{
+			"overallSum": 545.82
+		},
+		{
+			"overallSum": 368.5
+		},
+		{
+			"overallSum": 180.24
+		},
+		{
+			"overallSum": 186.4
+		},
+		{
+			"overallSum": 182.66
+		},
+		{
+			"overallSum": 543.42
+		},
+		{
+			"overallSum": 182.76
+		},
+		{
+			"overallSum": 180.46
+		},
+		{
+			"overallSum": 182.94
+		},
+		{
+			"overallSum": 361.16
+		},
+		{
+			"overallSum": 361.34
+		},
+		{
+			"overallSum": 737.9
+		},
+		{
+			"overallSum": 365.34
+		},
+		{
+			"overallSum": 182.42
+		},
+		{
+			"overallSum": 1092.06
+		},
+		{
+			"overallSum": 551.4
+		},
+		{
+			"overallSum": 184.72
+		},
+		{
+			"overallSum": 372.1
+		},
+		{
+			"overallSum": 190
+		},
+		{
+			"overallSum": 273
+		},
+		{
+			"overallSum": 181.42
+		},
+		{
+			"overallSum": 184
+		},
+		{
+			"overallSum": 182
+		},
+		{
+			"overallSum": 187.34
+		},
+		{
+			"overallSum": 644.69
+		},
+		{
+			"overallSum": 181.72
+		},
+		{
+			"overallSum": 368.78
+		},
+		{
+			"overallSum": 920.3
+		},
+		{
+			"overallSum": 1470.62
+		},
+		{
+			"overallSum": 363.16
+		},
+		{
+			"overallSum": 184.8
+		},
+		{
+			"overallSum": 189.5
+		},
+		{
+			"overallSum": 181.5
+		},
+		{
+			"overallSum": 371.74
+		},
+		{
+			"overallSum": 1101.86
+		},
+		{
+			"overallSum": 183.6
+		},
+		{
+			"overallSum": 182
+		},
+		{
+			"overallSum": 181
+		},
+		{
+			"overallSum": 180.9
+		},
+		{
+			"overallSum": 547.42
+		},
+		{
+			"overallSum": 181.5
+		},
+		{
+			"overallSum": 366.26
+		},
+		{
+			"overallSum": 365.86
+		},
+		{
+			"overallSum": 365.86
+		},
+		{
+			"overallSum": 823.17
+		},
+		{
+			"overallSum": 180.22
+		},
+		{
+			"overallSum": 180.88
+		},
+		{
+			"overallSum": 182.12
+		},
+		{
+			"overallSum": 180.44
+		},
+		{
+			"overallSum": 180.52
+		},
+		{
+			"overallSum": 180.78
+		},
+		{
+			"overallSum": 182.92
+		},
+		{
+			"overallSum": 367.1
+		},
+		{
+			"overallSum": 373.54
+		},
+		{
+			"overallSum": 183.12
+		},
+		{
+			"overallSum": 182.64
+		},
+		{
+			"overallSum": 90.2
+		},
+		{
+			"overallSum": 180.5
+		},
+		{
+			"overallSum": 182
+		},
+		{
+			"overallSum": 180.12
+		},
+		{
+			"overallSum": 184
+		},
+		{
+			"overallSum": 184.6
+		},
+		{
+			"overallSum": 545.51
+		},
+		{
+			"overallSum": 915.35
+		},
+		{
+			"overallSum": 272.88
+		},
+		{
+			"overallSum": 635.23
+		},
+		{
+			"overallSum": 453.65
+		},
+		{
+			"overallSum": 380.68
+		},
+		{
+			"overallSum": 738.18
+		},
+		{
+			"overallSum": 726.78
+		},
+		{
+			"overallSum": 557.26
+		},
+		{
+			"overallSum": 1285.26
+		},
+		{
+			"overallSum": 636.3
+		},
+		{
+			"overallSum": 1939.69
+		},
+		{
+			"overallSum": 181.34
+		},
+		{
+			"overallSum": 1588.57
+		},
+		{
+			"overallSum": 5553.38
+		},
+		{
+			"overallSum": 1289.2
+		},
+		{
+			"overallSum": 180.92
+		},
+		{
+			"overallSum": 752.52
+		},
+		{
+			"overallSum": 360.98
+		},
+		{
+			"overallSum": 180.42
+		},
+		{
+			"overallSum": 182.5
+		},
+		{
+			"overallSum": 730.41
+		},
+		{
+			"overallSum": 740.36
+		},
+		{
+			"overallSum": 189
+		},
+		{
+			"overallSum": 183.58
+		},
+		{
+			"overallSum": 181.42
+		},
+		{
+			"overallSum": 362.66
+		},
+		{
+			"overallSum": 363.5
+		},
+		{
+			"overallSum": 190
+		},
+		{
+			"overallSum": 1304.84
+		},
+		{
+			"overallSum": 4235.41
+		},
+		{
+			"overallSum": 183
+		},
+		{
+			"overallSum": 188.66
+		},
+		{
+			"overallSum": 183.64
+		},
+		{
+			"overallSum": 367.06
+		},
+		{
+			"overallSum": 181.66
+		},
+		{
+			"overallSum": 180.84
+		},
+		{
+			"overallSum": 273.34
+		},
+		{
+			"overallSum": 180.5
+		},
+		{
+			"overallSum": 363.5
+		},
+		{
+			"overallSum": 181
+		},
+		{
+			"overallSum": 183.69
+		},
+		{
+			"overallSum": 180.16
+		},
+		{
+			"overallSum": 277.93
+		},
+		{
+			"overallSum": 273.12
+		},
+		{
+			"overallSum": 365.96
+		},
+		{
+			"overallSum": 187.44
+		},
+		{
+			"overallSum": 91.93
+		},
+		{
+			"overallSum": 185.74
+		},
+		{
+			"overallSum": 552.09
+		},
+		{
+			"overallSum": 181.62
+		},
+		{
+			"overallSum": 182.16
+		},
+		{
+			"overallSum": 181.36
+		},
+		{
+			"overallSum": 726.72
+		},
+		{
+			"overallSum": 924.08
+		},
+		{
+			"overallSum": 186
+		},
+		{
+			"overallSum": 368.98
+		},
+		{
+			"overallSum": 360.76
+		},
+		{
+			"overallSum": 366.92
+		},
+		{
+			"overallSum": 366
+		},
+		{
+			"overallSum": 738.74
+		},
+		{
+			"overallSum": 183.58
+		},
+		{
+			"overallSum": 365.44
+		},
+		{
+			"overallSum": 183.72
+		},
+		{
+			"overallSum": 635.99
+		},
+		{
+			"overallSum": 180.48
+		},
+		{
+			"overallSum": 368.29
+		},
+		{
+			"overallSum": 551.94
+		},
+		{
+			"overallSum": 182.96
+		},
+		{
+			"overallSum": 554.02
+		},
+		{
+			"overallSum": 456.58
+		},
+		{
+			"overallSum": 186.6
+		},
+		{
+			"overallSum": 1099.45
+		},
+		{
+			"overallSum": 362.94
+		},
+		{
+			"overallSum": 92.45
+		},
+		{
+			"overallSum": 181.12
+		},
+		{
+			"overallSum": 183
+		},
+		{
+			"overallSum": 366.68
+		},
+		{
+			"overallSum": 186
+		},
+		{
+			"overallSum": 181.28
+		},
+		{
+			"overallSum": 2101.51
+		},
+		{
+			"overallSum": 556.92
+		},
+		{
+			"overallSum": 368.84
+		},
+		{
+			"overallSum": 368.89
+		},
+		{
+			"overallSum": 180.12
+		},
+		{
+			"overallSum": 1125.06
+		},
+		{
+			"overallSum": 370.46
+		},
+		{
+			"overallSum": 186.8
+		},
+		{
+			"overallSum": 182
+		},
+		{
+			"overallSum": 375.64
+		},
+		{
+			"overallSum": 185.46
+		},
+		{
+			"overallSum": 181.74
+		},
+		{
+			"overallSum": 725.77
+		},
+		{
+			"overallSum": 370
+		},
+		{
+			"overallSum": 733.54
+		},
+		{
+			"overallSum": 181.2
+		},
+		{
+			"overallSum": 90.11
+		},
+		{
+			"overallSum": 184.4
+		},
+		{
+			"overallSum": 90.5
+		},
+		{
+			"overallSum": 544.8
+		},
+		{
+			"overallSum": 185.66
+		},
+		{
+			"overallSum": 368.92
+		},
+		{
+			"overallSum": 2860.47
+		},
+		{
+			"overallSum": 181.76
+		},
+		{
+			"overallSum": 185.2
+		},
+		{
+			"overallSum": 368.1
+		},
+		{
+			"overallSum": 363.4
+		},
+		{
+			"overallSum": 379.5
+		},
+		{
+			"overallSum": 361.7
+		},
+		{
+			"overallSum": 91.5
+		},
+		{
+			"overallSum": 551.4
+		},
+		{
+			"overallSum": 362.76
+		},
+		{
+			"overallSum": 363.34
+		},
+		{
+			"overallSum": 180.66
+		},
+		{
+			"overallSum": 546.92
+		},
+		{
+			"overallSum": 368
+		},
+		{
+			"overallSum": 185
+		},
+		{
+			"overallSum": 744.04
+		},
+		{
+			"overallSum": 725.68
+		},
+		{
+			"overallSum": 273.47
+		},
+		{
+			"overallSum": 281.72
+		},
+		{
+			"overallSum": 183.66
+		},
+		{
+			"overallSum": 271.33
+		},
+		{
+			"overallSum": 180.48
+		},
+		{
+			"overallSum": 180.66
+		},
+		{
+			"overallSum": 180.4
+		},
+		{
+			"overallSum": 362.5
+		},
+		{
+			"overallSum": 181.34
+		},
+		{
+			"overallSum": 185.5
+		},
+		{
+			"overallSum": 180.4
+		},
+		{
+			"overallSum": 186.94
+		},
+		{
+			"overallSum": 906.86
+		},
+		{
+			"overallSum": 180.66
+		},
+		{
+			"overallSum": 182
+		},
+		{
+			"overallSum": 185
+		},
+		{
+			"overallSum": 182
+		},
+		{
+			"overallSum": 364.5
+		},
+		{
+			"overallSum": 91
+		},
+		{
+			"overallSum": 1667.12
+		},
+		{
+			"overallSum": 1502.12
+		},
+		{
+			"overallSum": 1290.61
+		},
+		{
+			"overallSum": 558.61
+		},
+		{
+			"overallSum": 190.54
+		},
+		{
+			"overallSum": 642.5
+		},
+		{
+			"overallSum": 2389.2
+		},
+		{
+			"overallSum": 1387.02
+		},
+		{
+			"overallSum": 464.75
+		},
+		{
+			"overallSum": 191.34
+		},
+		{
+			"overallSum": 1874.91
+		},
+		{
+			"overallSum": 738.53
+		},
+		{
+			"overallSum": 2136.09
+		},
+		{
+			"overallSum": 2786.04
+		},
+		{
+			"overallSum": 925.4
+		},
+		{
+			"overallSum": 2346.08
+		},
+		{
+			"overallSum": 180.64
+		},
+		{
+			"overallSum": 1098.63
+		},
+		{
+			"overallSum": 1100.85
+		},
+		{
+			"overallSum": 550.9
+		},
+		{
+			"overallSum": 737.11
+		},
+		{
+			"overallSum": 908
+		},
+		{
+			"overallSum": 2698.24
+		},
+		{
+			"overallSum": 661.63
+		},
+		{
+			"overallSum": 196.9
+		},
+		{
+			"overallSum": 749.38
+		},
+		{
+			"overallSum": 372.1
+		},
+		{
+			"overallSum": 1762.57
+		},
+		{
+			"overallSum": 1851.41
+		},
+		{
+			"overallSum": 371.36
+		},
+		{
+			"overallSum": 180.66
+		},
+		{
+			"overallSum": 1381.97
+		},
+		{
+			"overallSum": 1314.94
+		},
+		{
+			"overallSum": 1385.52
+		},
+		{
+			"overallSum": 556.68
+		},
+		{
+			"overallSum": 372.05
+		},
+		{
+			"overallSum": 740.86
+		},
+		{
+			"overallSum": 1764.76
+		},
+		{
+			"overallSum": 566.02
+		},
+		{
+			"overallSum": 554.72
+		},
+		{
+			"overallSum": 468.78
+		},
+		{
+			"overallSum": 183
+		},
+		{
+			"overallSum": 730.42
+		},
+		{
+			"overallSum": 552.4
+		},
+		{
+			"overallSum": 185.26
+		},
+		{
+			"overallSum": 2522.9
+		},
+		{
+			"overallSum": 187.18
+		},
+		{
+			"overallSum": 377.2
+		},
+		{
+			"overallSum": 363.65
+		},
+		{
+			"overallSum": 363.01
+		},
+		{
+			"overallSum": 1869.01
+		},
+		{
+			"overallSum": 1496.89
+		},
+		{
+			"overallSum": 745.52
+		},
+		{
+			"overallSum": 748.14
+		},
+		{
+			"overallSum": 366.94
+		},
+		{
+			"overallSum": 1828.79
+		},
+		{
+			"overallSum": 2566.43
+		},
+		{
+			"overallSum": 1919.16
+		},
+		{
+			"overallSum": 999.94
+		},
+		{
+			"overallSum": 1401.91
+		},
+		{
+			"overallSum": 1741
+		},
+		{
+			"overallSum": 2220.96
+		},
+		{
+			"overallSum": 1288.24
+		},
+		{
+			"overallSum": 753.68
+		},
+		{
+			"overallSum": 633.93
+		},
+		{
+			"overallSum": 192.8
+		},
+		{
+			"overallSum": 188
+		},
+		{
+			"overallSum": 542.92
+		},
+		{
+			"overallSum": 182.28
+		},
+		{
+			"overallSum": 182
+		},
+		{
+			"overallSum": 1098.67
+		},
+		{
+			"overallSum": 181.5
+		},
+		{
+			"overallSum": 91.36
+		},
+		{
+			"overallSum": 181.36
+		},
+		{
+			"overallSum": 91
+		},
+		{
+			"overallSum": 180.88
+		},
+		{
+			"overallSum": 363.54
+		},
+		{
+			"overallSum": 180.26
+		},
+		{
+			"overallSum": 186
+		},
+		{
+			"overallSum": 184.44
+		},
+		{
+			"overallSum": 180.36
+		},
+		{
+			"overallSum": 455.33
+		},
+		{
+			"overallSum": 186
+		},
+		{
+			"overallSum": 184.54
+		},
+		{
+			"overallSum": 192.72
+		},
+		{
+			"overallSum": 182.34
+		},
+		{
+			"overallSum": 184.5
+		},
+		{
+			"overallSum": 186.08
+		},
+		{
+			"overallSum": 180.58
+		},
+		{
+			"overallSum": 180.66
+		},
+		{
+			"overallSum": 189
+		},
+		{
+			"overallSum": 180.96
+		},
+		{
+			"overallSum": 752.24
+		},
+		{
+			"overallSum": 366.72
+		},
+		{
+			"overallSum": 277.44
+		},
+		{
+			"overallSum": 1748.12
+		},
+		{
+			"overallSum": 182.66
+		},
+		{
+			"overallSum": 180.88
+		},
+		{
+			"overallSum": 183
+		},
+		{
+			"overallSum": 371.5
+		},
+		{
+			"overallSum": 182.14
+		},
+		{
+			"overallSum": 183.4
+		},
+		{
+			"overallSum": 90.19
+		},
+		{
+			"overallSum": 367.82
+		},
+		{
+			"overallSum": 375.78
+		},
+		{
+			"overallSum": 181.36
+		},
+		{
+			"overallSum": 544.18
+		},
+		{
+			"overallSum": 1293.16
+		},
+		{
+			"overallSum": 555.34
+		},
+		{
+			"overallSum": 365.48
+		},
+		{
+			"overallSum": 184
+		},
+		{
+			"overallSum": 760.54
+		},
+		{
+			"overallSum": 367.5
+		},
+		{
+			"overallSum": 180.58
+		},
+		{
+			"overallSum": 94.92
+		},
+		{
+			"overallSum": 454.5
+		},
+		{
+			"overallSum": 181.76
+		},
+		{
+			"overallSum": 184.14
+		},
+		{
+			"overallSum": 185.6
+		},
+		{
+			"overallSum": 181.66
+		},
+		{
+			"overallSum": 182.52
+		},
+		{
+			"overallSum": 180.58
+		},
+		{
+			"overallSum": 362.89
+		},
+		{
+			"overallSum": 183.26
+		},
+		{
+			"overallSum": 182.46
+		},
+		{
+			"overallSum": 192.2
+		},
+		{
+			"overallSum": 182.48
+		},
+		{
+			"overallSum": 364.7
+		},
+		{
+			"overallSum": 184.5
+		},
+		{
+			"overallSum": 90.67
+		},
+		{
+			"overallSum": 181.5
+		},
+		{
+			"overallSum": 366.1
+		},
+		{
+			"overallSum": 364.3
+		},
+		{
+			"overallSum": 182.4
+		},
+		{
+			"overallSum": 367
+		},
+		{
+			"overallSum": 90.1
+		},
+		{
+			"overallSum": 180.66
+		},
+		{
+			"overallSum": 180.5
+		},
+		{
+			"overallSum": 91.1
+		},
+		{
+			"overallSum": 181.14
+		},
+		{
+			"overallSum": 182.76
+		},
+		{
+			"overallSum": 363.24
+		},
+		{
+			"overallSum": 180.86
+		},
+		{
+			"overallSum": 368.8
+		},
+		{
+			"overallSum": 566.62
+		},
+		{
+			"overallSum": 550.8
+		},
+		{
+			"overallSum": 185.26
+		},
+		{
+			"overallSum": 184.8
+		},
+		{
+			"overallSum": 556.16
+		},
+		{
+			"overallSum": 745.34
+		},
+		{
+			"overallSum": 365
+		},
+		{
+			"overallSum": 1116.28
+		},
+		{
+			"overallSum": 183.12
+		},
+		{
+			"overallSum": 371.56
+		},
+		{
+			"overallSum": 1116.6
+		},
+		{
+			"overallSum": 571.24
+		},
+		{
+			"overallSum": 384.96
+		},
+		{
+			"overallSum": 556.86
+		},
+		{
+			"overallSum": 183.5
+		},
+		{
+			"overallSum": 547.76
+		},
+		{
+			"overallSum": 567.96
+		},
+		{
+			"overallSum": 923.94
+		},
+		{
+			"overallSum": 932.04
+		},
+		{
+			"overallSum": 367.62
+		},
+		{
+			"overallSum": 366.48
+		},
+		{
+			"overallSum": 545.74
+		},
+		{
+			"overallSum": 188.66
+		},
+		{
+			"overallSum": 180.48
+		},
+		{
+			"overallSum": 1108.76
+		},
+		{
+			"overallSum": 187
+		},
+		{
+			"overallSum": 367.5
+		},
+		{
+			"overallSum": 184.86
+		},
+		{
+			"overallSum": 180.34
+		},
+		{
+			"overallSum": 364.04
+		},
+		{
+			"overallSum": 365
+		},
+		{
+			"overallSum": 370
+		},
+		{
+			"overallSum": 184
+		},
+		{
+			"overallSum": 271.63
+		},
+		{
+			"overallSum": 3567.81
+		},
+		{
+			"overallSum": 1276.24
+		},
+		{
+			"overallSum": 364.58
+		},
+		{
+			"overallSum": 363.04
+		},
+		{
+			"overallSum": 369.6
+		},
+		{
+			"overallSum": 184.28
+		},
+		{
+			"overallSum": 181.36
+		},
+		{
+			"overallSum": 921.74
+		},
+		{
+			"overallSum": 276.1
+		},
+		{
+			"overallSum": 554.08
+		},
+		{
+			"overallSum": 181.5
+		},
+		{
+			"overallSum": 180.78
+		},
+		{
+			"overallSum": 183.58
+		},
+		{
+			"overallSum": 184.24
+		},
+		{
+			"overallSum": 555.4
+		},
+		{
+			"overallSum": 734.92
+		},
+		{
+			"overallSum": 934.28
+		},
+		{
+			"overallSum": 554.86
+		},
+		{
+			"overallSum": 187.5
+		},
+		{
+			"overallSum": 547.2
+		},
+		{
+			"overallSum": 183.58
+		},
+		{
+			"overallSum": 184.58
+		},
+		{
+			"overallSum": 183.12
+		},
+		{
+			"overallSum": 748.87
+		},
+		{
+			"overallSum": 181.04
+		},
+		{
+			"overallSum": 181.38
+		},
+		{
+			"overallSum": 185.78
+		},
+		{
+			"overallSum": 181.66
+		},
+		{
+			"overallSum": 382.5
+		},
+		{
+			"overallSum": 180.28
+		},
+		{
+			"overallSum": 187.25
+		},
+		{
+			"overallSum": 372.82
+		},
+		{
+			"overallSum": 90.19
+		},
+		{
+			"overallSum": 545.7
+		},
+		{
+			"overallSum": 185.26
+		},
+		{
+			"overallSum": 186.9
+		},
+		{
+			"overallSum": 185.34
+		},
+		{
+			"overallSum": 746.65
+		},
+		{
+			"overallSum": 180.16
+		},
+		{
+			"overallSum": 1132
+		},
+		{
+			"overallSum": 193
+		},
+		{
+			"overallSum": 734.06
+		},
+		{
+			"overallSum": 364.64
+		},
+		{
+			"overallSum": 188.3
+		},
+		{
+			"overallSum": 91
+		},
+		{
+			"overallSum": 367.9
+		},
+		{
+			"overallSum": 183.66
+		},
+		{
+			"overallSum": 558.82
+		},
+		{
+			"overallSum": 188
+		},
+		{
+			"overallSum": 190
+		},
+		{
+			"overallSum": 90.65
+		},
+		{
+			"overallSum": 180.12
+		},
+		{
+			"overallSum": 182.94
+		},
+		{
+			"overallSum": 363.52
+		},
+		{
+			"overallSum": 1331.64
+		},
+		{
+			"overallSum": 1475.44
+		},
+		{
+			"overallSum": 368.48
+		},
+		{
+			"overallSum": 90.63
+		},
+		{
+			"overallSum": 182
+		},
+		{
+			"overallSum": 362.46
+		},
+		{
+			"overallSum": 913.06
+		},
+		{
+			"overallSum": 1151.92
+		},
+		{
+			"overallSum": 1697.34
+		},
+		{
+			"overallSum": 94
+		},
+		{
+			"overallSum": 91
+		},
+		{
+			"overallSum": 180.66
+		},
+		{
+			"overallSum": 186
+		},
+		{
+			"overallSum": 371.75
+		},
+		{
+			"overallSum": 1099.2
+		},
+		{
+			"overallSum": 180.5
+		},
+		{
+			"overallSum": 368.74
+		},
+		{
+			"overallSum": 727.92
+		},
+		{
+			"overallSum": 181.86
+		},
+		{
+			"overallSum": 546.94
+		},
+		{
+			"overallSum": 180.5
+		},
+		{
+			"overallSum": 543.38
+		},
+		{
+			"overallSum": 548.92
+		},
+		{
+			"overallSum": 647.5
+		},
+		{
+			"overallSum": 180.52
+		},
+		{
+			"overallSum": 180.9
+		},
+		{
+			"overallSum": 363.33
+		},
+		{
+			"overallSum": 746.79
+		},
+		{
+			"overallSum": 910.62
+		},
+		{
+			"overallSum": 547.36
+		},
+		{
+			"overallSum": 182.4
+		},
+		{
+			"overallSum": 637.89
+		},
+		{
+			"overallSum": 271.59
+		},
+		{
+			"overallSum": 1088.54
+		},
+		{
+			"overallSum": 180.86
+		},
+		{
+			"overallSum": 187.5
+		},
+		{
+			"overallSum": 362.66
+		},
+		{
+			"overallSum": 188.46
+		},
+		{
+			"overallSum": 184.12
+		},
+		{
+			"overallSum": 726.52
+		},
+		{
+			"overallSum": 184.08
+		},
+		{
+			"overallSum": 181.22
+		},
+		{
+			"overallSum": 379.38
+		},
+		{
+			"overallSum": 90.25
+		},
+		{
+			"overallSum": 186.62
+		},
+		{
+			"overallSum": 366
+		},
+		{
+			"overallSum": 183.5
+		},
+		{
+			"overallSum": 182.5
+		},
+		{
+			"overallSum": 1111.82
+		},
+		{
+			"overallSum": 183.7
+		},
+		{
+			"overallSum": 181.4
+		},
+		{
+			"overallSum": 369.66
+		},
+		{
+			"overallSum": 181.66
+		},
+		{
+			"overallSum": 909.54
+		},
+		{
+			"overallSum": 730.9
+		},
+		{
+			"overallSum": 1651.84
+		},
+		{
+			"overallSum": 180.16
+		},
+		{
+			"overallSum": 362.14
+		},
+		{
+			"overallSum": 938.98
+		},
+		{
+			"overallSum": 361.2
+		},
+		{
+			"overallSum": 941.4
+		},
+		{
+			"overallSum": 90.44
+		},
+		{
+			"overallSum": 364.16
+		},
+		{
+			"overallSum": 183
+		},
+		{
+			"overallSum": 934.92
+		},
+		{
+			"overallSum": 924.04
+		},
+		{
+			"overallSum": 365.66
+		},
+		{
+			"overallSum": 183.2
+		},
+		{
+			"overallSum": 182.88
+		},
+		{
+			"overallSum": 186.4
+		},
+		{
+			"overallSum": 181.34
+		},
+		{
+			"overallSum": 182.54
+		},
+		{
+			"overallSum": 182.5
+		},
+		{
+			"overallSum": 181.86
+		},
+		{
+			"overallSum": 368.84
+		},
+		{
+			"overallSum": 364
+		},
+		{
+			"overallSum": 364.18
+		},
+		{
+			"overallSum": 180.67
+		},
+		{
+			"overallSum": 184.6
+		},
+		{
+			"overallSum": 185
+		},
+		{
+			"overallSum": 180.58
+		},
+		{
+			"overallSum": 181.42
+		},
+		{
+			"overallSum": 182.86
+		},
+		{
+			"overallSum": 183.1
+		},
+		{
+			"overallSum": 543.81
+		},
+		{
+			"overallSum": 91.82
+		},
+		{
+			"overallSum": 90.13
+		},
+		{
+			"overallSum": 90.62
+		},
+		{
+			"overallSum": 180.18
+		},
+		{
+			"overallSum": 181.78
+		},
+		{
+			"overallSum": 384.16
+		},
+		{
+			"overallSum": 367.2
+		},
+		{
+			"overallSum": 645.4
+		},
+		{
+			"overallSum": 363.2
+		},
+		{
+			"overallSum": 186.83
+		},
+		{
+			"overallSum": 549.89
+		},
+		{
+			"overallSum": 460.8
+		},
+		{
+			"overallSum": 369.7
+		},
+		{
+			"overallSum": 286.61
+		},
+		{
+			"overallSum": 197.96
+		},
+		{
+			"overallSum": 184.16
+		},
+		{
+			"overallSum": 461.28
+		},
+		{
+			"overallSum": 369.66
+		},
+		{
+			"overallSum": 379.02
+		},
+		{
+			"overallSum": 187.46
+		},
+		{
+			"overallSum": 185.66
+		},
+		{
+			"overallSum": 563.76
+		},
+		{
+			"overallSum": 185.56
+		},
+		{
+			"overallSum": 180.58
+		},
+		{
+			"overallSum": 181.14
+		},
+		{
+			"overallSum": 453.02
+		},
+		{
+			"overallSum": 271.77
+		},
+		{
+			"overallSum": 272.43
+		},
+		{
+			"overallSum": 362.24
+		},
+		{
+			"overallSum": 180.76
+		},
+		{
+			"overallSum": 182.5
+		},
+		{
+			"overallSum": 184
+		},
+		{
+			"overallSum": 550.95
+		},
+		{
+			"overallSum": 182.13
+		},
+		{
+			"overallSum": 186.4
+		},
+		{
+			"overallSum": 1962.4
+		},
+		{
+			"overallSum": 188.72
+		},
+		{
+			"overallSum": 183.46
+		},
+		{
+			"overallSum": 181.8
+		},
+		{
+			"overallSum": 180.58
+		},
+		{
+			"overallSum": 1108.7
+		},
+		{
+			"overallSum": 184.3
+		},
+		{
+			"overallSum": 367.56
+		},
+		{
+			"overallSum": 182.2
+		},
+		{
+			"overallSum": 371.06
+		},
+		{
+			"overallSum": 180.92
+		},
+		{
+			"overallSum": 369.46
+		},
+		{
+			"overallSum": 180.28
+		},
+		{
+			"overallSum": 180.78
+		},
+		{
+			"overallSum": 362.36
+		},
+		{
+			"overallSum": 183
+		},
+		{
+			"overallSum": 550.52
+		}
+	]
+}

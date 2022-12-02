@@ -30,7 +30,7 @@ const parseContentRooms = async function(content: string): Promise<Dataset[]> {
 		return Promise.reject(new InsightError("Invalid zip"));
 	}
 
-	let listRooms: any[];
+	let listRooms: DatasetRooms[];
 	try {
 		listRooms = await contentValidator(zip);
 	} catch (err) {
@@ -40,7 +40,7 @@ const parseContentRooms = async function(content: string): Promise<Dataset[]> {
 	return Promise.resolve(listRooms);
 };
 
-async function contentValidator(zip: JSZip) {
+async function contentValidator(zip: JSZip): Promise<DatasetRooms[]> {
 	let index: Document = await zipRoomsValidator(zip, "index.htm");
 	let listIndexBuildings: IndexBuildingData[] = parseIndex(index);
 	if (listIndexBuildings.length === 0) {
@@ -71,7 +71,7 @@ async function contentValidator(zip: JSZip) {
 		datasetRooms = datasetRooms.concat(roomsList);
 	}
 	if (!datasetRooms.length) {
-		throw new InsightError("No valid rooms");
+		throw new InsightError("No valid rooms in zip");
 	}
 	return Promise.resolve(datasetRooms);
 }

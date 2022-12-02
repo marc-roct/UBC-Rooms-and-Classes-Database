@@ -8,16 +8,20 @@
 	<body>
 		<div class="button-container">
 			<label for="file">Add Dataset</label>
-			<input type="file" name="file" id="file" hidden/>
-<!--			<label for="id">database id</label>-->
-			<input type="text" name="text" id="id" />
-<!--			<label for="kind">kind</label>-->
-			<select name="kind" id="kind">
+			<input type="file" name="file" id="file" accept=".zip" required/>
+
+			<label for="id">database id</label>
+			<input type="text" name="text" id="id" required/>
+
+			<label for="kind">kind</label>
+			<select name="kind" id="kind" required>
 				<option value=Null>-- Choose an option --</option>
 				<option value="sections">Sections</option>
 				<option value="rooms">Rooms</option>
 			</select>
-			<input type="submit" class="button" id="add-dataset">
+
+			<input type="Submit" class="button" id="add-dataset">
+			<b id="response" hidden></b>
 		</div>
 
 		<div class="button-container">
