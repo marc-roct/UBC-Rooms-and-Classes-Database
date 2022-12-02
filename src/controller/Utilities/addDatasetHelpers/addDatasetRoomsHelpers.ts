@@ -71,7 +71,7 @@ async function contentValidator(zip: JSZip): Promise<DatasetRooms[]> {
 		datasetRooms = datasetRooms.concat(roomsList);
 	}
 	if (!datasetRooms.length) {
-		throw new InsightError("No valid rooms");
+		throw new InsightError("No valid rooms in zip");
 	}
 	return Promise.resolve(datasetRooms);
 }

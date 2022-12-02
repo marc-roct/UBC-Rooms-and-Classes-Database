@@ -78,7 +78,7 @@ export default class InsightFacade implements IInsightFacade {
 		}
 		for (const database of this.databases) {
 			if (database.id === id) {
-				return Promise.reject(new InsightError("Invalid id: id has already been added"));
+				return Promise.reject(new InsightError("Invalid id: " + id + " has already been added"));
 			}
 		}
 
@@ -122,7 +122,7 @@ export default class InsightFacade implements IInsightFacade {
 			}
 		}
 		if (!inClass && !inStorage) {
-			return Promise.reject(new NotFoundError(" was not found in internal model"));
+			return Promise.reject(new NotFoundError(id + " was not found in internal model"));
 		}
 
 		return Promise.resolve(id);

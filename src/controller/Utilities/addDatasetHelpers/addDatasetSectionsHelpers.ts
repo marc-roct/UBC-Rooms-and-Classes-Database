@@ -50,7 +50,7 @@ function zipFilterValidator(zip: JSZip) {
 	});
 
 	if (filteredObjects.length === 0) {
-		throw new InsightError("Invalid Dataset: No files in courses/ or no courses directory");
+		throw new InsightError("Invalid Dataset: No files in courses/ or no courses directory in zip");
 	}
 	return filteredObjects;
 }
@@ -66,7 +66,7 @@ function stringToJsonParse(listString: string[]) {
 	}
 
 	if (listJSON.length === 0) {
-		throw new InsightError("Invalid Dataset: Files are not JSON");
+		throw new InsightError("Invalid Dataset: Files in are not in JSON format");
 	}
 	return listJSON;
 }
