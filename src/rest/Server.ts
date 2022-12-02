@@ -86,7 +86,7 @@ export default class Server {
 
 	// Registers middleware to parse request before passing them to request handlers
 	private registerMiddleware() {
-		// JSON parser must be place before raw parser because of wildcard matching done by raw parser below
+		// JSON parser must be placed before raw parser because of wildcard matching done by raw parser below
 		this.express.use(express.json());
 		this.express.use(express.raw({type: "application/*", limit: "10mb"}));
 
@@ -119,8 +119,8 @@ export default class Server {
 			console.log(`Server::echo(..) - params: ${JSON.stringify(req.params)}`);
 			const response = Server.performEcho(req.params.msg);
 			res.status(200).json({result: response});
-		} catch (err) {
-			res.status(400).json({error: err});
+		} catch (err: any) {
+			res.status(400).json({error: err.message});
 		}
 	}
 
@@ -139,18 +139,21 @@ export default class Server {
 		try {
 			let datasetList: InsightDataset[] = [];
 			let insightFacade = req.app.get("insightFacade");
+			// console.log("going to call list dataset");
 			datasetList = await insightFacade.listDatasets();
+			// console.log("in list dataset");
 			res.status(200).json({result: datasetList});
-		} catch (err) {
+		} catch (err: any) {
 			if(err instanceof InsightError) {
 				res.status(400).json({error: err.message});
 			} else {
-				res.status(400).json({error:err});
+				res.status(400).json({error:err.message});
 			}
 		}
 	}
 
-	// TODO: how to upload a file
+	// TODO: check all the error messages are return correctly
+	// TODO: check the local data to see if the dataset is already exists
 	private  static async addDataset(req: Request, res: Response) {
 		try {
 			const id = req.params.id;
@@ -163,11 +166,11 @@ export default class Server {
 			let addedDataSet = await insightFacade.addDataset(id,inputFile,kind);
 			// console.log(addedDataSet);
 			res.status(200).json({result: addedDataSet});
-		} catch (err) {
+		} catch (err: any) {
 			if(err instanceof InsightError) {
 				res.status(400).json({error: err.message});
 			} else {
-				res.status(400).json({error:err});
+				res.status(400).json({error:err.message});
 			}
 		}
 	}
@@ -178,11 +181,11 @@ export default class Server {
 			let insightFacade = req.app.get("insightFacade");
 			let removedID = await insightFacade.removeDataset(id);
 			res.status(200).json({result: removedID});
-		} catch (err) {
+		} catch (err: any) {
 			if(err instanceof NotFoundError) {
 				res.status(404).json({error: err.message});
 			} else {
-				res.status(400).json({error:err});
+				res.status(400).json({error:err.message});
 			}
 		}
 	}
@@ -194,11 +197,11 @@ export default class Server {
 			// console.log(query);
 			let queryResult = await insightFacade.performQuery(query);
 			res.status(200).json({result: queryResult});
-		} catch (err) {
+		} catch (err: any) {
 			if(err instanceof InsightError) {
 				res.status(400).json({error: err.message});
 			} else {
-				res.status(400).json({error:err});
+				res.status(400).json({error:err.message});
 			}
 		}
 	}

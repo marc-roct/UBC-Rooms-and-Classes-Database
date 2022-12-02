@@ -7,28 +7,29 @@
 	</head>
 	<body>
 		<div class="button-container">
-			<label for="file" class="button">Add Dataset</label>
-			<input type="file" name="file" id="file" accept=".zip" checked="checked"/>
+			<label for="file" class="title">Add Dataset</label>
+			<input type="file" name="file" id="file" accept=".zip" required/>
 
 			<div class="userInput-container">
 				<label for="id" class="title">database id</label>
-				<input type="text" name="text" id="id" checked="checked"/>
+				<input type="text" name="text" id="id" placeholder="please_enter_dataset_id" required/>
 			</div>
 
 			<div class="userInput-container">
 				<label for="kind" class="title">kind</label>
 				<select name="kind" id="kind" required>
-					<option value=Null>-- Choose an option --</option>
+					<option value="kind_unspecified">-- Choose an option --</option>
 					<option value="sections">Sections</option>
 					<option value="rooms">Rooms</option>
 				</select>
 			</div>
 
-			<input type="Submit" class="button" id="add-dataset" disabled="disabled">
-			<b id="response" hidden></b>
+			<input type="Submit" class="button" id="add-dataset">
+			<b id="response"></b>
 		</div>
 
 		<div class="button-container">
+			<label for="list-dataset" class="title"> List Dataset</label>
 			<button id="list-dataset" class="button" >List Dataset</button>
 			<table id="dataset-list">
 			</table>
