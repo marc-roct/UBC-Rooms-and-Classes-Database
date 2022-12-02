@@ -94,36 +94,3 @@ function createTable(data) {
 	}
 
 }
-
-document.getElementById("delete-dataset").addEventListener("click", handleDeleteDataset);
-
-function handleDeleteDataset() {
-	const id = document.getElementById('id').value;
-	let url = 'http://localhost:4321/dataset/' + id;
-	let result = "No dataset exits";
-	fetch('http://localhost:4321/datasets', { method: 'DELETE' })
-		.then(function (response) {
-			// console.log("printing response:");
-			// console.log(response);
-			return response.json();
-		}).then(function (data) {
-		result = data.result;
-		// console.log("printing data:");
-		// console.log(result);
-		// console.log(result.length);
-		createTable(result);
-	}).catch(function(err) {
-		console.log(err);
-		result = err.message;
-	})
-
-	const table = document.getElementById("delete-list");
-	let newTable = document.createElement("table");
-	newTable.setAttribute("id", "delete-list");
-	let noDataset = document.createElement("tr");
-	let heading = document.createElement("th");
-	heading.innerText = result;
-	noDataset.appendChild(heading);
-	newTable.appendChild(noDataset);
-	table.parentNode.replaceChild(newTable, table);
-}
