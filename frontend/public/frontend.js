@@ -44,14 +44,14 @@ function handleListDataset() {
 	let result = "data is not fetched";
 	fetch('http://localhost:4321/datasets', { method: 'GET' })
 		.then(function (response) {
-			// console.log("printing response:");
-			// console.log(response);
+			console.log("printing response:");
+			console.log(response);
 			return response.json();
 		}).then(function (data) {
 			result = data.result;
-			// console.log("printing data:");
-			// console.log(result);
-			// console.log(result.length);
+			console.log("printing data:");
+			console.log(result);
+			console.log(result.length);
 			createTable(result);
 	}).catch(function(err) {
 		console.log(err);
