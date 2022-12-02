@@ -23,35 +23,21 @@
 	border-radius: 10px;
 	margin: 100px;
 	padding: 15px 32px;
-
 }
 
-label {
-	background-color: #3f51b5;
+.userInput-container {
+	display: inline-grid;
+	gap: 10px;
+}
+
+.title {
 	border: none;
-	color: white;
-	padding: 10px 4px;
-	text-align: center;
-	text-decoration: none;
+	color: black;
+	text-align: left;
+	text-decoration: black;
 	display: inline-block;
 	font-size: 16px;
 	font-family: sans-serif;
-	border-radius: 0.3rem;
-	cursor: pointer;
-}
-
-.text-label {
-	background-color: #3f51b5;
-	border: none;
-	color: white;
-	padding: 10px 4px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	font-family: sans-serif;
-	border-radius: 0.3rem;
-	cursor: pointer;
 }
 
 table {
