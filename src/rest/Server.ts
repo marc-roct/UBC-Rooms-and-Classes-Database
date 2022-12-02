@@ -86,7 +86,7 @@ export default class Server {
 
 	// Registers middleware to parse request before passing them to request handlers
 	private registerMiddleware() {
-		// JSON parser must be place before raw parser because of wildcard matching done by raw parser below
+		// JSON parser must be placed before raw parser because of wildcard matching done by raw parser below
 		this.express.use(express.json());
 		this.express.use(express.raw({type: "application/*", limit: "10mb"}));
 
@@ -119,8 +119,8 @@ export default class Server {
 			console.log(`Server::echo(..) - params: ${JSON.stringify(req.params)}`);
 			const response = Server.performEcho(req.params.msg);
 			res.status(200).json({result: response});
-		} catch (err) {
-			res.status(400).json({error: err});
+		} catch (err: any) {
+			res.status(400).json({error: err.message});
 		}
 	}
 
@@ -143,11 +143,11 @@ export default class Server {
 			datasetList = await insightFacade.listDatasets();
 			// console.log("in list dataset");
 			res.status(200).json({result: datasetList});
-		} catch (err) {
+		} catch (err: any) {
 			if(err instanceof InsightError) {
 				res.status(400).json({error: err.message});
 			} else {
-				res.status(400).json({error:err});
+				res.status(400).json({error:err.message});
 			}
 		}
 	}
@@ -181,11 +181,11 @@ export default class Server {
 			let insightFacade = req.app.get("insightFacade");
 			let removedID = await insightFacade.removeDataset(id);
 			res.status(200).json({result: removedID});
-		} catch (err) {
+		} catch (err: any) {
 			if(err instanceof NotFoundError) {
 				res.status(404).json({error: err.message});
 			} else {
-				res.status(400).json({error:err});
+				res.status(400).json({error:err.message});
 			}
 		}
 	}
@@ -197,11 +197,11 @@ export default class Server {
 			// console.log(query);
 			let queryResult = await insightFacade.performQuery(query);
 			res.status(200).json({result: queryResult});
-		} catch (err) {
+		} catch (err: any) {
 			if(err instanceof InsightError) {
 				res.status(400).json({error: err.message});
 			} else {
-				res.status(400).json({error:err});
+				res.status(400).json({error:err.message});
 			}
 		}
 	}
